@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="238.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="21.0" layoutY="22.0" text="Nombre:" />
+      <TextField fx:id="txtFNombreCliente" layoutX="21.0" layoutY="48.0" prefHeight="25.0" prefWidth="192.0" />
+      <Label layoutX="21.0" layoutY="83.0" text="Apellidos:" />
+      <TextField fx:id="txtFApellidosCliente" layoutX="21.0" layoutY="108.0" prefHeight="25.0" prefWidth="192.0" />
+      <Label layoutX="21.0" layoutY="144.0" text="Cedula:" />
+      <TextField fx:id="txtFCedulaCliente" layoutX="21.0" layoutY="169.0" prefHeight="25.0" prefWidth="192.0" />
+      <Label layoutX="21.0" layoutY="206.0" text="Email:" />
+      <TextField fx:id="txtFEmailCliente" layoutX="21.0" layoutY="229.0" prefHeight="25.0" prefWidth="192.0" />
+      <Label layoutX="21.0" layoutY="263.0" text="Direccion:" />
+      <TextField fx:id="txtFDireccionCliente" layoutX="21.0" layoutY="286.0" prefHeight="25.0" prefWidth="192.0" />
+      <Button fx:id="btnVerCuenta" layoutX="82.0" layoutY="362.0" mnemonicParsing="false" text="Ver Cuenta" />
+      <Button fx:id="btnAgregarCuenta" layoutX="67.0" layoutY="328.0" mnemonicParsing="false" text="Agregar Cuenta" />
+   </children>
+</Pane>

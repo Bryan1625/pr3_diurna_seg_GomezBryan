@@ -8,10 +8,12 @@ public class Cliente extends Persona{
     private ArrayList<Transaccion> listaTransacciones = new ArrayList<>();
     private Cuenta cuenta;
 
-    public Cliente(String nombre, String apellidos, String cedula, String direccion, String email) {
-        super(nombre, apellidos, cedula, direccion);
+    public Cliente(String nombre, String apellidos, String cedula, String email) {
+        super(nombre, apellidos, cedula);
         this.email = email;
     }
+
+
 
     public Cliente() {
     }

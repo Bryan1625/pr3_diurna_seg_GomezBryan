@@ -13,6 +13,12 @@ public abstract class Persona {
         this.direccion = direccion;
     }
 
+    public Persona(String nombre, String apellidos, String cedula) {
+        this.apellidos = apellidos;
+        this.cedula = cedula;
+        this.nombre= nombre +" "+ apellidos;
+    }
+
     public Persona() {
     }
 

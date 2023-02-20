@@ -9,8 +9,12 @@ public class Empleado extends Persona {
     public Empleado(){
     }
 
+
+
     public Empleado(String nombre, String apellidos, String cedula, String direccion) {
-        super(nombre, apellidos, cedula, direccion);
+        super(nombre, apellidos, cedula);
+        this.setDireccion(direccion);
+        this.setNombre(nombre+apellidos);
     }
 
     public ArrayList<Transaccion> getListaTransacciones() {

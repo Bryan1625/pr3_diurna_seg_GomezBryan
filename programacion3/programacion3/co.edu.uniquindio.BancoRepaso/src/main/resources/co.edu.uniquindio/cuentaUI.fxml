@@ -5,13 +5,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="242.0" prefWidth="279.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.controllers.Main">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="242.0" prefWidth="279.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.controllers.CuentaController">
    <children>
       <Label layoutX="35.0" layoutY="24.0" text="Numero de cuenta:" />
       <Label layoutX="35.0" layoutY="92.0" text="Saldo:" />
       <Button fx:id="btnRealizarTransaccion" layoutX="78.0" layoutY="159.0" mnemonicParsing="false" onAction="#onRealizarTransaccionClick" text="Realizar Transaccion" />
       <TextField fx:id="txtFNumeroCuenta1" layoutX="35.0" layoutY="48.0" prefHeight="25.0" prefWidth="190.0" />
       <TextField fx:id="txtFSaldoCuenta" layoutX="35.0" layoutY="116.0" prefHeight="25.0" prefWidth="190.0" />
-      <Button fx:id="txtFVerDueno" layoutX="100.0" layoutY="195.0" mnemonicParsing="false" onAction="#onVerDuenoClick" text="Ver Dueño" />
+      <Button fx:id="btnVerDueno" layoutX="100.0" layoutY="195.0" mnemonicParsing="false" onAction="#onVerDuenoClick" text="Ver Dueño" />
    </children>
 </Pane>

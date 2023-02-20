@@ -9,6 +9,7 @@ module BancoRepaso {
     exports co.edu.uniquindio.controllers;
     opens co.edu.uniquindio.model to javafx.fxml;
     exports co.edu.uniquindio.model;
+    exports co.edu.uniquindio;
 
 
 }

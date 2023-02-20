@@ -1,6 +1,6 @@
 package co.edu.uniquindio.model;
 
-public class Transaccion {
+public abstract class Transaccion {
 
     private double valor;
     private String hora;

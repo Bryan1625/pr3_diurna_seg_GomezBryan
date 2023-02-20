@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.controllers.Main">
     <children>
         <TableView layoutX="18.0" layoutY="215.0" prefHeight="238.0" prefWidth="354.0">
             <columns>
@@ -16,11 +16,11 @@
             </columns>
         </TableView>
         <Label layoutX="22.0" layoutY="14.0" text="Nombre:" />
-        <TextField fx:id="txtFNombreCliente" layoutX="22.0" layoutY="38.0" prefHeight="25.0" prefWidth="275.0" promptText="Ingrese el nombre completo del cliente" />
+        <TextField fx:id="txtFNombreCliente2" layoutX="22.0" layoutY="38.0" prefHeight="25.0" prefWidth="275.0" promptText="Ingrese el nombre completo del cliente" />
         <Label layoutX="22.0" layoutY="70.0" text="Cedula:" />
-        <TextField fx:id="txtFCedulaCliente" layoutX="22.0" layoutY="93.0" prefHeight="25.0" prefWidth="275.0" promptText="Ingrese el numero de documento del cliente" />
+        <TextField fx:id="txtFCedulaCliente2" layoutX="22.0" layoutY="93.0" prefHeight="25.0" prefWidth="275.0" promptText="Ingrese el numero de documento del cliente" />
       <Label layoutX="22.0" layoutY="128.0" text="Numero de Cuenta:" />
       <TextField fx:id="txtFNumeroCuenta" layoutX="22.0" layoutY="151.0" prefHeight="25.0" prefWidth="275.0" promptText="Ingrese el numero de cuenta" />
-      <Button fx:id="btnBuscarCuenta" layoutX="22.0" layoutY="183.0" mnemonicParsing="false" text="Buscar" />
+      <Button fx:id="btnBuscarCuenta" layoutX="22.0" layoutY="183.0" mnemonicParsing="false" onAction="#onBuscarCuentaClick" text="Buscar" />
     </children>
 </Pane>

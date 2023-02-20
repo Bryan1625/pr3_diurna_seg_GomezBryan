@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.controllers.Main">
    <children>
       <TableView fx:id="tblTablaClientes" layoutX="22.0" layoutY="298.0" prefHeight="238.0" prefWidth="557.0">
         <columns>
@@ -29,10 +29,10 @@
       <TextField fx:id="txtFDireccionCliente" layoutX="22.0" layoutY="261.0" prefHeight="25.0" prefWidth="275.0" promptText="Ingrese la direccion del cliente" />
       <HBox layoutX="325.0" layoutY="261.0" prefHeight="34.0" prefWidth="248.0">
          <children>
-            <Button fx:id="btnBuscarCliente" mnemonicParsing="false" text="Buscar" />
-            <Button fx:id="btnIngresarCliente" mnemonicParsing="false" text="Ingresar" />
-            <Button fx:id="btnEliminarCliente" mnemonicParsing="false" text="Eliminar" />
-            <Button fx:id="btnVerCliente" mnemonicParsing="false" text="Ver Cliente" />
+            <Button fx:id="btnBuscarCliente" mnemonicParsing="false" onAction="#onBuscarClienteClick" text="Buscar" />
+            <Button fx:id="btnIngresarCliente" mnemonicParsing="false" onAction="#onIngresarClienteClick" text="Ingresar" />
+            <Button fx:id="btnEliminarCliente" mnemonicParsing="false" onAction="#onEliminarClienteClick" text="Eliminar" />
+            <Button fx:id="btnVerCliente" mnemonicParsing="false" onAction="#onVerClienteClick" text="Ver Cliente" />
          </children>
       </HBox>
    </children>

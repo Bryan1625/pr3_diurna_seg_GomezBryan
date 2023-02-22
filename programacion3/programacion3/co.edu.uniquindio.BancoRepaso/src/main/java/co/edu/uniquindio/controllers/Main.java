@@ -21,15 +21,6 @@ import java.util.Optional;
 public class Main {
 
 
-    //Cuentas
-    @FXML private TextField txtFNombreCliente2;
-    @FXML private TextField txtFCedulaCliente2;
-    @FXML private TextField txtFNumeroCuenta;
-    @FXML private Button btnBuscarCuenta;
-    @FXML private TableView <Cuenta> tblCuentas;
-    @FXML private TableColumn tblColNumeroCuenta;
-    @FXML private TableColumn tblColSaldo;
-    private Cliente propietario;
 
 
     //Banco
@@ -38,11 +29,6 @@ public class Main {
     @FXML private Button btnVerListaTransacciones;
     @FXML private Button btnVerListaCuentas;
 
-
-    ObservableList<Empleado> empleados;
-    ObservableList<Transaccion> transacciones;
-    ObservableList<Cuenta> cuentas;
-    ObservableList<Cliente> clientes;
 
     private final Banco banco = new Banco();
 
@@ -58,6 +44,7 @@ public class Main {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -81,56 +68,31 @@ public class Main {
     }
 
     public void onVerListaTransaccionesClick(ActionEvent actionEvent) throws IOException {
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/transaccionesUI.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/transaccionesUI.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void onVerListaCuentasClick(ActionEvent actionEvent) throws IOException {
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/cuentasUI.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void onBuscarCuentaClick(ActionEvent actionEvent) {
-        String numeroCuenta = txtFNumeroCuenta.getText();
-        if (numeroCuenta.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Número de cuenta no ingresado");
-            alert.setHeaderText(null);
-            alert.setContentText("Por favor ingrese el número de cuenta que desea buscar.");
-            alert.showAndWait();
-            return;
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/cuentasUI.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        Cuenta cuentaBuscada = buscarCuenta(numeroCuenta);
-        propietario = cuentaBuscada.getPropietario();
-        if (cuentaBuscada == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Cuenta no encontrada");
-            alert.setHeaderText(null);
-            alert.setContentText("La cuenta con el número " + numeroCuenta + " no se encuentra registrada en el sistema.");
-            alert.showAndWait();
-            return;
-        }
-        txtFNombreCliente2.setText(propietario.getNombre());
-        txtFCedulaCliente2.setText(propietario.getCedula());
-    }
-
-    private Cuenta buscarCuenta(String numeroCuenta) {
-        for (Cuenta cuenta : cuentas) {
-            if (cuenta.getNumeroCuenta().equals(numeroCuenta)) {
-                return cuenta;
-            }
-        }
-        return null;
     }
 
 

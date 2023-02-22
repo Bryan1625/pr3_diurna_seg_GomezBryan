@@ -36,6 +36,7 @@ public class ClienteController {
         txtFDireccionCliente1.setText(cliente.getDireccion());
     }
 
+
     public void setCliente(Cliente cliente){
         this.cliente = cliente;
     }
@@ -49,7 +50,7 @@ public class ClienteController {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setTitle("Cuenta del cliente " + cliente.getNombre() + " " + cliente.getApellidos());
+            stage.setTitle("Cuenta del cliente " + cliente.getNombre());
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
         } catch (IOException e) {

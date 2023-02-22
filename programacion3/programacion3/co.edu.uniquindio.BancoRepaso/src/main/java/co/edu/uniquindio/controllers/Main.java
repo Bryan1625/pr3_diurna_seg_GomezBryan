@@ -32,9 +32,18 @@ public class Main {
 
     private final Banco banco = new Banco();
 
+    ObservableList<Empleado> empleados;
+    ObservableList<Cliente> clientes;
+    ObservableList<Cuenta> cuentas;
+    ObservableList<Transaccion> transacciones;
+
+
     @FXML
     public void initialize() {
-
+        empleados = FXCollections.observableArrayList();
+        clientes = FXCollections.observableArrayList();
+        cuentas = FXCollections.observableArrayList();
+        transacciones = FXCollections.observableArrayList();
     }
 
     public void onVerListaEmpleadosClick(ActionEvent actionEvent) throws IOException {
@@ -56,6 +65,8 @@ public class Main {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/clientesUI.fxml"));
             Parent root = loader.load();
+            ClientesController controlador = loader.getController();
+            controlador.initAtributos(clientes);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);

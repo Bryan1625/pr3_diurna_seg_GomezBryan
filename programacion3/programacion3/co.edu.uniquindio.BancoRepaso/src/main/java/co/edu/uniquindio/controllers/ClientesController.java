@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class ClientesController {
-    //Clase clientes
+
     @FXML
     private Button btnEliminarCliente;
     @FXML private Button btnVerCliente;
@@ -40,13 +41,15 @@ public class ClientesController {
 
     @FXML
     public void initialize() {
-        clientes = FXCollections.observableArrayList();
+        this.clientes = FXCollections.observableArrayList();
         this.tblColCedulaCliente.setCellValueFactory(new PropertyValueFactory<>("cedula"));
         this.tblColNombreCliente.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         this.tblColEmailCliente.setCellValueFactory(new PropertyValueFactory<>("email"));
-
     }
 
+    public void initAtributos(ObservableList<Cliente> clientes) {
+        this.clientes = clientes;
+    }
 
     public void setClienteArrayList(ArrayList<Cliente> clientes){
         this.clienteArrayList = clientes;
@@ -96,7 +99,19 @@ public class ClientesController {
             return;
         }
         Cliente nuevoCliente = new Cliente(nombre, apellidos, cedula, email);
-        if (!this.clientes.contains(nuevoCliente)){
+        boolean clienteExistente = false;
+        for (Cliente cliente : clientes) {
+            if (cliente.getCedula().equals(cedula)) {
+                clienteExistente = true;
+            }
+        }
+        if (clienteExistente) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("El cliente ya existe");
+            alert.showAndWait();
+        } else {
             clientes.add(nuevoCliente);
             tblTablaClientes.setItems(clientes);
 
@@ -105,17 +120,10 @@ public class ClientesController {
             txtFCedulaCliente.clear();
             txtFEmailCliente.clear();
 
-
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "El cliente ha sido agregado correctamente", ButtonType.OK);
             alert.showAndWait();
         }
-        else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("Error");
-            alert.setContentText("El cliente ya existe");
-            alert.showAndWait();
-        }
+
     }
 
     @FXML
@@ -152,6 +160,7 @@ public class ClientesController {
                 Scene scene = new Scene(parent);
                 Stage stage = new Stage();
                 stage.setScene(scene);
+                stage.initModality(Modality.APPLICATION_MODAL);
                 stage.setTitle("Información del cliente");
                 stage.show();
             }catch (IOException e) {
@@ -181,6 +190,7 @@ public class ClientesController {
     public void setClientes(ObservableList<Cliente> clientes) {
         this.clientes = clientes;
     }
+
 
 
 }

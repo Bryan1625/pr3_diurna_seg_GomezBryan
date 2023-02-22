@@ -29,18 +29,7 @@ public class Main {
     @FXML private TableColumn tblColSaldo;
     private Cliente propietario;
 
-    //Empleados
-    @FXML private TableView <Empleado> tblEmpleados;
-    @FXML private TableColumn tblColCedulaEmpleado;
-    @FXML private TableColumn tblColNombreEmpleado;
-    @FXML private TextField txtFNombreEmpleado;
-    @FXML private TextField txtFCedulaEmpleado;
-    @FXML private TextField txtFApellidosEmpleado;
-    @FXML private TextField txtFDireccionEmpleado;
-    @FXML private Button btnIngresarEmpleado;
-    @FXML private Button btnBuscarEmpleado;
-    @FXML private Button btnEliminarEmpleado;
-    @FXML private Button btnVerEmpleado;
+
 
     //Transacciones
     @FXML private TableView <Transaccion> tblTransacciones;
@@ -68,12 +57,10 @@ public class Main {
     ObservableList<Transaccion> transacciones;
     ObservableList<Cuenta> cuentas;
 
-    private Banco banco = new Banco();
+    private final Banco banco = new Banco();
 
     @FXML
     public void initialize() {
-
-
 
     }
 
@@ -157,31 +144,6 @@ public class Main {
             }
         }
         return null;
-    }
-
-
-    public void onIngresarEmpleadoClick(ActionEvent actionEvent) {
-        String nombre = txtFNombreEmpleado.getText();
-        String cedula = txtFCedulaEmpleado.getText();
-        String apellidos = txtFApellidosEmpleado.getText();
-        String direccion = txtFDireccionEmpleado.getText();
-
-        Empleado empleado = new Empleado(nombre, apellidos, cedula, direccion);
-
-        empleados.add(empleado);
-
-        txtFNombreEmpleado.clear();
-        txtFApellidosEmpleado.clear();
-        txtFCedulaEmpleado.clear();
-    }
-
-    public void onBuscarEmpleadoClick(ActionEvent actionEvent) {
-    }
-
-    public void onEliminarEmpleadoClick(ActionEvent actionEvent) {
-    }
-
-    public void onVerEmpleadoClick(ActionEvent actionEvent) {
     }
 
     public void onBuscarTransaccion(ActionEvent actionEvent) {

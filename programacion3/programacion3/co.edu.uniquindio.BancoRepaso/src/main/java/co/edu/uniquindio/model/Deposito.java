@@ -2,6 +2,9 @@ package co.edu.uniquindio.model;
 
 public class Deposito extends Transaccion {
 
+
+
+    private final String tipo = "Deposito";
     public Deposito() {
     }
 
@@ -11,5 +14,9 @@ public class Deposito extends Transaccion {
 
     public void depositar(){
 
+    }
+    @Override
+    public String getTipo() {
+        return tipo;
     }
 }

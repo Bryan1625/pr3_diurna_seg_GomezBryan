@@ -2,6 +2,7 @@ package co.edu.uniquindio.model;
 
 public class Solicitud extends Transaccion{
 
+    private final String tipo = "Solicitud";
     public Solicitud() {
     }
 
@@ -11,5 +12,10 @@ public class Solicitud extends Transaccion{
 
     public void solicitar(){
 
+    }
+
+    @Override
+    public String getTipo() {
+        return tipo;
     }
 }

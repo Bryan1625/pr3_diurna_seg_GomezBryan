@@ -6,6 +6,9 @@ public abstract class Transaccion {
     private String hora;
     private String fecha;
     private Estado estado;
+    private Cliente dueno;
+    private Empleado empleado;
+    private Cuenta cuenta;
 
     public Transaccion() {
     }
@@ -47,5 +50,33 @@ public abstract class Transaccion {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    public String getTipo(){
+        return null;
+    }
+
+    public Cliente getDueno() {
+        return dueno;
+    }
+
+    public void setDueno(Cliente dueno) {
+        this.dueno = dueno;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public Cuenta getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(Cuenta cuenta) {
+        this.cuenta = cuenta;
     }
 }

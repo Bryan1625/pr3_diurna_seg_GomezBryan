@@ -2,6 +2,9 @@ package co.edu.uniquindio.model;
 
 public class Retiro extends Transaccion{
 
+
+
+    private final String tipo= "Retiro";
     public Retiro() {
     }
 
@@ -10,5 +13,10 @@ public class Retiro extends Transaccion{
     }
 
     public void retirar(){
+    }
+
+    @Override
+    public String getTipo() {
+        return tipo;
     }
 }

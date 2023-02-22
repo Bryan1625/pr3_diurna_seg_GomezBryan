@@ -1,6 +1,7 @@
 package co.edu.uniquindio.controllers;
 
 import co.edu.uniquindio.model.*;
+import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,13 +11,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class Main {
-
 
 
     //Cuentas
@@ -30,22 +32,6 @@ public class Main {
     private Cliente propietario;
 
 
-
-    //Transacciones
-    @FXML private TableView <Transaccion> tblTransacciones;
-    @FXML private TableColumn<String,String> tblColTipoTransaccion;
-    @FXML private TableColumn tblColFechaTransaccion;
-    @FXML private TableColumn tblColHoraTransaccion;
-    @FXML private TableColumn tblColValorTransaccion;
-    @FXML private TableColumn tblColEstadoTransaccion;
-    @FXML private TextField txtFTipoTransaccion;
-    @FXML private TextField txtFFechaTransaccion;
-    @FXML private TextField txtFValorTransaccion;
-    @FXML private TextField txtFEstadoTransaccion;
-    @FXML private Button btnBuscarTransaccion;
-    @FXML private Button btnVerTransaccion;
-
-
     //Banco
     @FXML private Button btnVerListaEmpleados;
     @FXML private Button btnVerListaClientes;
@@ -56,6 +42,7 @@ public class Main {
     ObservableList<Empleado> empleados;
     ObservableList<Transaccion> transacciones;
     ObservableList<Cuenta> cuentas;
+    ObservableList<Cliente> clientes;
 
     private final Banco banco = new Banco();
 
@@ -82,10 +69,10 @@ public class Main {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/clientesUI.fxml"));
             Parent root = loader.load();
-            ClientesController controlador = loader.getController();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
 
         }catch(IOException e){
@@ -146,11 +133,6 @@ public class Main {
         return null;
     }
 
-    public void onBuscarTransaccion(ActionEvent actionEvent) {
-    }
-
-    public void onVerTransaccion(ActionEvent actionEvent) {
-    }
 
 
 }

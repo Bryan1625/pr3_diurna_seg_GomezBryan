@@ -18,30 +18,6 @@ public class Banco {
     public Banco() {
     }
 
-    public ArrayList<Empleado> getListaEmpleados() {
-        return listaEmpleados;
-    }
-
-    public void setListaEmpleados(ArrayList<Empleado> listaEmpleados) {
-        this.listaEmpleados = listaEmpleados;
-    }
-
-    public ArrayList<Cliente> getListaClientes() {
-        return listaClientes;
-    }
-
-    public void setListaClientes(ArrayList<Cliente> listaClientes) {
-        this.listaClientes = listaClientes;
-    }
-
-    public ArrayList<Cuenta> getListaCuentas() {
-        return listaCuentas;
-    }
-
-    public void setListaCuentas(ArrayList<Cuenta> listaCuentas) {
-        this.listaCuentas = listaCuentas;
-    }
-
     public ArrayList<Empleado> getEmpleados() {
         return listaEmpleados;
     }

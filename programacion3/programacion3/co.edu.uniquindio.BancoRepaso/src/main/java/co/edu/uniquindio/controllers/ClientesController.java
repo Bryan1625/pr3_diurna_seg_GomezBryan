@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Optional;
+import org.apache.commons.lang3.StringUtils;
 
 public class ClientesController {
 
@@ -65,7 +66,7 @@ public class ClientesController {
 
         if (!cedula.isEmpty()) {
             for (Cliente cliente : clientes) {
-                if (cliente.getCedula().equals(cedula)) {
+                if (cliente.getCedula() == Integer.parseInt(cedula)) {
                     txtFNombreCliente.setText(cliente.getNombre());
                     txtFApellidosCliente.setText(cliente.getApellidos());
                     txtFEmailCliente.setText(cliente.getEmail());
@@ -90,18 +91,24 @@ public class ClientesController {
     public void onIngresarClienteClick(ActionEvent actionEvent) {
         String nombre = txtFNombreCliente.getText();
         String apellidos = txtFApellidosCliente.getText();
-        String cedula = txtFCedulaCliente.getText();
+        String cedulaString = txtFCedulaCliente.getText();
         String email = txtFEmailCliente.getText();
 
-        if (nombre.isEmpty() || apellidos.isEmpty() || cedula.isEmpty() || email.isEmpty()) {
+        if (nombre.isEmpty() || apellidos.isEmpty() || cedulaString.isEmpty() || email.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Todos los campos son obligatorios", ButtonType.OK);
             alert.showAndWait();
             return;
         }
+        if (!StringUtils.isNumeric(cedulaString)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "La cédula debe ser un número", ButtonType.OK);
+            alert.showAndWait();
+            return;
+        }
+        int cedula = Integer.parseInt(cedulaString);
         Cliente nuevoCliente = new Cliente(nombre, apellidos, cedula, email);
         boolean clienteExistente = false;
         for (Cliente cliente : clientes) {
-            if (cliente.getCedula().equals(cedula)) {
+            if (cliente.getCedula() == cedula) {
                 clienteExistente = true;
             }
         }
@@ -125,6 +132,7 @@ public class ClientesController {
         }
 
     }
+
 
     @FXML
     public void onEliminarClienteClick(ActionEvent actionEvent) {
@@ -154,10 +162,10 @@ public class ClientesController {
         if (cliente != null) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/clienteUI.fxml"));
-                Parent parent = loader.load();
+                Parent root = loader.load();
                 ClienteController clienteController = loader.getController();
                 clienteController.setCliente(cliente);
-                Scene scene = new Scene(parent);
+                Scene scene = new Scene(root);
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.initModality(Modality.APPLICATION_MODAL);
@@ -176,7 +184,7 @@ public class ClientesController {
     }
 
     public void setClienteSeleccionado(Cliente clienteSeleccionado) {
-        txtFCedulaCliente.setText(clienteSeleccionado.getCedula());
+        txtFCedulaCliente.setText(""+clienteSeleccionado.getCedula());
         txtFNombreCliente.setText(clienteSeleccionado.getNombre());
         txtFApellidosCliente.setText(clienteSeleccionado.getApellidos());
         txtFEmailCliente.setText(clienteSeleccionado.getEmail());

@@ -50,6 +50,8 @@ public class Main {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/empleadosUI.fxml"));
             Parent root = loader.load();
+            EmpleadosController controlador = loader.getController();
+            controlador.initAtributos(empleados);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);

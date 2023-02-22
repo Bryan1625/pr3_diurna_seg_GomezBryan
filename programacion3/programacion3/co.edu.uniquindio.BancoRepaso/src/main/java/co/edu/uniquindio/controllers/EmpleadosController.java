@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -36,9 +37,13 @@ public class EmpleadosController {
 
     @FXML
     public void initialize(){
-        empleados = FXCollections.observableArrayList();
+        this.empleados = FXCollections.observableArrayList();
         this.tblColCedulaEmpleado.setCellValueFactory(new PropertyValueFactory<>("cedula"));
         this.tblColNombreEmpleado.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+    }
+
+    public void initAtributos(ObservableList<Empleado> empleados){
+        this.empleados = empleados;
     }
 
     public void onBuscarEmpleadoClick(ActionEvent actionEvent) {
@@ -46,7 +51,7 @@ public class EmpleadosController {
 
         if (!cedula.isEmpty()) {
             for (Empleado empleado : empleados) {
-                if (empleado.getCedula().equals(cedula)) {
+                if (empleado.getCedula() == Integer.parseInt(cedula)) {
                     txtFNombreEmpleado.setText(empleado.getNombre());
                     txtFApellidosEmpleado.setText(empleado.getApellidos());
                     return;
@@ -114,11 +119,17 @@ public class EmpleadosController {
     }
     public void onIngresarEmpleadoClick(ActionEvent actionEvent) {
         String nombre = txtFNombreEmpleado.getText();
-        String cedula = txtFCedulaEmpleado.getText();
+        int cedula = Integer.parseInt(txtFCedulaEmpleado.getText());
         String apellidos = txtFApellidosEmpleado.getText();
         String direccion = txtFDireccionEmpleado.getText();
+        String cedulaString = "" +cedula;
 
         Empleado empleado = new Empleado(nombre, apellidos, cedula, direccion);
+        if (!StringUtils.isNumeric(cedulaString)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "La cédula debe ser un número", ButtonType.OK);
+            alert.showAndWait();
+            return;
+        }
 
         if (!empleados.contains(empleado)){
             empleados.add(empleado);

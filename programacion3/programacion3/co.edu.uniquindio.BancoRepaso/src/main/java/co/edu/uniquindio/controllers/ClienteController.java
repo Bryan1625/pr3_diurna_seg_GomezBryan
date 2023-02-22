@@ -29,16 +29,17 @@ public class ClienteController {
 
     @FXML
     public void initialize(){
-        txtFNombreCliente1.setText(cliente.getNombre());
-        txtFApellidosCliente1.setText(cliente.getApellidos());
-        txtFCedulaCliente1.setText(cliente.getCedula());
-        txtFEmailCliente1.setText(cliente.getEmail());
-        txtFDireccionCliente1.setText(cliente.getDireccion());
+
     }
 
 
     public void setCliente(Cliente cliente){
         this.cliente = cliente;
+        txtFNombreCliente1.setText(cliente.getNombre());
+        txtFApellidosCliente1.setText(cliente.getApellidos());
+        txtFCedulaCliente1.setText(""+cliente.getCedula());
+        txtFEmailCliente1.setText(cliente.getEmail());
+        txtFDireccionCliente1.setText(cliente.getDireccion());
     }
 
     public void onVerCuentaClick(ActionEvent actionEvent) {

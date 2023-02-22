@@ -41,7 +41,7 @@ public class CuentasController {
             return;
         }
         txtFNombreCliente2.setText(propietario.getNombre());
-        txtFCedulaCliente2.setText(propietario.getCedula());
+        txtFCedulaCliente2.setText(""+propietario.getCedula());
     }
 
     private Cuenta buscarCuenta(String numeroCuenta) {

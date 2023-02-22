@@ -3,20 +3,20 @@ package co.edu.uniquindio.model;
 public abstract class Persona {
     private String nombre;
     private String apellidos;
-    private String cedula;
+    private int cedula;
     private String direccion;
 
-    public Persona(String nombre, String apellidos, String cedula, String direccion) {
+    public Persona(String nombre, String apellidos, int cedula, String direccion) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.cedula = cedula;
         this.direccion = direccion;
     }
 
-    public Persona(String nombre, String apellidos, String cedula) {
+    public Persona(String nombre, String apellidos, int cedula) {
         this.apellidos = apellidos;
         this.cedula = cedula;
-        this.nombre= nombre +" "+ apellidos;
+        this.nombre= nombre;
     }
 
     public Persona() {
@@ -38,11 +38,11 @@ public abstract class Persona {
         this.apellidos = apellidos;
     }
 
-    public String getCedula() {
+    public int getCedula() {
         return cedula;
     }
 
-    public void setCedula(String cedula) {
+    public void setCedula(int cedula) {
         this.cedula = cedula;
     }
 

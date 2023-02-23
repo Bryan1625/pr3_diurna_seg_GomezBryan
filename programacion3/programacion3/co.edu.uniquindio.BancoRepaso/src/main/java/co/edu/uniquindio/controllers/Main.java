@@ -21,9 +21,6 @@ import java.util.Optional;
 public class Main {
 
 
-
-
-    //Banco
     @FXML private Button btnVerListaEmpleados;
     @FXML private Button btnVerListaClientes;
     @FXML private Button btnVerListaTransacciones;

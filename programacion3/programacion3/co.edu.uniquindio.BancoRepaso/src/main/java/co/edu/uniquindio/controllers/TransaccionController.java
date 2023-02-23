@@ -60,7 +60,7 @@ public class TransaccionController {
             transaccion = new Deposito(Double.parseDouble(txtValorTransaccion.getText()), LocalDate.now().toString(), LocalTime.now().toString(), Exitosa);
             cuenta.setSaldo(cuenta.getSaldo() + transaccion.getValor());
         }else if (cbTipoTransaccion.getValue().equals("Retiro")) {
-            if (cuenta.getSaldo()>= transaccion.getValor()) {
+            if (cuenta.getSaldo()>= Double.parseDouble(txtValorTransaccion.getText())) {
                 transaccion = new Retiro(Double.parseDouble(txtValorTransaccion.getText()), LocalDate.now().toString(), LocalTime.now().toString(), Exitosa);
                 cuenta.setSaldo(cuenta.getSaldo()-transaccion.getValor());
             }else{

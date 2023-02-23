@@ -97,14 +97,14 @@ public class EmpleadosController {
         Empleado empleado = tblEmpleados.getSelectionModel().getSelectedItem();
         if (empleado != null) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/clienteUI.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/empleadoUI.fxml"));
                 Parent parent = loader.load();
                 EmpleadoController empleadoController = loader.getController();
                 empleadoController.setEmpleado(empleado);
                 Scene scene = new Scene(parent);
                 Stage stage = new Stage();
                 stage.setScene(scene);
-                stage.setTitle("Información del cliente");
+                stage.setTitle("Información del empleado");
                 stage.show();
             }catch (IOException e) {
                 e.printStackTrace();
@@ -113,7 +113,7 @@ public class EmpleadosController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
-            alert.setContentText("Por favor, seleccione un cliente primero.");
+            alert.setContentText("Por favor, seleccione un empleado primero.");
             alert.showAndWait();
         }
     }

@@ -38,7 +38,6 @@ public class ClientesController {
 
     ObservableList<Cliente> clientes;
 
-    private ArrayList<Cliente> clienteArrayList;
 
     @FXML
     public void initialize() {
@@ -52,13 +51,6 @@ public class ClientesController {
         this.clientes = clientes;
     }
 
-    public void setClienteArrayList(ArrayList<Cliente> clientes){
-        this.clienteArrayList = clientes;
-    }
-
-    public ArrayList<Cliente> getClienteArrayList() {
-        return clienteArrayList;
-    }
 
     @FXML
     public void onBuscarClienteClick(ActionEvent actionEvent) {

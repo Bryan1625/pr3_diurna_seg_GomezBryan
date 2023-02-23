@@ -19,14 +19,15 @@ public class EmpleadoController {
 
     @FXML
     public void initialize(){
-        txtFNombreEmpleado1.setText(empleado.getNombre());
-        txtFApellidosEmpleado1.setText(empleado.getNombre());
-        txtFCedulaEmpleado1.setText(empleado.getNombre());
-        txtFDireccionEmpleado1.setText(empleado.getNombre());
+
     }
 
     public void setEmpleado(Empleado empleado){
         this.empleado = empleado;
+        txtFNombreEmpleado1.setText(empleado.getNombre());
+        txtFApellidosEmpleado1.setText(empleado.getNombre());
+        txtFCedulaEmpleado1.setText(empleado.getNombre());
+        txtFDireccionEmpleado1.setText(empleado.getNombre());
     }
 
 }

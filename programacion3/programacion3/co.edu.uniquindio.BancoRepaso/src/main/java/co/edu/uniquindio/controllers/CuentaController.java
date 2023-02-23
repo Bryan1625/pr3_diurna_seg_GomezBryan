@@ -27,6 +27,11 @@ public class CuentaController {
 
     private Cliente cliente;
 
+    @FXML
+    public void initialize(){
+
+    }
+
     public void onRealizarTransaccionClick(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/transaccionUI.fxml"));

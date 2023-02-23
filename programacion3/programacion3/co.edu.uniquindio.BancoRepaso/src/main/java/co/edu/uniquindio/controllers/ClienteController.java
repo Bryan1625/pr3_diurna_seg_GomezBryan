@@ -1,6 +1,7 @@
 package co.edu.uniquindio.controllers;
 
 import co.edu.uniquindio.model.Cliente;
+import co.edu.uniquindio.model.Cuenta;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,7 @@ public class ClienteController {
     @FXML private Button btnAgregarCuenta;
 
     private Cliente cliente;
+    private Cuenta cuenta;
 
     @FXML
     public void initialize(){
@@ -40,6 +42,7 @@ public class ClienteController {
         txtFCedulaCliente1.setText(""+cliente.getCedula());
         txtFEmailCliente1.setText(cliente.getEmail());
         txtFDireccionCliente1.setText(cliente.getDireccion());
+
     }
 
     public void onVerCuentaClick(ActionEvent actionEvent) {
@@ -48,6 +51,7 @@ public class ClienteController {
             Parent root = loader.load();
             CuentaController cuentaController = loader.getController();
             cuentaController.setCliente(cliente);
+            cuentaController.setCuenta(cliente.getCuenta());
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);

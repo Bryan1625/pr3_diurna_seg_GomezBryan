@@ -20,6 +20,10 @@ public class CuentasController {
     private Cliente propietario;
     ObservableList<Cuenta> cuentas;
 
+    public void initAtributos(ObservableList<Cuenta> cuentas){
+        this.cuentas = cuentas;
+        tblCuentas.refresh();
+    }
     public void onBuscarCuentaClick(ActionEvent actionEvent) {
         String numeroCuenta = txtFNumeroCuenta.getText();
         if (numeroCuenta.isEmpty()) {

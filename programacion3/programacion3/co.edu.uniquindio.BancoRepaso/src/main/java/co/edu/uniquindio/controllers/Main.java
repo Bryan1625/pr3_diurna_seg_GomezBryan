@@ -68,7 +68,7 @@ public class Main {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/clientesUI.fxml"));
             Parent root = loader.load();
             ClientesController controlador = loader.getController();
-            controlador.initAtributos(clientes);
+            controlador.initAtributos(clientes,cuentas);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -98,6 +98,8 @@ public class Main {
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/cuentasUI.fxml"));
             Parent root = loader.load();
+            CuentasController controller = loader.getController();
+            controller.initAtributos(cuentas);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);

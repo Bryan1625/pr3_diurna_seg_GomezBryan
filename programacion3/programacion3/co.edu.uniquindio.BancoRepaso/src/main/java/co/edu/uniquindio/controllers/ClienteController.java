@@ -2,6 +2,8 @@ package co.edu.uniquindio.controllers;
 
 import co.edu.uniquindio.model.Cliente;
 import co.edu.uniquindio.model.Cuenta;
+import javafx.beans.Observable;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +30,7 @@ public class ClienteController {
 
     private Cliente cliente;
     private Cuenta cuenta;
+    ObservableList<Cuenta> cuentas;
 
     @FXML
     public void initialize(){
@@ -35,8 +38,9 @@ public class ClienteController {
     }
 
 
-    public void setCliente(Cliente cliente){
+    public void setCliente(Cliente cliente, ObservableList<Cuenta> cuentas){
         this.cliente = cliente;
+        this.cuentas = cuentas;
         txtFNombreCliente1.setText(cliente.getNombre());
         txtFApellidosCliente1.setText(cliente.getApellidos());
         txtFCedulaCliente1.setText(""+cliente.getCedula());
@@ -51,11 +55,10 @@ public class ClienteController {
             Parent root = loader.load();
             CuentaController cuentaController = loader.getController();
             cuentaController.setCliente(cliente);
-            cuentaController.setCuenta(cliente.getCuenta());
+            cuentaController.setCuenta(cliente.getCuenta(), cuentas);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setTitle("Cuenta del cliente " + cliente.getNombre());
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
         } catch (IOException e) {
@@ -67,8 +70,9 @@ public class ClienteController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/agregarCuentaUI.fxml"));
             Parent root = loader.load();
-            ClientesController clientesController = loader.getController();
-            clientesController.setClienteSeleccionado(cliente);
+            CuentaController cuentaController = loader.getController();
+            cuentaController.setCliente2(cliente);
+            cuentaController.setCuenta2(new Cuenta(), cuentas);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);

@@ -1,6 +1,7 @@
 package co.edu.uniquindio.controllers;
 
 import co.edu.uniquindio.model.Cliente;
+import co.edu.uniquindio.model.Cuenta;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -37,6 +38,7 @@ public class ClientesController {
     @FXML private Button btnIngresarCliente;
 
     ObservableList<Cliente> clientes;
+    ObservableList<Cuenta> cuentas;
 
 
     @FXML
@@ -47,8 +49,9 @@ public class ClientesController {
         this.tblColEmailCliente.setCellValueFactory(new PropertyValueFactory<>("email"));
     }
 
-    public void initAtributos(ObservableList<Cliente> clientes) {
+    public void initAtributos(ObservableList<Cliente> clientes, ObservableList<Cuenta> cuentas) {
         this.clientes = clientes;
+        this.cuentas = cuentas;
     }
 
 
@@ -156,7 +159,7 @@ public class ClientesController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/clienteUI.fxml"));
                 Parent root = loader.load();
                 ClienteController clienteController = loader.getController();
-                clienteController.setCliente(cliente);
+                clienteController.setCliente(cliente, cuentas);
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
                 stage.setScene(scene);

@@ -43,9 +43,12 @@ public class TransaccionController {
         tipos.add("Deposito");
         tipos.add("Retiro");
         cbTipoTransaccion.setItems(tipos);
-        cliente = transaccion.getDueno();
-        empleado = transaccion.getEmpleado();
-        cuenta = transaccion.getCuenta();
+
+    }
+
+    public void initAtributos(Cliente cliente, Cuenta cuenta){
+        this.cliente = cliente;
+        this.cuenta = cuenta;
     }
 
     public void onRealizarTransaccion1Click(ActionEvent actionEvent) {
@@ -71,7 +74,4 @@ public class TransaccionController {
         }
     }
 
-    public void setCuenta(Cuenta cuenta) {
-        this.cuenta = cuenta;
-    }
 }

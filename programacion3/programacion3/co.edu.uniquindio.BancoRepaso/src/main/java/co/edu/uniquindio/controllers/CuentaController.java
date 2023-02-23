@@ -2,6 +2,7 @@ package co.edu.uniquindio.controllers;
 
 import co.edu.uniquindio.model.Cliente;
 import co.edu.uniquindio.model.Cuenta;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -16,7 +18,11 @@ import java.io.IOException;
 
 public class CuentaController {
 
-    //Cuenta
+    public TextField txtFNumeroCuenta3;
+    public TextField txtFNombrePropietario;
+    public TextField txtFSaldo;
+    public Button btnCrearCuenta;
+
     @FXML
     private Button btnRealizarTransaccion;
     @FXML private TextField txtFNumeroCuenta1;
@@ -26,6 +32,8 @@ public class CuentaController {
     private Cuenta cuenta;
 
     private Cliente cliente;
+
+    ObservableList<Cuenta> cuentas;
 
     @FXML
     public void initialize(){
@@ -38,7 +46,7 @@ public class CuentaController {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             TransaccionController controller = loader.getController();
-            controller.setCuenta(this.cuenta);
+            controller.initAtributos(cliente,cuenta);
             Stage stage = (Stage) btnRealizarTransaccion.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
@@ -54,7 +62,7 @@ public class CuentaController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/co.edu.uniquindio/clienteUI.fxml"));
                 Parent root = loader.load();
                 ClienteController clienteController = loader.getController();
-                clienteController.setCliente(cliente);
+                clienteController.setCliente(cliente, cuentas);
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
                 stage.setTitle("Información del cliente");
@@ -75,11 +83,52 @@ public class CuentaController {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
-    public void setCuenta(Cuenta cuenta) {
-        this.cuenta = cuenta;
-        txtFNumeroCuenta1.setText(cuenta.getNumeroCuenta());
-        txtFSaldoCuenta.setText(String.valueOf(cuenta.getSaldo()));
+    public void setCliente2(Cliente cliente) {
+        this.cliente = cliente;
+        txtFNombrePropietario.setText(cliente.getNombre());
+        txtFSaldo.setText("0");
     }
+
+    public void setCuenta(Cuenta cuenta, ObservableList<Cuenta> cuentas) {
+        this.cuenta = cuenta;
+        txtFNumeroCuenta1.setText(this.cuenta.getNumeroCuenta());
+        txtFSaldoCuenta.setText(String.valueOf(this.cuenta.getSaldo()));
+        this.cuentas = cuentas;
+    }
+
+    public void setCuenta2(Cuenta cuenta, ObservableList<Cuenta> cuentas) {
+        this.cuenta = cuenta;
+        this.cuentas = cuentas;
+    }
+
+    public void onCrearCuentaClick(ActionEvent actionEvent) {
+        if(cliente.getCuenta() != null){
+            Alert alert = new Alert(Alert.AlertType.ERROR, "El cliente ya tiene una cuenta", ButtonType.OK);
+            alert.showAndWait();
+            return;
+        }
+        String numeroCuenta = txtFNumeroCuenta3.getText();
+
+        for (Cuenta cuentaExistente : cuentas) {
+            if (cuentaExistente.getNumeroCuenta().equals(numeroCuenta)) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "El número de cuenta ya existe", ButtonType.OK);
+                alert.showAndWait();
+                return;
+            }
+        }
+
+        this.cuenta.setNumeroCuenta(numeroCuenta);
+        this.cuenta.setSaldo(0);
+
+        this.cliente.setCuenta(cuenta);
+
+        this.cuentas.add(cuenta);
+
+        txtFNumeroCuenta3.clear();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "La cuenta ha sido creada correctamente", ButtonType.OK);
+        alert.showAndWait();
+    }
+
 }
 

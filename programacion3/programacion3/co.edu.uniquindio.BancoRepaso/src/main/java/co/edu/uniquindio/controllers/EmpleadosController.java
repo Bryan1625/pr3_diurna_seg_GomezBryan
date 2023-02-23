@@ -122,29 +122,39 @@ public class EmpleadosController {
         int cedula = Integer.parseInt(txtFCedulaEmpleado.getText());
         String apellidos = txtFApellidosEmpleado.getText();
         String direccion = txtFDireccionEmpleado.getText();
-        String cedulaString = "" +cedula;
+        String cedulaString = "" + cedula;
 
-        Empleado empleado = new Empleado(nombre, apellidos, cedula, direccion);
         if (!StringUtils.isNumeric(cedulaString)) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "La cédula debe ser un número", ButtonType.OK);
             alert.showAndWait();
             return;
         }
-
-        if (!empleados.contains(empleado)){
-            empleados.add(empleado);
-            tblEmpleados.setItems(empleados);
-            txtFNombreEmpleado.clear();
-            txtFApellidosEmpleado.clear();
-            txtFCedulaEmpleado.clear();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "El empleado ha sido agregado correctamente", ButtonType.OK);
+        if (nombre.isEmpty() || apellidos.isEmpty() || cedulaString.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Todos los campos son obligatorios", ButtonType.OK);
             alert.showAndWait();
-        }else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setTitle("Error");
-            alert.setContentText("El empleado ya existe");
-            alert.showAndWait();
+            return;
         }
+        for (Empleado emp : empleados) {
+            if (emp.getCedula() == cedula) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "El empleado ya existe", ButtonType.OK);
+                alert.showAndWait();
+                return;
+            }
+        }
+        Empleado empleado = new Empleado(nombre, apellidos, cedula, direccion);
+
+        empleados.add(empleado);
+        tblEmpleados.setItems(empleados);
+        txtFNombreEmpleado.clear();
+        txtFApellidosEmpleado.clear();
+        txtFCedulaEmpleado.clear();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "El empleado ha sido agregado correctamente", ButtonType.OK);
+        alert.showAndWait();
+
+
+
+
+
     }
+
 }

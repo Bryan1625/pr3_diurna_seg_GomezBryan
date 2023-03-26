@@ -4,71 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23f8ce25-dc40-4ec5-ab0e-f008e3e2779a" name="Changes" comment="arreglo retiro">
-      <change afterPath="$PROJECT_DIR$/../co.edu.uniquindio.banco/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../co.edu.uniquindio.banco/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../co.edu.uniquindio.banco/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../co.edu.uniquindio.banco/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../co.edu.uniquindio.banco/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/MainApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/ClienteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/ClientesController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/CuentaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/CuentasController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/EmpleadoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/EmpleadosController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/TransaccionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/TransaccionesController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Banco.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Cliente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Cuenta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/CuentaAhorro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/CuentaCorriente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Deposito.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Empleado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Estado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Persona.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Retiro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Solicitud.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Transaccion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/agregarCuentaUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/bancoUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/clienteUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/clientesUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/cuentaUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/cuentasUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/empleadoUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/empleadosUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/transaccionUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/transaccionesUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/verTransaccionUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/agregarCuentaUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/bancoUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/clienteUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/clientesUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/cuentaUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/cuentasUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/empleadoUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/empleadosUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/transaccionUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/transaccionesUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/verTransaccionUI.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.programacion3.diurna/src/repaso/conceptos/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.programacion3.diurna/src/repaso/conceptos/interfaces/IVehiculoElectrico.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.programacion3.diurna/src/repaso/conceptos/model/Avion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.programacion3.diurna/src/repaso/conceptos/model/Carro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.programacion3.diurna/src/repaso/conceptos/model/Vehiculo.java" beforeDir="false" />
+    <list default="true" id="23f8ce25-dc40-4ec5-ab0e-f008e3e2779a" name="Changes" comment="nueva estructura">
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/banco/application.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/banco/exceptions/ClienteException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/banco/exceptions/EmpleadoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/banco/services/IBancoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/banco/services/ICuentaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/banco/services/IEmpleadoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/banco/services/IModelFactoryService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +38,9 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2LkhsceFFpgoTGaD7C6eRiDLggu" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -105,14 +50,38 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Bryan/Documents/GitHub/pr3_diurna_seg_GomezBryan/programacion3/programacion3/co.edu.uniquindio.Banco",
+    "last_opened_file_path": "C:/Users/Bryan/Documents/GitHub/pr3_diurna_seg_GomezBryan/programacion3/programacion3/co.edu.uniquindio.Banco/src/main/java/co/edu/uniquindio/banco/controllers",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Bryan\Documents\GitHub\pr3_diurna_seg_GomezBryan\programacion3\programacion3\co.edu.uniquindio.Banco\src\main\java\co\edu\uniquindio\banco\controllers" />
+      <recent name="C:\Users\Bryan\Documents\GitHub\pr3_diurna_seg_GomezBryan\programacion3\programacion3\co.edu.uniquindio.Banco\src\main\java\co\edu\uniquindio\banco\services" />
+      <recent name="C:\Users\Bryan\Documents\GitHub\pr3_diurna_seg_GomezBryan\programacion3\programacion3\co.edu.uniquindio.Banco\src\main\java\co\edu\uniquindio\banco" />
+      <recent name="C:\Users\Bryan\Documents\GitHub\pr3_diurna_seg_GomezBryan\programacion3\programacion3\co.edu.uniquindio.Banco\src\main\java\co\edu\uniquindio\banco\exceptions" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Bryan\Documents\GitHub\pr3_diurna_seg_GomezBryan\programacion3\programacion3\co.edu.uniquindio.Banco\src\main\java\co\edu\uniquindio\banco\views" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Aplicacion">
+    <configuration name="Aplicacion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="co.edu.uniquindio.banco.Aplicacion" />
+      <module name="BancoRepaso" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.edu.uniquindio.banco.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="co.edu.uniquindio.MainApp" />
       <module name="co.edu.uniquindio.BancoRepaso" />
@@ -128,6 +97,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Aplicacion" />
         <item itemvalue="Application.MainApp" />
       </list>
     </recent_temporary>
@@ -186,7 +156,7 @@
       <workItem from="1677126848313" duration="21000" />
       <workItem from="1677433924446" duration="188000" />
       <workItem from="1678315706879" duration="43000" />
-      <workItem from="1679867748296" duration="205000" />
+      <workItem from="1679867998811" duration="2995000" />
     </task>
     <task id="LOCAL-00001" summary="cambios en interfaces y dependencias">
       <created>1676858547957</created>
@@ -272,7 +242,28 @@
       <option name="project" value="LOCAL" />
       <updated>1677125396394</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="lqs">
+      <created>1679868113547</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1679868113549</updated>
+    </task>
+    <task id="LOCAL-00014" summary="lqs">
+      <created>1679870637678</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1679870637678</updated>
+    </task>
+    <task id="LOCAL-00015" summary="nueva estructura">
+      <created>1679870973172</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1679870973172</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,6 +293,8 @@
     <MESSAGE value="agregarCuentaUI.fxml agregado" />
     <MESSAGE value="funcionamiento de todo menos listas de cuentas y transacciones" />
     <MESSAGE value="arreglo retiro" />
-    <option name="LAST_COMMIT_MESSAGE" value="arreglo retiro" />
+    <MESSAGE value="lqs" />
+    <MESSAGE value="nueva estructura" />
+    <option name="LAST_COMMIT_MESSAGE" value="nueva estructura" />
   </component>
 </project>

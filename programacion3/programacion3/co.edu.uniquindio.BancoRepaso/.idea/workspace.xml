@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="23f8ce25-dc40-4ec5-ab0e-f008e3e2779a" name="Changes" comment="arreglo retiro">
+      <change afterPath="$PROJECT_DIR$/../co.edu.uniquindio.banco/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../co.edu.uniquindio.banco/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../co.edu.uniquindio.banco/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../co.edu.uniquindio.banco/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../co.edu.uniquindio.banco/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/MainApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/ClienteController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/ClientesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/CuentaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/CuentasController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/EmpleadoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/EmpleadosController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/TransaccionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/controllers/TransaccionesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Banco.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Cliente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Cuenta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/CuentaAhorro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/CuentaCorriente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Deposito.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Empleado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Estado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Persona.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Retiro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Solicitud.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/model/Transaccion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/agregarCuentaUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/bancoUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/clienteUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/clientesUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/cuentaUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/cuentasUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/empleadoUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/empleadosUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/transaccionUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/transaccionesUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co.edu.uniquindio/verTransaccionUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/agregarCuentaUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/bancoUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/clienteUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/clientesUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/cuentaUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/cuentasUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/empleadoUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/empleadosUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/transaccionUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/transaccionesUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co.edu.uniquindio/verTransaccionUI.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.programacion3.diurna/src/repaso/conceptos/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.programacion3.diurna/src/repaso/conceptos/interfaces/IVehiculoElectrico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.programacion3.diurna/src/repaso/conceptos/model/Avion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.programacion3.diurna/src/repaso/conceptos/model/Carro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.programacion3.diurna/src/repaso/conceptos/model/Vehiculo.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="module-info" />
+        <option value="Class" />
+        <option value="FxmlFile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2LkhsceFFpgoTGaD7C6eRiDLggu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Bryan/Documents/GitHub/pr3_diurna_seg_GomezBryan/programacion3/programacion3/co.edu.uniquindio.Banco",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="co.edu.uniquindio.MainApp" />
+      <module name="co.edu.uniquindio.BancoRepaso" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.edu.uniquindio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainApp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="23f8ce25-dc40-4ec5-ab0e-f008e3e2779a" name="Changes" comment="" />
+      <created>1676421196774</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676421196774</updated>
+      <workItem from="1676421198797" duration="3002000" />
+      <workItem from="1676424539108" duration="318000" />
+      <workItem from="1676426016716" duration="318000" />
+      <workItem from="1676426375950" duration="46000" />
+      <workItem from="1676426456949" duration="79000" />
+      <workItem from="1676426598808" duration="30000" />
+      <workItem from="1676426738730" duration="1555000" />
+      <workItem from="1676428680574" duration="288000" />
+      <workItem from="1676499841492" duration="26000" />
+      <workItem from="1676747730146" duration="25000" />
+      <workItem from="1676751901693" duration="5054000" />
+      <workItem from="1676762183563" duration="16000" />
+      <workItem from="1676762229817" duration="805000" />
+      <workItem from="1676763133148" duration="3867000" />
+      <workItem from="1676835013761" duration="2488000" />
+      <workItem from="1676840969019" duration="341000" />
+      <workItem from="1676841806645" duration="26000" />
+      <workItem from="1676841939700" duration="1610000" />
+      <workItem from="1676843657649" duration="1244000" />
+      <workItem from="1676845121123" duration="283000" />
+      <workItem from="1676845622617" duration="451000" />
+      <workItem from="1676846099365" duration="136000" />
+      <workItem from="1676853570502" duration="1424000" />
+      <workItem from="1676855090568" duration="2751000" />
+      <workItem from="1676858315350" duration="54000" />
+      <workItem from="1676858408737" duration="696000" />
+      <workItem from="1676859164323" duration="100000" />
+      <workItem from="1676859343238" duration="7000" />
+      <workItem from="1676859446412" duration="525000" />
+      <workItem from="1676859998593" duration="158000" />
+      <workItem from="1676860232539" duration="187000" />
+      <workItem from="1676860472426" duration="10573000" />
+      <workItem from="1676913800502" duration="46000" />
+      <workItem from="1676913946855" duration="405000" />
+      <workItem from="1676925205566" duration="60000" />
+      <workItem from="1676941598779" duration="1958000" />
+      <workItem from="1676943618593" duration="2146000" />
+      <workItem from="1676945857053" duration="81000" />
+      <workItem from="1676991786998" duration="5045000" />
+      <workItem from="1677031293565" duration="5380000" />
+      <workItem from="1677074763732" duration="7017000" />
+      <workItem from="1677082756551" duration="5512000" />
+      <workItem from="1677114540120" duration="10613000" />
+      <workItem from="1677126848313" duration="21000" />
+      <workItem from="1677433924446" duration="188000" />
+      <workItem from="1678315706879" duration="43000" />
+      <workItem from="1679867748296" duration="205000" />
+    </task>
+    <task id="LOCAL-00001" summary="cambios en interfaces y dependencias">
+      <created>1676858547957</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676858547957</updated>
+    </task>
+    <task id="LOCAL-00002" summary="agregacion de controladores y seguimiento del desarrollo del proyecto en general">
+      <created>1676871392000</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676871392000</updated>
+    </task>
+    <task id="LOCAL-00003" summary="aumento de controladores (incompleto)">
+      <created>1677031531287</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677031531287</updated>
+    </task>
+    <task id="LOCAL-00004" summary="controlador de empleado, creacion del controlador de transacciones">
+      <created>1677034817172</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677034817172</updated>
+    </task>
+    <task id="LOCAL-00005" summary="archivos faltantes">
+      <created>1677081323392</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677081323392</updated>
+    </task>
+    <task id="LOCAL-00006" summary="proyecto pseudohecho">
+      <created>1677081873862</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677081873862</updated>
+    </task>
+    <task id="LOCAL-00007" summary="ClientesController mejorado">
+      <created>1677085613260</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677085613260</updated>
+    </task>
+    <task id="LOCAL-00008" summary="condicion de cedula numerica">
+      <created>1677087988221</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677087988221</updated>
+    </task>
+    <task id="LOCAL-00009" summary="EmpleadosController mejorado">
+      <created>1677115413617</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1677115413617</updated>
+    </task>
+    <task id="LOCAL-00010" summary="agregarCuentaUI.fxml agregado">
+      <created>1677116978590</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1677116978590</updated>
+    </task>
+    <task id="LOCAL-00011" summary="funcionamiento de todo menos listas de cuentas y transacciones">
+      <created>1677122244587</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1677122244587</updated>
+    </task>
+    <task id="LOCAL-00012" summary="arreglo retiro">
+      <created>1677125396393</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1677125396394</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="cambios en interfaces y dependencias" />
+    <MESSAGE value="agregacion de controladores y seguimiento del desarrollo del proyecto en general" />
+    <MESSAGE value="aumento de controladores (incompleto)" />
+    <MESSAGE value="controlador de empleado, creacion del controlador de transacciones" />
+    <MESSAGE value="archivos faltantes" />
+    <MESSAGE value="proyecto pseudohecho" />
+    <MESSAGE value="ClientesController mejorado" />
+    <MESSAGE value="condicion de cedula numerica" />
+    <MESSAGE value="EmpleadosController mejorado" />
+    <MESSAGE value="agregarCuentaUI.fxml agregado" />
+    <MESSAGE value="funcionamiento de todo menos listas de cuentas y transacciones" />
+    <MESSAGE value="arreglo retiro" />
+    <option name="LAST_COMMIT_MESSAGE" value="arreglo retiro" />
+  </component>
+</project>

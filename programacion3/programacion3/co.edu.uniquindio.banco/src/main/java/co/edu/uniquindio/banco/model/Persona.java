@@ -2,6 +2,8 @@ package co.edu.uniquindio.banco.model;
 
 public abstract class Persona {
     private String nombre;
+
+    private String apellido;
     private String apellidos;
     private int cedula;
     private String direccion;
@@ -52,5 +54,13 @@ public abstract class Persona {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getApellido() {
+        return apellido;
     }
 }

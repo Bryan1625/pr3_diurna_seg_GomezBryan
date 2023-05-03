@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_361" class="java.beans.XMLDecoder">
+ <object class="ejercicio1.model.Club" id="Club0">
+  <void property="afiliaciones">
+   <object class="java.util.ArrayList"/>
+  </void>
+  <void property="amigos">
+   <void method="add">
+    <object class="ejercicio1.model.Participante">
+     <void property="apellidos">
+      <string>perez</string>
+     </void>
+     <void property="cedula">
+      <string>1234</string>
+     </void>
+     <void property="direccion">
+      <string>armenia</string>
+     </void>
+     <void property="nombre">
+      <string>juan</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ejercicio1.model.Participante">
+     <void property="apellidos">
+      <string>martinez</string>
+     </void>
+     <void property="cedula">
+      <string>529</string>
+     </void>
+     <void property="direccion">
+      <string>montenegro</string>
+     </void>
+     <void property="nombre">
+      <string>maria</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ejercicio1.model.Participante">
+     <void property="apellidos">
+      <string>torres</string>
+     </void>
+     <void property="cedula">
+      <string>903</string>
+     </void>
+     <void property="direccion">
+      <string>pereira</string>
+     </void>
+     <void property="nombre">
+      <string>laura</string>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>

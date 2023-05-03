@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_361" class="java.beans.XMLDecoder">
+ <object class="ejercicio2parte2.Metodos" id="Metodos0">
+  <void property="programas">
+   <void method="add">
+    <object class="model.Programa">
+     <void property="codigo">
+      <string>001</string>
+     </void>
+     <void property="modalidad">
+      <string>virtual</string>
+     </void>
+     <void property="nombre">
+      <string>ingenieria</string>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>

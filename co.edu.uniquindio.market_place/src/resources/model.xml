@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_361" class="java.beans.XMLDecoder">
+ <object class="co.edu.uniquindio.market_place.model.MarketPlace" id="MarketPlace0">
+  <void property="admin">
+   <object class="co.edu.uniquindio.market_place.model.Administrador">
+    <void property="apellido">
+     <string>Perez</string>
+    </void>
+    <void property="cedula">
+     <string>1005091152</string>
+    </void>
+    <void property="contrasenia">
+     <string>bryan</string>
+    </void>
+    <void property="direccion">
+     <string>Armenia</string>
+    </void>
+    <void property="nombre">
+     <string>Pablo</string>
+    </void>
+    <void property="usuario">
+     <string>UsuarioMaestro</string>
+    </void>
+   </object>
+  </void>
+  <void property="vendedores">
+   <void method="add">
+    <object class="co.edu.uniquindio.market_place.model.Vendedor">
+     <void property="apellido">
+      <string>arias</string>
+     </void>
+     <void property="cedula">
+      <string>125454</string>
+     </void>
+     <void property="contrasenia">
+      <string>contrasenia1</string>
+     </void>
+     <void property="direccion">
+      <string>Armenia</string>
+     </void>
+     <void property="nombre">
+      <string>Daniel</string>
+     </void>
+     <void property="usuario">
+      <string>usuario_0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="co.edu.uniquindio.market_place.model.Vendedor">
+     <void property="apellido">
+      <string>Perez</string>
+     </void>
+     <void property="cedula">
+      <string>77787</string>
+     </void>
+     <void property="contrasenia">
+      <string>contrasenia2</string>
+     </void>
+     <void property="direccion">
+      <string>Pererira</string>
+     </void>
+     <void property="nombre">
+      <string>Juan</string>
+     </void>
+     <void property="usuario">
+      <string>usuario_1</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="co.edu.uniquindio.market_place.model.Vendedor">
+     <void property="apellido">
+      <string>Arias</string>
+     </void>
+     <void property="cedula">
+      <string>12555</string>
+     </void>
+     <void property="contrasenia">
+      <string>contrasenia3</string>
+     </void>
+     <void property="direccion">
+      <string>Pererira</string>
+     </void>
+     <void property="nombre">
+      <string>Alberto</string>
+     </void>
+     <void property="usuario">
+      <string>usuario_2</string>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>

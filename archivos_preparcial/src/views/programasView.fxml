@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ejercicio2parte2.Main">
+   <children>
+      <Label layoutX="14.0" layoutY="23.0" text="Código:" />
+      <TextField fx:id="codigoTextField" layoutX="84.0" layoutY="19.0" promptText="Ingrese el código" />
+      <Label layoutX="14.0" layoutY="63.0" text="Nombre:" />
+      <TextField fx:id="nombreTextField" layoutX="84.0" layoutY="59.0" promptText="Ingrese el nombre" />
+      <Label layoutX="14.0" layoutY="102.0" text="Modalidad:" />
+      <TextField fx:id="modalidadTextField" layoutX="84.0" layoutY="98.0" promptText="Ingrese la modalidad" />
+      <Button fx:id="buscarButton" layoutX="299.0" layoutY="32.0" mnemonicParsing="false" text="Buscar" />
+      <Button fx:id="agregarButton" layoutX="299.0" layoutY="72.0" mnemonicParsing="false" text="Agregar" />
+   </children>
+</Pane>

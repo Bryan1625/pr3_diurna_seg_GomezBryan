@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="268.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.banco.controllers.TransaccionController">
+    <children>
+        <Label layoutX="38.0" layoutY="23.0" text="Valor:" />
+        <Label layoutX="39.0" layoutY="82.0" text="Hora:" />
+        <Label layoutX="39.0" layoutY="141.0" text="Fecha:" />
+        <Label layoutX="36.0" layoutY="200.0" text="Estado:" />
+        <TextField fx:id="txtFValorTransaccion2" layoutX="38.0" layoutY="47.0" prefHeight="25.0" prefWidth="201.0" />
+        <TextField fx:id="txtFHoraTransaccion1" layoutX="40.0" layoutY="107.0" prefHeight="25.0" prefWidth="201.0" />
+        <TextField fx:id="txtFFechaTransaccion1" layoutX="38.0" layoutY="165.0" prefHeight="25.0" prefWidth="201.0" />
+        <TextField fx:id="txtFEstadoTransaccion1" layoutX="36.0" layoutY="223.0" prefHeight="25.0" prefWidth="201.0" />
+    </children>
+</Pane>

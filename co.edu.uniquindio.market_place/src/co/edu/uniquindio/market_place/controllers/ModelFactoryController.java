@@ -4,13 +4,18 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import co.edu.uniquindio.market_place.persistence.*;
+import co.edu.uniquindio.market_place.exceptions.MensajeException;
+import co.edu.uniquindio.market_place.exceptions.ProductoException;
+import co.edu.uniquindio.market_place.exceptions.PublicacionException;
 import co.edu.uniquindio.market_place.exceptions.UsuarioException;
 import co.edu.uniquindio.market_place.exceptions.VendedorException;
 import co.edu.uniquindio.market_place.model.Vendedor;
 import co.edu.uniquindio.market_place.exceptions.VendedorException;
 import co.edu.uniquindio.market_place.model.Administrador;
 import co.edu.uniquindio.market_place.model.MarketPlace;
+import co.edu.uniquindio.market_place.model.Mensaje;
 import co.edu.uniquindio.market_place.model.Persona;
+import co.edu.uniquindio.market_place.model.Producto;
 import co.edu.uniquindio.market_place.model.Vendedor;
 import co.edu.uniquindio.market_place.persistence.Persistencia;
 import co.edu.uniquindio.market_place.exceptions.VendedorException;
@@ -249,6 +254,37 @@ public class ModelFactoryController implements IModelFactoryService {
 	
 	public Persona obtenerUsuario(){
 		return marketPlace.getLogin().getPersona();
+	}
+	
+	public void enviarMensaje(Vendedor enviar, Vendedor recibir, Mensaje mensaje){
+		try {
+			enviar.enviarMensaje(recibir, mensaje);
+		} catch (MensajeException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+			registrarAccionesSistema("error" +e.getMessage(), 3, "enviar mensaje");
+		}
+	}
+	
+	public void publicarProducto(Vendedor vendedor, Producto producto){
+		try {
+			vendedor.publicarProducto(producto);
+		} catch (PublicacionException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+			registrarAccionesSistema("error"+e.getMessage(), 3, "publicar producto");
+		}
+	}
+	
+	public boolean eliminarProducto(Vendedor vendedor, Producto producto){
+		try {
+			return vendedor.eliminarProducto(producto);
+		} catch (ProductoException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+			registrarAccionesSistema("error"+e.getMessage(), 3, "eliminar producto");
+		}
+		return false;
 	}
 
 }

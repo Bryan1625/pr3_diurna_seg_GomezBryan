@@ -19,6 +19,7 @@ public class Vendedor extends Persona implements IVendedorService, Serializable{
 	private ArrayList<Producto> productos = new ArrayList<>();
 	private ArrayList<Vendedor> amigos = new ArrayList<>();
 	private ArrayList<Vendedor> contactos = new ArrayList<>();
+	private ArrayList<Chat> chat = new ArrayList<Chat>();
 	private ArrayList<Mensaje> listaMensajesOrigen = new ArrayList<>();
 	private ArrayList<Mensaje> listaMensajesDestino = new ArrayList<>();
 	
@@ -87,23 +88,28 @@ public class Vendedor extends Persona implements IVendedorService, Serializable{
 
 
 	@Override
-	public Boolean enviarMensaje(String mensaje) throws MensajeException {
-		// TODO Auto-generated method stub
-		return null;
+	public void enviarMensaje(Vendedor vendedor, Mensaje mensaje) throws MensajeException {
+		listaMensajesOrigen.add(mensaje);
+		vendedor.getListaMensajesDestino().add(mensaje);
 	}
 
 
 	@Override
-	public Boolean publicarProducto(Producto producto) throws PublicacionException {
+	public void publicarProducto(Producto producto) throws PublicacionException {
 		// TODO Auto-generated method stub
-		return null;
+		productos.add(producto);
 	}
 
 
 	@Override
 	public Boolean eliminarProducto(Producto producto) throws ProductoException {
 		// TODO Auto-generated method stub
-		return null;
+		if(productos.contains(producto)){
+			productos.remove(producto);
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 
@@ -111,6 +117,14 @@ public class Vendedor extends Persona implements IVendedorService, Serializable{
 	public Boolean actualizarProducto(Producto producto) throws ProductoException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public ArrayList<Chat> getChat() {
+		return chat;
+	}
+
+	public void setChat(ArrayList<Chat> chat) {
+		this.chat = chat;
 	}
 	
 }

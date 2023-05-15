@@ -159,6 +159,15 @@ public class MarketPlace implements IMarketPlaceService, Serializable{
         }
         return vendedoresEncontrados;
     }
+	
+	public Vendedor buscarVendedorUsuario(String usuario){
+		for(Vendedor vendedor: vendedores){
+			if(vendedor.getUsuario().contentEquals(usuario)){
+				return vendedor;
+			}
+		}
+		return null;
+	}
 
 
 	public boolean login(String usuario, String contrasenia, Persona persona) throws UsuarioException{

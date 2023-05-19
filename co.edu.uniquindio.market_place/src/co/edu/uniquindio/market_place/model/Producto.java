@@ -14,7 +14,7 @@ public class Producto implements Serializable{
 	private String nombre ="";
 	private Double precio = 0.0;
 	private String descripcion="";
-	private Image imagen=new Image("");
+	private Image imagen;
 	private String categoria="";
 	private Estado estado=Estado.publicado;
 	private ArrayList<Vendedor> likes=new ArrayList<Vendedor>();

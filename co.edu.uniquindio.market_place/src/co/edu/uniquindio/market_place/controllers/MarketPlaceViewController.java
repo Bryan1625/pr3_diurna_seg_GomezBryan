@@ -949,6 +949,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 		Producto p = new Producto(nombre, precio, descripcion, imagen, categoria, estado);
 
 		try {
+			vendedorViewController.setVendedor(vendedorLogin);
 			vendedorViewController.publicarProducto(p);
 		} catch (PublicacionException e) {
 			// TODO Auto-generated catch block

@@ -262,17 +262,18 @@ public class ModelFactoryController implements IModelFactoryService {
 		} catch (MensajeException e) {
 			// TODO Auto-generated catch block
 //			e.printStackTrace();
-			registrarAccionesSistema("error" +e.getMessage(), 3, "enviar mensaje");
+			registrarAccionesSistemaHilos("error" +e.getMessage(), 3, "enviar mensaje");
 		}
 	}
 	
 	public void publicarProducto(Vendedor vendedor, Producto producto){
 		try {
 			vendedor.publicarProducto(producto);
+			guardarResourceXMLHilos();
 		} catch (PublicacionException e) {
 			// TODO Auto-generated catch block
 //			e.printStackTrace();
-			registrarAccionesSistema("error"+e.getMessage(), 3, "publicar producto");
+			registrarAccionesSistemaHilos("error"+e.getMessage(), 3, "publicar producto");
 		}
 	}
 	
@@ -282,7 +283,7 @@ public class ModelFactoryController implements IModelFactoryService {
 		} catch (ProductoException e) {
 			// TODO Auto-generated catch block
 //			e.printStackTrace();
-			registrarAccionesSistema("error"+e.getMessage(), 3, "eliminar producto");
+			registrarAccionesSistemaHilos("error"+e.getMessage(), 3, "eliminar producto");
 		}
 		return false;
 	}
@@ -291,7 +292,7 @@ public class ModelFactoryController implements IModelFactoryService {
 		if(usuario.agregarAmigo(vendedor2)){
 			
 		}else{
-			registrarAccionesSistema("error al agregar un amigo", 2, "agregar amigo");
+			registrarAccionesSistemaHilos("error al agregar un amigo", 2, "agregar amigo");
 		}
 		
 	}

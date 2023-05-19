@@ -19,6 +19,20 @@ public class VendedorViewController implements IVendedorService {
 	public VendedorViewController() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public Vendedor getVendedor() {
+		return vendedor;
+	}
+
+
+
+	public void setVendedor(Vendedor vendedor) {
+		this.vendedor = vendedor;
+	}
+
+
 
 	public VendedorViewController(ModelFactoryController modelFactoryController) {
 		this.modelFactoryController = modelFactoryController;

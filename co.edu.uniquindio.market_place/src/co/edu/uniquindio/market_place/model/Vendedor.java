@@ -113,6 +113,18 @@ public class Vendedor extends Persona implements IVendedorService, Serializable{
 	}
 
 
+	public ArrayList<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(ArrayList<Producto> productos) {
+		this.productos = productos;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public Boolean actualizarProducto(Producto producto) throws ProductoException {
 		// TODO Auto-generated method stub
@@ -125,6 +137,15 @@ public class Vendedor extends Persona implements IVendedorService, Serializable{
 
 	public void setChat(ArrayList<Chat> chat) {
 		this.chat = chat;
+	}
+
+	public boolean eliminarAmigo(Vendedor vendedor2) {
+		// TODO Auto-generated method stub
+		if(amigos.contains(vendedor2)){
+			amigos.remove(vendedor2);
+			return true;
+		}
+		return false;
 	}
 	
 }

@@ -62,10 +62,10 @@ public class ModelFactoryController implements IModelFactoryService {
 
 		// Siempre se debe verificar si la raiz del recurso es null
 
-//		if (marketPlace == null) {
-//			inicializarDatos();
+		if (marketPlace == null) {
+			inicializarDatos();
 //			// guardarResourceXML();
-//		}
+		}
 
 		registrarAccionesSistemaHilos("Inicio de sesión", 1, "inicioSesión");
 
@@ -256,9 +256,9 @@ public class ModelFactoryController implements IModelFactoryService {
 		return marketPlace.getLogin().getPersona();
 	}
 	
-	public void enviarMensaje(Vendedor enviar, Vendedor recibir, Mensaje mensaje){
+	public void enviarMensaje(Vendedor emisor, Vendedor receptor, Mensaje mensaje){
 		try {
-			enviar.enviarMensaje(recibir, mensaje);
+			emisor.enviarMensaje(receptor, mensaje);
 		} catch (MensajeException e) {
 			// TODO Auto-generated catch block
 //			e.printStackTrace();
@@ -287,4 +287,33 @@ public class ModelFactoryController implements IModelFactoryService {
 		return false;
 	}
 
+	public void agregarAmigo(Vendedor usuario, Vendedor vendedor2){
+		if(usuario.agregarAmigo(vendedor2)){
+			
+		}else{
+			registrarAccionesSistema("error al agregar un amigo", 2, "agregar amigo");
+		}
+		
+	}
+
+	public void eliminarAmigo(Vendedor vendedor1,Vendedor vendedor2) {
+		// TODO Auto-generated method stub
+		vendedor1.eliminarAmigo(vendedor2);
+	}
+
+	public void agregarLike(Vendedor vendedor, Producto selectedItem) {
+		// TODO Auto-generated method stub
+		selectedItem.agregarLike(vendedor);
+	}
+
+	public void agregarComentario(Vendedor vendedor, Producto selectedItem, String comentario) {
+		// TODO Auto-generated method stub
+		selectedItem.getComentarios().add(vendedor.getUsuario()+": "+comentario);
+	}
+
+	public Vendedor obtenerVendedorUsuario(String usuario) {
+		// TODO Auto-generated method stub
+		return marketPlace.buscarVendedorUsuario(usuario);
+	}
+	
 }

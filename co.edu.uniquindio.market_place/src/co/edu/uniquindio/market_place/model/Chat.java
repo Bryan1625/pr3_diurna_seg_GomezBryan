@@ -33,4 +33,8 @@ public class Chat implements Serializable{
 		return listaMensajes.stream().map(Mensaje::getMensaje).collect(Collectors.joining("\n"));
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 }

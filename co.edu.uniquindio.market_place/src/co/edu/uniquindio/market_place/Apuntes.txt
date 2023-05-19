@@ -30,3 +30,10 @@ y al terminar el if del run correspondiente se libere
 el semforo se puede crear solo par el run por ahora
 despues de ejcutar un if hay que liberar el semaforo
 lo minimo que hay que hacer es registrar acciones del sistema y guardarxml con hilos
+
+sockets
+Objectinput, objectouput
+se castea el objeto al recibir el objeto, al enviar el objeto se inicializa y se usa writeobject
+paquete de modelo con el mismo nombre en el servidor
+crear una tuberia de comunicacion para cada tipo de dato
+se puede cargar el objeto en el servidor y enviarlo, o enviar el archvio y cargarlo en el proyecto

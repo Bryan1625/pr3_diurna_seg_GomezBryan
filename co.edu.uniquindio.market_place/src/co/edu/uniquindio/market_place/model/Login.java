@@ -48,4 +48,8 @@ public class Login implements ILoginService, Serializable {
 		persona.setContrasenia(contrasenia);
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 }

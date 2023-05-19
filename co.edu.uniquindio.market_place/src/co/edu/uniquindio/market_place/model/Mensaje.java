@@ -26,4 +26,8 @@ public class Mensaje implements Serializable{
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }

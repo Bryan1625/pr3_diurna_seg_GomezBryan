@@ -43,6 +43,10 @@ public class MarketPlace implements IMarketPlaceService, Serializable{
 		this.vendedores = vendedores;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Override
 	public Administrador crearAdministrador(String nombre, String apellido, String cedula, String direccion,
 			String usuario, String contrasenia) throws AdministradorException {

@@ -16,18 +16,32 @@ public class Producto implements Serializable{
 	private String descripcion="";
 	private Image imagen=new Image("");
 	private String categoria="";
-	private Estado estado=Estado.cancelado;
+	private Estado estado=Estado.publicado;
 	private ArrayList<Vendedor> likes=new ArrayList<Vendedor>();
 	private ArrayList<String> comentarios = new ArrayList<String>();
 	
 	
-	public boolean agregarLike(Vendedor vendedor){
+	
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Producto(String nombre, Double precio, String descripcion, Image imagen, String categoria, Estado estado) {
+		super();
+		this.nombre = nombre;
+		this.precio = precio;
+		this.descripcion = descripcion;
+		this.imagen = imagen;
+		this.categoria = categoria;
+		this.estado = estado;
+	}
+
+	public void agregarLike(Vendedor vendedor){
 		if(buscarLike(vendedor)){
 			likes.remove(vendedor);
-			return false;
 		}
 		likes.add(vendedor);
-		return true;
 	}
 	
 	public boolean buscarLike(Vendedor vendedor){

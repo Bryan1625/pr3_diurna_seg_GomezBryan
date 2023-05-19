@@ -1,6 +1,8 @@
 package co.edu.uniquindio.market_place.model;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable{
 	
 	private String usuario;
 	private String contrasenia;

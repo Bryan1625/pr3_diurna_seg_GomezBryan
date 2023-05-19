@@ -5,6 +5,7 @@ import co.edu.uniquindio.market_place.exceptions.ProductoException;
 import co.edu.uniquindio.market_place.exceptions.PublicacionException;
 import co.edu.uniquindio.market_place.model.MarketPlace;
 import co.edu.uniquindio.market_place.model.Mensaje;
+import co.edu.uniquindio.market_place.model.Persona;
 import co.edu.uniquindio.market_place.model.Producto;
 import co.edu.uniquindio.market_place.model.Vendedor;
 import co.edu.uniquindio.market_place.services.IVendedorService;
@@ -48,5 +49,22 @@ public class VendedorViewController implements IVendedorService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public void agregarAmigo(Vendedor usuario, Vendedor vendedor2){
+		modelFactoryController.agregarAmigo(usuario, vendedor2);
+	}
+	
+	public void eliminarAmigo(Vendedor vendedor){
+		modelFactoryController.eliminarAmigo(this.vendedor,vendedor);
+	}
 
+	public void agregarLike(Producto selectedItem) {
+		// TODO Auto-generated method stub
+		modelFactoryController.agregarLike(vendedor,selectedItem);
+	}
+
+	public void agregarComentario(Producto selectedItem, String comentario) {
+		// TODO Auto-generated method stub
+		modelFactoryController.agregarComentario(vendedor,selectedItem,comentario);
+	}
 }

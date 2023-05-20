@@ -2,8 +2,13 @@ package co.edu.uniquindio.market_place.controllers;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 import co.edu.uniquindio.market_place.MainApp;
@@ -20,9 +25,9 @@ import co.edu.uniquindio.market_place.model.Vendedor;
 import co.edu.uniquindio.market_place.services.IMarketPlaceService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
@@ -30,17 +35,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
-import javafx.scene.control.Label;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.time.LocalDateTime;
 
 public class MarketPlaceViewController implements IMarketPlaceService {
 
@@ -55,10 +55,18 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	private Vendedor vendedorLogin;
 
 	Vendedor vendedorSeleccionado;
+	
+	Producto productoSeleccionadoPerfil;
+	Vendedor vendedorSeleccionadoPerfil;
+	Vendedor amigoSeleccionadoPerfil;
+	
+	String rutaImagenPerfil;
 
 	ObservableList<Vendedor> listaVendedoresData = FXCollections.observableArrayList();
 
-	ObservableList<Vendedor> listaProductosData = FXCollections.observableArrayList();
+	ObservableList<Producto> listaProductosPerfilData = FXCollections.observableArrayList();
+	
+	ObservableList<Vendedor> listaAmigosPerfilData= FXCollections.observableArrayList();
 
 	/*
 	 * login
@@ -357,7 +365,6 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	@FXML
 	private TextField usuarioVendedor4TextField;
 
-	// Vendedor 5
 	@FXML
 	private TableView<Producto> productosVendedor5Table;
 	@FXML
@@ -557,13 +564,13 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	private TextField usuarioVendedor10TextField;
 
 	public MarketPlaceViewController() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
 	public Administrador crearAdministrador(String nombre, String apellido, String cedula, String direccion,
 			String usuario, String contrasenia) throws AdministradorException {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -579,7 +586,6 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 		loginViewController = new LoginViewController(modelFactoryController);
 
 		inicializarAdministradorView();
-		inicializarPerfilView();
 		inicializarVendedoresView();
 	}
 
@@ -590,7 +596,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 		this.colDireccion.setCellValueFactory(new PropertyValueFactory<>("direccion"));
 		this.colUsuario.setCellValueFactory(new PropertyValueFactory<>("usuario"));
 
-		// Cargar la lista de vendedores
+		
 
 		tblVendedores.setItems(getListaVendedoresData());
 
@@ -599,6 +605,34 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 			mostrarInformacionvendedor(vendedorSeleccionado);
 		});
 	}
+	
+	private void mostrarInformacionProductoPerfil(Producto productoSeleccionado) {
+	    if (productoSeleccionado != null) {
+	        nombreProductoPerfilTextField.setText(productoSeleccionado.getNombre());
+	        precioProductoPerfilTextField.setText(""+productoSeleccionado.getPrecio());
+	        categoriaProductoPerfilTextField.setText(productoSeleccionado.getCategoria());
+	        estadoProductoPerfilComboBox.setValue(productoSeleccionado.getEstado());
+	        descripcionProductoPerfilTextArea.setText(productoSeleccionado.getDescripcion());
+	        imagenProductoImageView.setImage(new Image(productoSeleccionado.getRutaImagen()));
+	    }
+	}
+
+	private void mostrarInformacionAmigosPerfil(Vendedor amigoSeleccionado) {
+	    if (amigoSeleccionado != null) {
+	        nombreAmigoColumn.setText(amigoSeleccionado.getNombre());
+	        cedulaAmigoColumn.setText(amigoSeleccionado.getCedula());
+	        usuarioAmigoColumn.setText(amigoSeleccionado.getUsuario());
+	    }
+	}
+
+	private void mostrarInformacionVendedoresPerfil(Vendedor vendedorSeleccionado) {
+	    if (vendedorSeleccionado != null) {
+	        nombreVendedorPerfilTextField.setText(vendedorSeleccionado.getNombre());
+	        cedulaVendedorPerfilTextField.setText(vendedorSeleccionado.getCedula());
+	        usuarioVendedorPerfilTextField.setText(vendedorSeleccionado.getUsuario());
+	    }
+	}
+
 
 	private void mostrarInformacionvendedor(Vendedor vendedorSeleccionado) {
 		if (vendedorSeleccionado != null) {
@@ -612,11 +646,49 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	}
 
 	private void inicializarPerfilView() {
+	    nombreProductosPerfilColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+	    fechaProductosPerfilColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+	    estadoProductosPerfilColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
+	    precioProductosPerfilColumn.setCellValueFactory(new PropertyValueFactory<>("precio"));
+	    categoriaProductosPerfilColumn.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+	    likesProductosPerfilColumn.setCellValueFactory(new PropertyValueFactory<>("numeroLikes"));
 
+	    
+
+	    productosPerfilTable.setItems(getListaProductosPerfilData());
+
+	    productosPerfilTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+	        productoSeleccionadoPerfil = newSelection;
+	        mostrarInformacionProductoPerfil(productoSeleccionadoPerfil);
+	    });
+
+	    nombreVendedorColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+	    cedulaVendedorColumn.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+	    usuarioVendedorColumn.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+
+
+	    vendedoresPerfilTable = tblVendedores;
+	    
+	    vendedoresPerfilTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+	        vendedorSeleccionadoPerfil = newSelection;
+	        mostrarInformacionVendedoresPerfil(vendedorSeleccionadoPerfil);
+	    });
+	    
+
+	    nombreAmigoColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+	    cedulaAmigoColumn.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+	    usuarioAmigoColumn.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+	    amigosPerfilTable.setItems(getListaAmigosPerfilData());
+	    
+	    amigosPerfilTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+	        amigoSeleccionadoPerfil = newSelection;
+	        mostrarInformacionAmigosPerfil(amigoSeleccionadoPerfil);
+	    });
 	}
 
+
 	private void inicializarVendedoresView() {
-		// TODO Auto-generated method stub
+		
 		estadoProductoPerfilComboBox.getItems().addAll(Estado.values());
 
 	}
@@ -629,6 +701,17 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 		listaVendedoresData.addAll(administradorViewController.obtenerVendedores());
 		return listaVendedoresData;
 	}
+	
+	public ObservableList<Producto> getListaProductosPerfilData(){
+		listaProductosPerfilData.addAll(vendedorLogin.getProductos());
+		return listaProductosPerfilData;
+	}
+	
+	public ObservableList<Vendedor> getListaAmigosPerfilData(){
+		listaAmigosPerfilData.addAll(vendedorLogin.getAmigos());
+		return listaAmigosPerfilData;
+	}
+	
 
 	@FXML
 	void nuevoVendedorAction() {
@@ -641,14 +724,18 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	}
 
 	@FXML
-	void agregarVendedorAction() throws VendedorException, IOException {
+	void agregarVendedorAction() {
 
-		crearVendedor();
+		try {
+			crearVendedor();
+		} catch (VendedorException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void crearVendedor() throws VendedorException, IOException {
 
-		// 1. Capturar los datos
+		
 		String nombre = txtFieldNombreVendedorAdmin.getText();
 		String apellido = txtFieldApellidoVendedorAdmin.getText();
 		String cedula = txtFieldCedulaVendedorAdmin.getText();
@@ -656,7 +743,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 		String usuario = txtFieldUsuarioVendedorAdmin.getText();
 		String contrasenia = txtFieldContraseniaVendedorAdmin.getText();
 
-		// 2. Validar la información
+		
 		if (datosValidos(nombre, apellido, cedula, direccion, usuario, contrasenia) == true) {
 			Vendedor vendedor = null;
 			vendedor = administradorViewController.crearVendedor(nombre, apellido, cedula, direccion, usuario,
@@ -736,6 +823,8 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 				txtFieldUsuario.setText("");
 				txtFieldContrasenia.setText("");
 				validarSesion();
+				inicializarPerfilView();
+				vendedorViewController.setVendedor(vendedorLogin);
 			} else {
 				mostrarMensaje("Notificación login", "no se pudo iniciar sesion",
 						"El usuario o la contraseia son incorrectos", AlertType.ERROR);
@@ -763,7 +852,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	private void actualizarVendedor() {
 
-		// 1. Capturar los datos
+		
 		String nombre = txtFieldNombreVendedorAdmin.getText();
 		String apellido = txtFieldApellidoVendedorAdmin.getText();
 		String cedula = txtFieldCedulaVendedorAdmin.getText();
@@ -772,10 +861,10 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 		String contrasenia = txtFieldContraseniaVendedorAdmin.getText();
 		boolean vendedorActualizado = false;
 
-		// 2. verificar el vendedor seleccionado
+		
 		if (vendedorSeleccionado != null) {
 
-			// 3. Validar la información
+			
 			if (datosValidos(nombre, apellido, cedula, direccion, usuario, contrasenia) == true) {
 
 				vendedorActualizado = administradorViewController.actualizarVendedor(vendedorSeleccionado.getCedula(),
@@ -884,31 +973,31 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	@Override
 	public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion, String usuario,
 			String contraseña) throws VendedorException {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public Boolean eliminarVendedor(String cedula) throws VendedorException {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public boolean verificarVendedorExistente(String cedula) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
 	@Override
 	public Vendedor obtenerVendedor(String cedula) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public ArrayList<Vendedor> obtenerVendedores() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -936,28 +1025,30 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	public void agregarProductoClick() {
 		agregarProducto();
 	}
-
+	
 	public void agregarProducto() {
-
-		String nombre = nombreProductoPerfilTextField.getText();
-		Double precio = Double.parseDouble(precioProductoPerfilTextField.getText());
-		String descripcion = descripcionProductoPerfilTextArea.getText();
-		Image imagen = imagenProductoImageView.getImage();
-		String categoria = categoriaProductoPerfilTextField.getText();
+		String nombre = nombreProductoPerfilTextField.getText().trim();
+		String precioText = precioProductoPerfilTextField.getText().trim();
+		String descripcion = descripcionProductoPerfilTextArea.getText().trim();
+		String imagen = rutaImagenPerfil;
+		String categoria = categoriaProductoPerfilTextField.getText().trim();
 		Estado estado = estadoProductoPerfilComboBox.getValue();
-
-		Producto p = new Producto(nombre, precio, descripcion, imagen, categoria, estado);
-
-		try {
-			vendedorViewController.setVendedor(vendedorLogin);
-			vendedorViewController.publicarProducto(p);
-		} catch (PublicacionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (!nombre.isEmpty() && !precioText.isEmpty() && !descripcion.isEmpty() && imagen != null && !categoria.isEmpty() && estado != null) {
+		    try {
+		        Double precio = Double.parseDouble(precioText);
+		        Producto p = new Producto(nombre, precio, descripcion, imagen, categoria, estado);
+		        vendedorViewController.publicarProducto(p);
+		        listaProductosPerfilData.add(p);
+		        limpiarCamposProductoPerfil();
+		    } catch (NumberFormatException e) {
+		        mostrarMensaje("Error", "Formato de numero incorrecto", "El numero ingresado no es un numero valido", AlertType.ERROR);
+		    } catch (PublicacionException e) {
+		        e.printStackTrace();
+		    }
+		} else {
+		    mostrarMensaje("No se pudo publicar el producto", "Campo vacio", "Todo los campos son obligatorios", AlertType.ERROR);
 		}
-
-		limpiarCamposProductoPerfil();
-	}
+		}
 
 	public void limpiarCamposProductoPerfil() {
 		nombreProductoPerfilTextField.clear();
@@ -983,7 +1074,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 					productoEliminado = vendedorViewController.eliminarProducto(productoSeleccionado);
 
 					if (productoEliminado) {
-						listaProductosData.remove(productoSeleccionado);
+						listaProductosPerfilData.remove(productoSeleccionado);
 						productoSeleccionado = null;
 
 						productosPerfilTable.getSelectionModel().clearSelection();
@@ -995,7 +1086,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 								"El producto no se puede eliminar", AlertType.ERROR);
 					}
 				} catch (ProductoException e) {
-					// Manejar la excepción en caso de que ocurra
+					
 					mostrarMensaje("Error", "Error al eliminar producto",
 							"Ocurrió un error al eliminar el producto: " + e.getMessage(), AlertType.ERROR);
 				}
@@ -1008,10 +1099,11 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	@FXML
 	public void subirImagenClick() {
-		seleccionarImagen();
+		rutaImagenPerfil = seleccionarImagen();
 	}
 
-	public void seleccionarImagen() {
+	public String seleccionarImagen() {
+		String ruta="";
 	    // Crear un objeto FileChooser
 	    FileChooser fileChooser = new FileChooser();
 
@@ -1032,7 +1124,14 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	        // Asignar la imagen al ImageView
 	        imagenProductoImageView.setImage(imagen);
+	        try {
+				ruta = archivoSeleccionado.toURI().toURL().toString();
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	    }
+	    return ruta;
 	}
 
 
@@ -1119,7 +1218,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 				comentarVendedor3TextArea.getText());
 	}
 
-	// Métodos para el vendedor 4
+	
 	@FXML
 	private void likeVendedor4Click() {
 		vendedorViewController.agregarLike(productosVendedor4Table.getSelectionModel().getSelectedItem());
@@ -1162,7 +1261,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 				comentarVendedor5TextArea.getText());
 	}
 
-	// Métodos para el vendedor 6
+	
 	@FXML
 	private void likeVendedor6Click() {
 		vendedorViewController.agregarLike(productosVendedor6Table.getSelectionModel().getSelectedItem());
@@ -1184,7 +1283,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 				comentarVendedor6TextArea.getText());
 	}
 
-	// Métodos para el vendedor 7
+	
 	@FXML
 	private void likeVendedor7Click() {
 		vendedorViewController.agregarLike(productosVendedor7Table.getSelectionModel().getSelectedItem());
@@ -1227,7 +1326,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 				comentarVendedor8TextArea.getText());
 	}
 
-	// Métodos para el vendedor 9
+	
 	@FXML
 	private void likeVendedor9Click() {
 		vendedorViewController.agregarLike(productosVendedor9Table.getSelectionModel().getSelectedItem());
@@ -1249,7 +1348,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 				comentarVendedor9TextArea.getText());
 	}
 
-	// Métodos para el vendedor 10
+	
 	@FXML
 	private void likeVendedor10Click() {
 		vendedorViewController.agregarLike(productosVendedor10Table.getSelectionModel().getSelectedItem());

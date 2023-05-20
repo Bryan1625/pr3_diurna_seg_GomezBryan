@@ -63,7 +63,7 @@ public class ModelFactoryController implements IModelFactoryService {
 		// Siempre se debe verificar si la raiz del recurso es null
 
 		if (marketPlace == null) {
-			inicializarDatos();
+//			inicializarDatos();
 //			// guardarResourceXML();
 		}
 
@@ -189,7 +189,7 @@ public class ModelFactoryController implements IModelFactoryService {
 		try {
 			vendedor = getMarketPlace().crearVendedor(nombre, apellido, cedula, direccion, usuario, contrasenia);
 			registrarAccionesSistemaHilos("Vendedor creado por el usuario: "+marketPlace.getLogin().getUsuario(), 1, "Agregar Vendedor");
-			guardarResourceXMLHilos();
+			guardarResourceXML();
 		} catch (VendedorException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
@@ -204,7 +204,7 @@ public class ModelFactoryController implements IModelFactoryService {
 		boolean flagExiste = false;
 		try {
 			flagExiste = getMarketPlace().eliminarVendedor(cedula);
-			guardarResourceXMLHilos();
+			guardarResourceXML();
 			registrarAccionesSistemaHilos("vendedor con cedula "+cedula+" eliminado por el usuario: "+marketPlace.getLogin().getUsuario(), 1, "eliminar vendedor");
 			
 		} catch (VendedorException e) {
@@ -266,20 +266,24 @@ public class ModelFactoryController implements IModelFactoryService {
 		}
 	}
 	
-	public void publicarProducto(Vendedor vendedor, Producto producto){
+	public void publicarProducto(Vendedor vendedor, Producto producto) throws PublicacionException{
 		try {
 			vendedor.publicarProducto(producto);
-			guardarResourceXMLHilos();
+			guardarResourceXML();
 		} catch (PublicacionException e) {
 			// TODO Auto-generated catch block
 //			e.printStackTrace();
 			registrarAccionesSistemaHilos("error"+e.getMessage(), 3, "publicar producto");
 		}
 	}
+
 	
 	public boolean eliminarProducto(Vendedor vendedor, Producto producto){
 		try {
-			return vendedor.eliminarProducto(producto);
+			if(vendedor.eliminarProducto(producto)){
+				guardarResourceXML();
+				return true;
+			}
 		} catch (ProductoException e) {
 			// TODO Auto-generated catch block
 //			e.printStackTrace();

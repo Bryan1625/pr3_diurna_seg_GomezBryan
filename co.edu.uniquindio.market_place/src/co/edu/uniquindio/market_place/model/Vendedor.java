@@ -8,8 +8,7 @@ import co.edu.uniquindio.market_place.exceptions.ProductoException;
 import co.edu.uniquindio.market_place.exceptions.PublicacionException;
 import co.edu.uniquindio.market_place.services.IVendedorService;
 
-public class Vendedor extends Persona implements IVendedorService, Serializable{
-	
+public class Vendedor extends Persona implements IVendedorService, Serializable {
 
 	/**
 	 * 
@@ -22,15 +21,18 @@ public class Vendedor extends Persona implements IVendedorService, Serializable{
 	private ArrayList<Chat> chat = new ArrayList<Chat>();
 	private ArrayList<Mensaje> listaMensajesOrigen = new ArrayList<>();
 	private ArrayList<Mensaje> listaMensajesDestino = new ArrayList<>();
-	
+
 	public Vendedor() {
-		
+
 	}
 
 	public boolean agregarAmigo(Vendedor vendedor){
-		if(amigos.size()<max_contactos){
+		if(amigos.size()<max_contactos && vendedor.getAmigos().size()<max_contactos){
+			if(!amigos.contains(vendedor)){
 			amigos.add(vendedor);
+			vendedor.getAmigos().add(this);
 			return true;
+			}
 		}
 		return false;
 	}
@@ -42,50 +44,42 @@ public class Vendedor extends Persona implements IVendedorService, Serializable{
 	public void setAmigos(ArrayList<Vendedor> amigos) {
 		this.amigos = amigos;
 	}
-	
-	public ArrayList<Producto> gerProductos(){
+
+	public ArrayList<Producto> gerProductos() {
 		return this.productos;
 	}
-	
-	public void agregarProducto(Producto producto){
+
+	public void agregarProducto(Producto producto) {
 		this.productos.add(producto);
 	}
-
 
 	public ArrayList<Vendedor> getContactos() {
 		return contactos;
 	}
 
-
 	public void setContactos(ArrayList<Vendedor> contactos) {
 		this.contactos = contactos;
 	}
-
 
 	public int getMax_contactos() {
 		return max_contactos;
 	}
 
-
 	public ArrayList<Mensaje> getListaMensajesOrigen() {
 		return listaMensajesOrigen;
 	}
-
 
 	public void setListaMensajesOrigen(ArrayList<Mensaje> listaMensajesOrigen) {
 		this.listaMensajesOrigen = listaMensajesOrigen;
 	}
 
-
 	public ArrayList<Mensaje> getListaMensajesDestino() {
 		return listaMensajesDestino;
 	}
 
-
 	public void setListaMensajesDestino(ArrayList<Mensaje> listaMensajesDestino) {
 		this.listaMensajesDestino = listaMensajesDestino;
 	}
-
 
 	@Override
 	public void enviarMensaje(Vendedor vendedor, Mensaje mensaje) throws MensajeException {
@@ -93,25 +87,22 @@ public class Vendedor extends Persona implements IVendedorService, Serializable{
 		vendedor.getListaMensajesDestino().add(mensaje);
 	}
 
-
 	@Override
 	public void publicarProducto(Producto producto) throws PublicacionException {
 		// TODO Auto-generated method stub
 		productos.add(producto);
 	}
 
-
 	@Override
 	public Boolean eliminarProducto(Producto producto) throws ProductoException {
 		// TODO Auto-generated method stub
-		if(productos.contains(producto)){
+		if (productos.contains(producto)) {
 			productos.remove(producto);
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
-
 
 	public ArrayList<Producto> getProductos() {
 		return productos;
@@ -141,11 +132,12 @@ public class Vendedor extends Persona implements IVendedorService, Serializable{
 
 	public boolean eliminarAmigo(Vendedor vendedor2) {
 		// TODO Auto-generated method stub
-		if(amigos.contains(vendedor2)){
+		if (amigos.contains(vendedor2)) {
 			amigos.remove(vendedor2);
+			vendedor2.getAmigos().remove(this);
 			return true;
 		}
 		return false;
 	}
-	
+
 }

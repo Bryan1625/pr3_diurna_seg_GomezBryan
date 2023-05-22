@@ -1,5 +1,7 @@
 package co.edu.uniquindio.market_place.controllers;
 
+import java.util.ArrayList;
+
 import co.edu.uniquindio.market_place.exceptions.MensajeException;
 import co.edu.uniquindio.market_place.exceptions.ProductoException;
 import co.edu.uniquindio.market_place.exceptions.PublicacionException;
@@ -19,26 +21,21 @@ public class VendedorViewController implements IVendedorService {
 	public VendedorViewController() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 	public Vendedor getVendedor() {
 		return vendedor;
 	}
 
-
-
 	public void setVendedor(Vendedor vendedor) {
 		this.vendedor = vendedor;
 	}
 
-
-
 	public VendedorViewController(ModelFactoryController modelFactoryController) {
 		this.modelFactoryController = modelFactoryController;
 		marketPlace = modelFactoryController.getMarketPlace();
-		vendedor = modelFactoryController.getMarketPlace().buscarVendedorUsuario(modelFactoryController.getMarketPlace().getLogin().getUsuario());
-				}
+		vendedor = modelFactoryController.getMarketPlace()
+				.buscarVendedorUsuario(modelFactoryController.getMarketPlace().getLogin().getUsuario());
+	}
 
 	@Override
 	public void enviarMensaje(Vendedor vendedor, Mensaje mensaje) throws MensajeException {
@@ -63,22 +60,30 @@ public class VendedorViewController implements IVendedorService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	public void agregarAmigo(Vendedor usuario, Vendedor vendedor2){
-		modelFactoryController.agregarAmigo(usuario, vendedor2);
+
+	public boolean agregarAmigo(Vendedor usuario, Vendedor vendedor2) {
+		return modelFactoryController.agregarAmigo(usuario, vendedor2);
 	}
-	
-	public void eliminarAmigo(Vendedor vendedor){
-		modelFactoryController.eliminarAmigo(this.vendedor,vendedor);
+
+	public ArrayList<Vendedor> buscarVendedorPerfil(String nombre, String cedula, String usuario) {
+		return modelFactoryController.buscarVendedorPerfil(nombre, cedula, usuario);
+	}
+
+	public boolean eliminarAmigo(Vendedor vendedor) {
+		return modelFactoryController.eliminarAmigo(this.vendedor, vendedor);
 	}
 
 	public void agregarLike(Producto selectedItem) {
 		// TODO Auto-generated method stub
-		modelFactoryController.agregarLike(vendedor,selectedItem);
+		modelFactoryController.agregarLike(vendedor, selectedItem);
 	}
 
-	public void agregarComentario(Producto selectedItem, String comentario) {
+	public void agregarComentario(Producto producto, String comentario) {
 		// TODO Auto-generated method stub
-		modelFactoryController.agregarComentario(vendedor,selectedItem,comentario);
+		modelFactoryController.agregarComentario(vendedor, producto, comentario);
+	}
+
+	public String obtenerComentarios(Producto producto) {
+		return modelFactoryController.obtenerComentarios(producto);
 	}
 }

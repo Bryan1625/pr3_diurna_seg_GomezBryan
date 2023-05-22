@@ -8,7 +8,7 @@ import co.edu.uniquindio.market_place.exceptions.UsuarioException;
 import co.edu.uniquindio.market_place.exceptions.VendedorException;
 import co.edu.uniquindio.market_place.services.IMarketPlaceService;
 
-public class MarketPlace implements IMarketPlaceService, Serializable{
+public class MarketPlace implements IMarketPlaceService, Serializable {
 
 	/**
 	 * 
@@ -16,12 +16,11 @@ public class MarketPlace implements IMarketPlaceService, Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private ArrayList<Vendedor> vendedores = new ArrayList<>();
-	
+
 	private Administrador admin;
-	
+
 	private Login login;
-	
-	
+
 	public Login getLogin() {
 		return login;
 	}
@@ -51,11 +50,11 @@ public class MarketPlace implements IMarketPlaceService, Serializable{
 	public Administrador crearAdministrador(String nombre, String apellido, String cedula, String direccion,
 			String usuario, String contrasenia) throws AdministradorException {
 		Administrador nuevoAdmin = null;
-		//1. verificar si existe
+		// 1. verificar si existe
 		boolean adminExiste = verificarAdminExistente();
-		if(adminExiste){
-			throw new AdministradorException("El Administrador con cedula: "+cedula+" no se puedo asignar");
-		}else{
+		if (adminExiste) {
+			throw new AdministradorException("El Administrador con cedula: " + cedula + " no se puedo asignar");
+		} else {
 			nuevoAdmin = new Administrador();
 			nuevoAdmin.setNombre(nombre);
 			nuevoAdmin.setApellido(apellido);
@@ -66,11 +65,15 @@ public class MarketPlace implements IMarketPlaceService, Serializable{
 		}
 		return nuevoAdmin;
 	}
+	
+	public void agregarComentario(Producto producto, Vendedor vendedor, String comentario){
+		producto.getComentarios().add(vendedor.getUsuario()+": "+comentario);
+	}
 
 	private boolean verificarAdminExistente() {
-		if(getAdmin()!=null){
+		if (getAdmin() != null) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
@@ -79,11 +82,11 @@ public class MarketPlace implements IMarketPlaceService, Serializable{
 	public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion, String usuario,
 			String contrasenia) throws VendedorException {
 		Vendedor nuevoVendedor = null;
-		//1. verificar si existe
+		// 1. verificar si existe
 		boolean vendedorExiste = verificarVendedorExistente(cedula);
-		if(vendedorExiste){
-			throw new VendedorException("El vendedor con cedula: "+cedula+" ya existe");
-		}else{
+		if (vendedorExiste) {
+			throw new VendedorException("El vendedor con cedula: " + cedula + " ya existe");
+		} else {
 			nuevoVendedor = new Vendedor();
 			nuevoVendedor.setNombre(nombre);
 			nuevoVendedor.setApellido(apellido);
@@ -101,9 +104,9 @@ public class MarketPlace implements IMarketPlaceService, Serializable{
 		Vendedor vendedor = null;
 		boolean flagExiste = false;
 		vendedor = obtenerVendedor(cedula);
-		if(vendedor == null)
+		if (vendedor == null)
 			throw new VendedorException("El vendedor a eliminar no existe");
-		else{
+		else {
 			getVendedores().remove(vendedor);
 			flagExiste = true;
 		}
@@ -122,7 +125,7 @@ public class MarketPlace implements IMarketPlaceService, Serializable{
 	public boolean verificarVendedorExistente(String cedula) {
 		Vendedor vendedor = null;
 		vendedor = obtenerVendedor(cedula);
-		if(vendedor == null)
+		if (vendedor == null)
 			return false;
 		else
 			return true;
@@ -132,7 +135,7 @@ public class MarketPlace implements IMarketPlaceService, Serializable{
 	public Vendedor obtenerVendedor(String cedula) {
 		Vendedor vendedorEncontrado = null;
 		for (Vendedor vendedor : getVendedores()) {
-			if(vendedor.getCedula().equalsIgnoreCase(cedula)){
+			if (vendedor.getCedula().equalsIgnoreCase(cedula)) {
 				vendedorEncontrado = vendedor;
 				break;
 			}
@@ -146,36 +149,45 @@ public class MarketPlace implements IMarketPlaceService, Serializable{
 		return getVendedores();
 	}
 
-	public ArrayList<Vendedor> buscarVendedores(String nombre, String apellido, String cedula, String direccion, String usuario, String contrasenia) {
-        ArrayList<Vendedor> vendedoresEncontrados = new ArrayList<>();
-        for (Vendedor vendedor : vendedores) {
-            if (vendedor.getNombre().contains(nombre) || 
-                vendedor.getApellido().contains(apellido) || 
-                vendedor.getCedula().contains(cedula) || 
-                vendedor.getDireccion().contains(direccion) || 
-                vendedor.getUsuario().contains(usuario) || 
-                vendedor.getContrasenia().contains(contrasenia)) {
-                vendedoresEncontrados.add(vendedor);
-            }
-        }
-        if(vendedoresEncontrados.isEmpty()){
-        	return vendedores;
-        }
-        return vendedoresEncontrados;
-    }
-	
-	public Vendedor buscarVendedorUsuario(String usuario){
-		for(Vendedor vendedor: vendedores){
-			if(vendedor.getUsuario().contentEquals(usuario)){
+	public ArrayList<Vendedor> buscarVendedores(String nombre, String apellido, String cedula, String direccion,
+			String usuario, String contrasenia) {
+		ArrayList<Vendedor> vendedoresEncontrados = new ArrayList<>();
+		for (Vendedor vendedor : vendedores) {
+			if (vendedor.getNombre().contains(nombre) || vendedor.getApellido().contains(apellido)
+					|| vendedor.getCedula().contains(cedula) || vendedor.getDireccion().contains(direccion)
+					|| vendedor.getUsuario().contains(usuario) || vendedor.getContrasenia().contains(contrasenia)) {
+				vendedoresEncontrados.add(vendedor);
+			}
+		}
+		if (vendedoresEncontrados.isEmpty()) {
+			return vendedores;
+		}
+		return vendedoresEncontrados;
+	}
+
+	public ArrayList<Vendedor> buscarVendedorPerfil(String nombre, String cedula, String usuario) {
+		ArrayList<Vendedor> vendedores = new ArrayList<Vendedor>();
+		for (Vendedor vendedor : this.vendedores) {
+			if (vendedor.getNombre().equalsIgnoreCase(nombre.toLowerCase())
+					|| vendedor.getCedula().contentEquals(cedula)
+					|| vendedor.getUsuario().equalsIgnoreCase(usuario.toLowerCase())) {
+				vendedores.add(vendedor);
+			}
+		}
+		return vendedores;
+	}
+
+	public Vendedor buscarVendedorUsuario(String usuario) {
+		for (Vendedor vendedor : vendedores) {
+			if (vendedor.getUsuario().contentEquals(usuario)) {
 				return vendedor;
 			}
 		}
 		return null;
 	}
 
-
-	public boolean login(String usuario, String contrasenia, Persona persona) throws UsuarioException{
+	public boolean login(String usuario, String contrasenia, Persona persona) throws UsuarioException {
 		return login.login(usuario, contrasenia, persona);
 	}
-		
+
 }

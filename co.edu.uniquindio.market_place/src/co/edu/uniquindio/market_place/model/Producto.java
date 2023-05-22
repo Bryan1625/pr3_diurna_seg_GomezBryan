@@ -5,28 +5,23 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-
-
-public class Producto implements Serializable{
+public class Producto implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String nombre ="";
+	private String nombre = "";
 	private Double precio = 0.0;
-	private String descripcion="";
+	private String descripcion = "";
 	private String rutaImagen;
-	private String categoria="";
-	private Estado estado=Estado.publicado;
-	private ArrayList<Vendedor> likes=new ArrayList<Vendedor>();
+	private String categoria = "";
+	private Estado estado = Estado.publicado;
+	private ArrayList<Vendedor> likes = new ArrayList<Vendedor>();
 	private int numeroLikes;
 	private ArrayList<String> comentarios = new ArrayList<String>();
 	private String fecha;
-	
-	
-	
-	
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -42,15 +37,15 @@ public class Producto implements Serializable{
 		this.fecha = LocalDate.now().toString();
 	}
 
-	public void agregarLike(Vendedor vendedor){
-		if(buscarLike(vendedor)){
+	public void agregarLike(Vendedor vendedor) {
+		if (buscarLike(vendedor)) {
 			likes.remove(vendedor);
 		}
 		likes.add(vendedor);
 	}
-	
-	public boolean buscarLike(Vendedor vendedor){
-		if(likes.contains(vendedor)){
+
+	public boolean buscarLike(Vendedor vendedor) {
+		if (likes.contains(vendedor)) {
 			return true;
 		}
 		return false;
@@ -60,61 +55,49 @@ public class Producto implements Serializable{
 		return likes;
 	}
 
-
 	public void setLikes(ArrayList<Vendedor> likes) {
 		this.likes = likes;
 	}
-
 
 	public String getCategoria() {
 		return categoria;
 	}
 
-
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
-
 
 	public Estado getEstado() {
 		return estado;
 	}
 
-
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
-
 
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
 
-
 	public String getNombre() {
 		return nombre;
 	}
-
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-
 	public Double getPrecio() {
 		return precio;
 	}
-
 
 	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
 
-
 	public String getDescripcion() {
 		return descripcion;
 	}
-
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
@@ -122,6 +105,14 @@ public class Producto implements Serializable{
 
 	public ArrayList<String> getComentarios() {
 		return comentarios;
+	}
+	
+	public String obtenerComentarios(){
+		String resultado = "";
+		for(String comentario : comentarios){
+			resultado += comentario+"\n";
+		}
+		return resultado;
 	}
 
 	public void setComentarios(ArrayList<String> comentarios) {
@@ -151,7 +142,5 @@ public class Producto implements Serializable{
 	public void setNumeroLikes(int numeroLikes) {
 		this.numeroLikes = numeroLikes;
 	}
-
-
 
 }

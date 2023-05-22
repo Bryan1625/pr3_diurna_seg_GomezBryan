@@ -46,25 +46,25 @@ public class ModelFactoryController implements IModelFactoryService {
 
 	public ModelFactoryController() {
 
-//		 1. inicializar datos y luego guardarlo en archivos
-//		 inicializarSalvarDatos();
+		// 1. inicializar datos y luego guardarlo en archivos
+		// inicializarSalvarDatos();
 
 		// 2. Cargar los datos de los archivos
-//		 cargarDatosDesdeArchivos();
+		// cargarDatosDesdeArchivos();
 
 		// 3. Guardar y Cargar el recurso serializable binario
-//		 guardarResourceBinario();
-//		 cargarResourceBinario();
+		// guardarResourceBinario();
+		// cargarResourceBinario();
 
 		// 4. Guardar y Cargar el recurso serializable XML
-//		 guardarResourceXML();
-		 cargarResourceXML();
+		// guardarResourceXML();
+		cargarResourceXML();
 
 		// Siempre se debe verificar si la raiz del recurso es null
 
 		if (marketPlace == null) {
-//			inicializarDatos();
-//			// guardarResourceXML();
+			// inicializarDatos();
+			// // guardarResourceXML();
 		}
 
 		registrarAccionesSistemaHilos("Inicio de sesión", 1, "inicioSesión");
@@ -78,8 +78,8 @@ public class ModelFactoryController implements IModelFactoryService {
 	public void guardarResourceXML() {
 		Persistencia.guardarRecursomarketPlaceXML(marketPlace);
 	}
-	
-	private void guardarResourceXMLHilos(){
+
+	private void guardarResourceXMLHilos() {
 		Hilo_GuardarResourceXML h = new Hilo_GuardarResourceXML(getInstance());
 		h.start();
 	}
@@ -100,46 +100,45 @@ public class ModelFactoryController implements IModelFactoryService {
 			registrarAccionesSistemaHilos("se inicializaron los datos en el archivo", 1, "incializar salvar datos");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
+			// e.printStackTrace();
 			registrarAccionesSistemaHilos("No se pudo inicializar los datos", 3, "inicializar salvar datos");
 		}
 
 	}
-	
+
 	private void cargarDatosDesdeArchivos() {
 		this.marketPlace = new MarketPlace();
 		try {
-			ArrayList<Vendedor> listavendedores =new ArrayList<Vendedor>();
+			ArrayList<Vendedor> listavendedores = new ArrayList<Vendedor>();
 			listavendedores = Persistencia.cargarVendedores();
 			getMarketPlace().getVendedores().addAll(listavendedores);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
-			registrarAccionesSistemaHilos("Error --> "+e.getMessage(),3,"inicializar datos desde archivo");
-			registrarAccionesSistemaHilos("No se pudo cargar datos desde archivo", 3, "inicializar datos desde archivo");
+			// e.printStackTrace();
+			registrarAccionesSistemaHilos("Error --> " + e.getMessage(), 3, "inicializar datos desde archivo");
+			registrarAccionesSistemaHilos("No se pudo cargar datos desde archivo", 3,
+					"inicializar datos desde archivo");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
-			registrarAccionesSistemaHilos("Error --> "+e.getMessage(),3,"inicializar datos desde archivo");
-			registrarAccionesSistemaHilos("No se pudo cargar datos desde archivo", 3, "inicializar datos desde archivo");
+			// e.printStackTrace();
+			registrarAccionesSistemaHilos("Error --> " + e.getMessage(), 3, "inicializar datos desde archivo");
+			registrarAccionesSistemaHilos("No se pudo cargar datos desde archivo", 3,
+					"inicializar datos desde archivo");
 		}
-		
+
 	}
-	
 
 	public void registrarAccionesSistema(String mensaje, int nivel, String accion) {
 		Persistencia.guardarRegistroLog(mensaje, nivel, accion);
 	}
-	
-	public void registrarAccionesSistemaHilos(String mensaje, int nivel, String accion){
+
+	public void registrarAccionesSistemaHilos(String mensaje, int nivel, String accion) {
 		Hilo_RegistrarAccionesSistema h = new Hilo_RegistrarAccionesSistema(getInstance(), mensaje, nivel, accion);
 		h.start();
 	}
-	
-	
+
 	private void inicializarDatos() {
-		
-		
+
 		marketPlace = new MarketPlace();
 		Vendedor vendedor = new Vendedor();
 		vendedor.setNombre("Daniel");
@@ -159,7 +158,7 @@ public class ModelFactoryController implements IModelFactoryService {
 		vendedor.setUsuario("usuario_1");
 		vendedor.setContrasenia("contrasenia2");
 		marketPlace.getVendedores().add(vendedor);
-		
+
 		vendedor = new Vendedor();
 		vendedor.setNombre("Alberto");
 		vendedor.setApellido("Arias");
@@ -168,9 +167,9 @@ public class ModelFactoryController implements IModelFactoryService {
 		vendedor.setUsuario("usuario_2");
 		vendedor.setContrasenia("contrasenia3");
 		marketPlace.getVendedores().add(vendedor);
-		
+
 		registrarAccionesSistemaHilos("datos inicializados", 1, "inicializar los datos");
-		
+
 	}
 
 	public MarketPlace getMarketPlace() {
@@ -181,21 +180,21 @@ public class ModelFactoryController implements IModelFactoryService {
 		this.marketPlace = marketPlace;
 	}
 
-
 	@Override
 	public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion, String usuario,
 			String contrasenia) throws VendedorException, IOException {
 		Vendedor vendedor = null;
 		try {
 			vendedor = getMarketPlace().crearVendedor(nombre, apellido, cedula, direccion, usuario, contrasenia);
-			registrarAccionesSistemaHilos("Vendedor creado por el usuario: "+marketPlace.getLogin().getUsuario(), 1, "Agregar Vendedor");
+			registrarAccionesSistemaHilos("Vendedor creado por el usuario: " + marketPlace.getLogin().getUsuario(), 1,
+					"Agregar Vendedor");
 			guardarResourceXML();
 		} catch (VendedorException e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
-			registrarAccionesSistemaHilos("Error ---> "+e.getMessage(), 3, "Agregar Vendedor");
+			// e.printStackTrace();
+			registrarAccionesSistemaHilos("Error ---> " + e.getMessage(), 3, "Agregar Vendedor");
 		}
-		
+
 		return vendedor;
 	}
 
@@ -205,12 +204,13 @@ public class ModelFactoryController implements IModelFactoryService {
 		try {
 			flagExiste = getMarketPlace().eliminarVendedor(cedula);
 			guardarResourceXML();
-			registrarAccionesSistemaHilos("vendedor con cedula "+cedula+" eliminado por el usuario: "+marketPlace.getLogin().getUsuario(), 1, "eliminar vendedor");
-			
+			registrarAccionesSistemaHilos("vendedor con cedula " + cedula + " eliminado por el usuario: "
+					+ marketPlace.getLogin().getUsuario(), 1, "eliminar vendedor");
+
 		} catch (VendedorException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
-			registrarAccionesSistemaHilos("Error ---> "+e.getMessage(), 3, "Eliminar Vendedor");
+			// e.printStackTrace();
+			registrarAccionesSistemaHilos("Error ---> " + e.getMessage(), 3, "Eliminar Vendedor");
 		}
 		return flagExiste;
 	}
@@ -232,78 +232,92 @@ public class ModelFactoryController implements IModelFactoryService {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	public ArrayList<Vendedor> buscarVendedores(String nombre, String apellido, String cedula, String direccion, String usuario, String contrasenia){
+
+	public ArrayList<Vendedor> buscarVendedores(String nombre, String apellido, String cedula, String direccion,
+			String usuario, String contrasenia) {
 		return marketPlace.buscarVendedores(nombre, apellido, cedula, direccion, usuario, contrasenia);
 	}
-	
-	public boolean login(String usuario, String contrasenia) throws UsuarioException{
+
+	public boolean login(String usuario, String contrasenia) throws UsuarioException {
 		Persona persona;
-		for(Vendedor vendedor: marketPlace.getVendedores()){
-			if(vendedor.getUsuario().equals(usuario)){
-				if(vendedor.getContrasenia().equals(contrasenia)){
+		for (Vendedor vendedor : marketPlace.getVendedores()) {
+			if (vendedor.getUsuario().equals(usuario)) {
+				if (vendedor.getContrasenia().equals(contrasenia)) {
 					persona = vendedor;
-					marketPlace.getLogin().setPersona(persona);;
-					registrarAccionesSistemaHilos("se ha iniciado sesion con el usuario: "+persona.getUsuario(), 1, "login");
+					marketPlace.getLogin().setPersona(persona);
+					;
+					registrarAccionesSistemaHilos("se ha iniciado sesion con el usuario: " + persona.getUsuario(), 1,
+							"login");
 					return marketPlace.login(usuario, contrasenia, persona);
 				}
 			}
 		}
 		return false;
 	}
-	
-	public Persona obtenerUsuario(){
+
+	public Persona obtenerUsuario() {
 		return marketPlace.getLogin().getPersona();
 	}
-	
-	public void enviarMensaje(Vendedor emisor, Vendedor receptor, Mensaje mensaje){
+
+	public void enviarMensaje(Vendedor emisor, Vendedor receptor, Mensaje mensaje) {
 		try {
 			emisor.enviarMensaje(receptor, mensaje);
 		} catch (MensajeException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
-			registrarAccionesSistemaHilos("error" +e.getMessage(), 3, "enviar mensaje");
+			// e.printStackTrace();
+			registrarAccionesSistemaHilos("error" + e.getMessage(), 3, "enviar mensaje");
 		}
 	}
-	
-	public void publicarProducto(Vendedor vendedor, Producto producto) throws PublicacionException{
+
+	public void publicarProducto(Vendedor vendedor, Producto producto) throws PublicacionException {
 		try {
 			vendedor.publicarProducto(producto);
 			guardarResourceXML();
 		} catch (PublicacionException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
-			registrarAccionesSistemaHilos("error"+e.getMessage(), 3, "publicar producto");
+			// e.printStackTrace();
+			registrarAccionesSistemaHilos("error" + e.getMessage(), 3, "publicar producto");
 		}
 	}
 
-	
-	public boolean eliminarProducto(Vendedor vendedor, Producto producto){
+	public boolean eliminarProducto(Vendedor vendedor, Producto producto) {
 		try {
-			if(vendedor.eliminarProducto(producto)){
+			if (vendedor.eliminarProducto(producto)) {
 				guardarResourceXML();
 				return true;
 			}
 		} catch (ProductoException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
-			registrarAccionesSistemaHilos("error"+e.getMessage(), 3, "eliminar producto");
+			// e.printStackTrace();
+			registrarAccionesSistemaHilos("error" + e.getMessage(), 3, "eliminar producto");
 		}
 		return false;
 	}
 
-	public void agregarAmigo(Vendedor usuario, Vendedor vendedor2){
-		if(usuario.agregarAmigo(vendedor2)){
-			
-		}else{
+	public boolean agregarAmigo(Vendedor usuario, Vendedor vendedor2) {
+		if (usuario.agregarAmigo(vendedor2)) {
+			guardarResourceXML();
+			return true;
+		} else {
 			registrarAccionesSistemaHilos("error al agregar un amigo", 2, "agregar amigo");
+			return false;
 		}
-		
+
 	}
 
-	public void eliminarAmigo(Vendedor vendedor1,Vendedor vendedor2) {
+	public boolean eliminarAmigo(Vendedor vendedor1, Vendedor vendedor2) {
 		// TODO Auto-generated method stub
-		vendedor1.eliminarAmigo(vendedor2);
+		if (vendedor1.eliminarAmigo(vendedor2)) {
+			guardarResourceXML();
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+
+	public ArrayList<Vendedor> buscarVendedorPerfil(String nombre, String cedula, String usuario) {
+		return marketPlace.buscarVendedorPerfil(nombre, cedula, usuario);
 	}
 
 	public void agregarLike(Vendedor vendedor, Producto selectedItem) {
@@ -311,14 +325,18 @@ public class ModelFactoryController implements IModelFactoryService {
 		selectedItem.agregarLike(vendedor);
 	}
 
-	public void agregarComentario(Vendedor vendedor, Producto selectedItem, String comentario) {
+	public void agregarComentario(Vendedor vendedor, Producto producto, String comentario) {
 		// TODO Auto-generated method stub
-		selectedItem.getComentarios().add(vendedor.getUsuario()+": "+comentario);
+		marketPlace.agregarComentario(producto, vendedor, comentario);
+	}
+	
+	public String obtenerComentarios(Producto producto){
+		return producto.obtenerComentarios();
 	}
 
 	public Vendedor obtenerVendedorUsuario(String usuario) {
 		// TODO Auto-generated method stub
 		return marketPlace.buscarVendedorUsuario(usuario);
 	}
-	
+
 }

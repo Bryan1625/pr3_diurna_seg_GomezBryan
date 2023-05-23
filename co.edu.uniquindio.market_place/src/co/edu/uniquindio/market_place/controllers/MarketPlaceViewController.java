@@ -54,7 +54,6 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	private Persona usuario;
 	private Vendedor vendedorLogin;
 
-
 	Vendedor vendedorSeleccionado;
 
 	Producto productoSeleccionadoPerfil;
@@ -68,6 +67,47 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	ObservableList<Producto> listaProductosPerfilData = FXCollections.observableArrayList();
 
 	ObservableList<Vendedor> listaAmigosPerfilData = FXCollections.observableArrayList();
+
+	ObservableList<Vendedor> listaAmigosVendedor1Data = FXCollections.observableArrayList();
+	ObservableList<Producto> listaProductosVendedor1Data = FXCollections.observableArrayList();
+	Producto productoSeleccionadoVendedor1;
+	Vendedor vendedorSeleccionadoVendedor1;
+	ObservableList<Vendedor> listaAmigosVendedor2Data = FXCollections.observableArrayList();
+	ObservableList<Producto> listaProductosVendedor2Data = FXCollections.observableArrayList();
+	Producto productoSeleccionadoVendedor2;
+	Vendedor vendedorSeleccionadoVendedor2;
+	ObservableList<Vendedor> listaAmigosVendedor3Data = FXCollections.observableArrayList();
+	ObservableList<Producto> listaProductosVendedor3Data = FXCollections.observableArrayList();
+	Producto productoSeleccionadoVendedor3;
+	Vendedor vendedorSeleccionadoVendedor3;
+	ObservableList<Vendedor> listaAmigosVendedor4Data = FXCollections.observableArrayList();
+	ObservableList<Producto> listaProductosVendedor4Data = FXCollections.observableArrayList();
+	Producto productoSeleccionadoVendedor4;
+	Vendedor vendedorSeleccionadoVendedor4;
+	ObservableList<Vendedor> listaAmigosVendedor5Data = FXCollections.observableArrayList();
+	ObservableList<Producto> listaProductosVendedor5Data = FXCollections.observableArrayList();
+	Producto productoSeleccionadoVendedor5;
+	Vendedor vendedorSeleccionadoVendedor5;
+	ObservableList<Vendedor> listaAmigosVendedor6Data = FXCollections.observableArrayList();
+	ObservableList<Producto> listaProductosVendedor6Data = FXCollections.observableArrayList();
+	Producto productoSeleccionadoVendedor6;
+	Vendedor vendedorSeleccionadoVendedor6;
+	ObservableList<Vendedor> listaAmigosVendedor7Data = FXCollections.observableArrayList();
+	ObservableList<Producto> listaProductosVendedor7Data = FXCollections.observableArrayList();
+	Producto productoSeleccionadoVendedor7;
+	Vendedor vendedorSeleccionadoVendedor7;
+	ObservableList<Vendedor> listaAmigosVendedor8Data = FXCollections.observableArrayList();
+	ObservableList<Producto> listaProductosVendedor8Data = FXCollections.observableArrayList();
+	Producto productoSeleccionadoVendedor8;
+	Vendedor vendedorSeleccionadoVendedor8;
+	ObservableList<Vendedor> listaAmigosVendedor9Data = FXCollections.observableArrayList();
+	ObservableList<Producto> listaProductosVendedor9Data = FXCollections.observableArrayList();
+	Producto productoSeleccionadoVendedor9;
+	Vendedor vendedorSeleccionadoVendedor9;
+	ObservableList<Vendedor> listaAmigosVendedor10Data = FXCollections.observableArrayList();
+	ObservableList<Producto> listaProductosVendedor10Data = FXCollections.observableArrayList();
+	Producto productoSeleccionadoVendedor10;
+	Vendedor vendedorSeleccionadoVendedor10;
 
 	/*
 	 * login
@@ -267,6 +307,13 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	@FXML
 	private TextField usuarioVendedor1TextField;
+
+	@FXML
+	private ImageView imagenProductoVendedor1;
+
+	@FXML
+	private TextArea descripcionProductoVendedor1TextArea;
+
 	@FXML
 	private TableView<Producto> productosVendedor2Table;
 	@FXML
@@ -299,6 +346,11 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	private TextField nombreVendedor2TextField;
 	@FXML
 	private TextField usuarioVendedor2TextField;
+	@FXML
+	private ImageView imagenProductoVendedor2;
+
+	@FXML
+	private TextArea descripcionProductoVendedor2TextArea;
 
 	@FXML
 	private TableView<Producto> productosVendedor3Table;
@@ -332,6 +384,11 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	private TextField nombreVendedor3TextField;
 	@FXML
 	private TextField usuarioVendedor3TextField;
+	@FXML
+	private ImageView imagenProductoVendedor3;
+
+	@FXML
+	private TextArea descripcionProductoVendedor3TextArea;
 
 	@FXML
 	private TableView<Producto> productosVendedor4Table;
@@ -365,6 +422,11 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	private TextField nombreVendedor4TextField;
 	@FXML
 	private TextField usuarioVendedor4TextField;
+	@FXML
+	private ImageView imagenProductoVendedor4;
+
+	@FXML
+	private TextArea descripcionProductoVendedor4TextArea;
 
 	@FXML
 	private TableView<Producto> productosVendedor5Table;
@@ -398,6 +460,11 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	private TextField nombreVendedor5TextField;
 	@FXML
 	private TextField usuarioVendedor5TextField;
+	@FXML
+	private ImageView imagenProductoVendedor5;
+
+	@FXML
+	private TextArea descripcionProductoVendedor5TextArea;
 
 	@FXML
 	private TableView<Producto> productosVendedor6Table;
@@ -433,6 +500,12 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	private TextField usuarioVendedor6TextField;
 
 	@FXML
+	private ImageView imagenProductoVendedor6;
+
+	@FXML
+	private TextArea descripcionProductoVendedor6TextArea;
+
+	@FXML
 	private TableView<Producto> productosVendedor7Table;
 	@FXML
 	private TableColumn<Producto, String> nombreProductosVendedor7Column;
@@ -464,6 +537,12 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	private TextField nombreVendedor7TextField;
 	@FXML
 	private TextField usuarioVendedor7TextField;
+
+	@FXML
+	private ImageView imagenProductoVendedor7;
+
+	@FXML
+	private TextArea descripcionProductoVendedor7TextArea;
 
 	@FXML
 	private TableView<Producto> productosVendedor8Table;
@@ -499,6 +578,12 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	private TextField usuarioVendedor8TextField;
 
 	@FXML
+	private ImageView imagenProductoVendedor8;
+
+	@FXML
+	private TextArea descripcionProductoVendedor8TextArea;
+
+	@FXML
 	private TableView<Producto> productosVendedor9Table;
 	@FXML
 	private TableColumn<Producto, String> nombreProductosVendedor9Column;
@@ -532,6 +617,12 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	private TextField usuarioVendedor9TextField;
 
 	@FXML
+	private ImageView imagenProductoVendedor9;
+
+	@FXML
+	private TextArea descripcionProductoVendedor9TextArea;
+
+	@FXML
 	private TableView<Producto> productosVendedor10Table;
 	@FXML
 	private TableColumn<Producto, String> nombreProductosVendedor10Column;
@@ -563,6 +654,12 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	private TextField nombreVendedor10TextField;
 	@FXML
 	private TextField usuarioVendedor10TextField;
+
+	@FXML
+	private ImageView imagenProductoVendedor10;
+
+	@FXML
+	private TextArea descripcionProductoVendedor10TextArea;
 
 	public MarketPlaceViewController() {
 
@@ -613,9 +710,11 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 			estadoProductoPerfilComboBox.setValue(productoSeleccionado.getEstado());
 			descripcionProductoPerfilTextArea.setText(productoSeleccionado.getDescripcion());
 			imagenProductoImageView.setImage(new Image(productoSeleccionado.getRutaImagen()));
-			String comentarios = getComentariosProductoPrefil(productoSeleccionado);
-			if(comentarios != ""){
+			String comentarios = getComentariosProducto(productoSeleccionado);
+			if (comentarios != null && comentarios != "") {
 				comentariosPerfilTextArea.setText(comentarios);
+			}else{
+				comentariosPerfilTextArea.clear();
 			}
 		}
 	}
@@ -646,12 +745,12 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 			txtFieldContraseniaVendedorAdmin.setText(vendedorSeleccionado.getContrasenia());
 		}
 	}
-	
-	public String getComentariosProductoPrefil(Producto producto){
+
+	public String getComentariosProducto(Producto producto) {
 		String comentarios = vendedorViewController.obtenerComentarios(producto);
-		if(comentarios != ""){
+		if (comentarios != "") {
 			return comentarios;
-		}else{
+		} else {
 			return null;
 		}
 	}
@@ -693,6 +792,579 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 			amigoSeleccionadoPerfil = newSelection;
 			mostrarInformacionAmigosPerfil(amigoSeleccionadoPerfil);
 		});
+
+		if (vendedorLogin.getAmigos().size() > 0) {
+			inicializarVendedor1();
+		}
+		if(vendedorLogin.getAmigos().size() > 1){
+			inicializarVendedor2();
+		}
+		if(vendedorLogin.getAmigos().size() > 2){
+			inicializarVendedor3();
+		}
+		if(vendedorLogin.getAmigos().size() > 3){
+			inicializarVendedor4();
+		}
+		if(vendedorLogin.getAmigos().size() > 4){
+			inicializarVendedor5();
+		}
+		if(vendedorLogin.getAmigos().size() > 5){
+			inicializarVendedor6();
+		}
+		if(vendedorLogin.getAmigos().size() > 6){
+			inicializarVendedor7();
+		}
+		if(vendedorLogin.getAmigos().size() > 7){
+			inicializarVendedor8();
+		}
+		if(vendedorLogin.getAmigos().size() > 8){
+			inicializarVendedor9();
+		}
+		if(vendedorLogin.getAmigos().size() > 9){
+			inicializarVendedor10();
+		}
+	}
+
+	public void inicializarVendedor1() {
+		if (vendedorLogin.getAmigos().get(0) != null) {
+			Vendedor vendedor = vendedorLogin.getAmigos().get(0);
+			nombreVendedor1TextField.setText(vendedor.getNombre());
+			usuarioVendedor1TextField.setText(vendedor.getUsuario());
+
+			nombreAmigosVendedor1Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			cedulaAmigosVendedor1Column.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+			usuarioAmigosVendedor1Column.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+			amigosVendedor1Table.setItems(getListaAmigosVendedor1Data());
+
+			amigosVendedor1Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						vendedorSeleccionadoVendedor1 = newSelection;
+					});
+
+			nombreProductosVendedor1Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			fechaProductosVendedor1Column.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+			estadoProductosVendedor1Column.setCellValueFactory(new PropertyValueFactory<>("estado"));
+			precioProductosVendedor1Column.setCellValueFactory(new PropertyValueFactory<>("precio"));
+			categoriaProductosVendedor1Column.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+			likesProductosVendedor1Column.setCellValueFactory(new PropertyValueFactory<>("numeroLikes"));
+
+			productosVendedor1Table.setItems(getProductosVendedor1());
+
+			productosVendedor1Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						productoSeleccionadoVendedor1 = newSelection;
+						mostrarInformacionProductoVendedor1(productoSeleccionadoVendedor1);
+					});
+		}
+	}
+	
+	public void inicializarVendedor2() {
+		if (vendedorLogin.getAmigos().get(1) != null) {
+			Vendedor vendedor = vendedorLogin.getAmigos().get(1);
+			nombreVendedor2TextField.setText(vendedor.getNombre());
+			usuarioVendedor2TextField.setText(vendedor.getUsuario());
+
+			nombreAmigosVendedor2Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			cedulaAmigosVendedor2Column.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+			usuarioAmigosVendedor2Column.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+			amigosVendedor2Table.setItems(getListaAmigosVendedor2Data());
+
+			amigosVendedor2Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						vendedorSeleccionadoVendedor2 = newSelection;
+					});
+
+			nombreProductosVendedor2Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			fechaProductosVendedor2Column.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+			estadoProductosVendedor2Column.setCellValueFactory(new PropertyValueFactory<>("estado"));
+			precioProductosVendedor2Column.setCellValueFactory(new PropertyValueFactory<>("precio"));
+			categoriaProductosVendedor2Column.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+			likesProductosVendedor2Column.setCellValueFactory(new PropertyValueFactory<>("numeroLikes"));
+
+			productosVendedor2Table.setItems(getProductosVendedor2());
+
+			productosVendedor2Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						productoSeleccionadoVendedor2 = newSelection;
+						mostrarInformacionProductoVendedor2(productoSeleccionadoVendedor2);
+					});
+		}
+	}
+	
+	public void inicializarVendedor3() {
+		if (vendedorLogin.getAmigos().size() >= 3 && vendedorLogin.getAmigos().get(2) != null) {
+			Vendedor vendedor = vendedorLogin.getAmigos().get(2);
+			nombreVendedor3TextField.setText(vendedor.getNombre());
+			usuarioVendedor3TextField.setText(vendedor.getUsuario());
+
+			nombreAmigosVendedor3Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			cedulaAmigosVendedor3Column.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+			usuarioAmigosVendedor3Column.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+			amigosVendedor3Table.setItems(getListaAmigosVendedor3Data());
+
+			amigosVendedor3Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						vendedorSeleccionadoVendedor3 = newSelection;
+					});
+
+			nombreProductosVendedor3Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			fechaProductosVendedor3Column.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+			estadoProductosVendedor3Column.setCellValueFactory(new PropertyValueFactory<>("estado"));
+			precioProductosVendedor3Column.setCellValueFactory(new PropertyValueFactory<>("precio"));
+			categoriaProductosVendedor3Column.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+			likesProductosVendedor3Column.setCellValueFactory(new PropertyValueFactory<>("numeroLikes"));
+
+			productosVendedor3Table.setItems(getProductosVendedor3());
+
+			productosVendedor3Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						productoSeleccionadoVendedor3 = newSelection;
+						mostrarInformacionProductoVendedor3(productoSeleccionadoVendedor3);
+					});
+		}
+	}
+
+	public void inicializarVendedor4() {
+		if (vendedorLogin.getAmigos().size() >= 4 && vendedorLogin.getAmigos().get(3) != null) {
+			Vendedor vendedor = vendedorLogin.getAmigos().get(3);
+			nombreVendedor4TextField.setText(vendedor.getNombre());
+			usuarioVendedor4TextField.setText(vendedor.getUsuario());
+
+			nombreAmigosVendedor4Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			cedulaAmigosVendedor4Column.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+			usuarioAmigosVendedor4Column.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+			amigosVendedor4Table.setItems(getListaAmigosVendedor4Data());
+
+			amigosVendedor4Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						vendedorSeleccionadoVendedor4 = newSelection;
+					});
+
+			nombreProductosVendedor4Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			fechaProductosVendedor4Column.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+			estadoProductosVendedor4Column.setCellValueFactory(new PropertyValueFactory<>("estado"));
+			precioProductosVendedor4Column.setCellValueFactory(new PropertyValueFactory<>("precio"));
+			categoriaProductosVendedor4Column.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+			likesProductosVendedor4Column.setCellValueFactory(new PropertyValueFactory<>("numeroLikes"));
+
+			productosVendedor4Table.setItems(getProductosVendedor4());
+
+			productosVendedor4Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						productoSeleccionadoVendedor4 = newSelection;
+						mostrarInformacionProductoVendedor4(productoSeleccionadoVendedor4);
+					});
+		}
+	}
+	
+	public void inicializarVendedor5() {
+		if (vendedorLogin.getAmigos().size() >= 5 && vendedorLogin.getAmigos().get(4) != null) {
+			Vendedor vendedor = vendedorLogin.getAmigos().get(4);
+			nombreVendedor5TextField.setText(vendedor.getNombre());
+			usuarioVendedor5TextField.setText(vendedor.getUsuario());
+
+			nombreAmigosVendedor5Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			cedulaAmigosVendedor5Column.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+			usuarioAmigosVendedor5Column.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+			amigosVendedor5Table.setItems(getListaAmigosVendedor5Data());
+
+			amigosVendedor5Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						vendedorSeleccionadoVendedor5 = newSelection;
+					});
+
+			nombreProductosVendedor5Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			fechaProductosVendedor5Column.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+			estadoProductosVendedor5Column.setCellValueFactory(new PropertyValueFactory<>("estado"));
+			precioProductosVendedor5Column.setCellValueFactory(new PropertyValueFactory<>("precio"));
+			categoriaProductosVendedor5Column.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+			likesProductosVendedor5Column.setCellValueFactory(new PropertyValueFactory<>("numeroLikes"));
+
+			productosVendedor5Table.setItems(getProductosVendedor5());
+
+			productosVendedor5Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						productoSeleccionadoVendedor5 = newSelection;
+						mostrarInformacionProductoVendedor5(productoSeleccionadoVendedor5);
+					});
+		}
+	}
+
+
+	public void inicializarVendedor6() {
+		if (vendedorLogin.getAmigos().size() >= 6 && vendedorLogin.getAmigos().get(5) != null) {
+			Vendedor vendedor = vendedorLogin.getAmigos().get(5);
+			nombreVendedor6TextField.setText(vendedor.getNombre());
+			usuarioVendedor6TextField.setText(vendedor.getUsuario());
+
+			nombreAmigosVendedor6Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			cedulaAmigosVendedor6Column.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+			usuarioAmigosVendedor6Column.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+			amigosVendedor6Table.setItems(getListaAmigosVendedor6Data());
+
+			amigosVendedor6Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						vendedorSeleccionadoVendedor6 = newSelection;
+					});
+
+			nombreProductosVendedor6Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			fechaProductosVendedor6Column.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+			estadoProductosVendedor6Column.setCellValueFactory(new PropertyValueFactory<>("estado"));
+			precioProductosVendedor6Column.setCellValueFactory(new PropertyValueFactory<>("precio"));
+			categoriaProductosVendedor6Column.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+			likesProductosVendedor6Column.setCellValueFactory(new PropertyValueFactory<>("numeroLikes"));
+
+			productosVendedor6Table.setItems(getProductosVendedor6());
+
+			productosVendedor6Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						productoSeleccionadoVendedor6 = newSelection;
+						mostrarInformacionProductoVendedor6(productoSeleccionadoVendedor6);
+					});
+		}
+	}
+	
+	public void inicializarVendedor7() {
+		if (vendedorLogin.getAmigos().size() >= 7 && vendedorLogin.getAmigos().get(6) != null) {
+			Vendedor vendedor = vendedorLogin.getAmigos().get(6);
+			nombreVendedor7TextField.setText(vendedor.getNombre());
+			usuarioVendedor7TextField.setText(vendedor.getUsuario());
+
+			nombreAmigosVendedor7Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			cedulaAmigosVendedor7Column.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+			usuarioAmigosVendedor7Column.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+			amigosVendedor7Table.setItems(getListaAmigosVendedor7Data());
+
+			amigosVendedor7Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						vendedorSeleccionadoVendedor7 = newSelection;
+					});
+
+			nombreProductosVendedor7Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			fechaProductosVendedor7Column.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+			estadoProductosVendedor7Column.setCellValueFactory(new PropertyValueFactory<>("estado"));
+			precioProductosVendedor7Column.setCellValueFactory(new PropertyValueFactory<>("precio"));
+			categoriaProductosVendedor7Column.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+			likesProductosVendedor7Column.setCellValueFactory(new PropertyValueFactory<>("numeroLikes"));
+
+			productosVendedor7Table.setItems(getProductosVendedor7());
+
+			productosVendedor7Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						productoSeleccionadoVendedor7 = newSelection;
+						mostrarInformacionProductoVendedor7(productoSeleccionadoVendedor7);
+					});
+		}
+	}
+	
+	public void inicializarVendedor8() {
+		if (vendedorLogin.getAmigos().size() >= 8 && vendedorLogin.getAmigos().get(7) != null) {
+			Vendedor vendedor = vendedorLogin.getAmigos().get(7);
+			nombreVendedor8TextField.setText(vendedor.getNombre());
+			usuarioVendedor8TextField.setText(vendedor.getUsuario());
+
+			nombreAmigosVendedor8Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			cedulaAmigosVendedor8Column.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+			usuarioAmigosVendedor8Column.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+			amigosVendedor8Table.setItems(getListaAmigosVendedor8Data());
+
+			amigosVendedor8Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						vendedorSeleccionadoVendedor8 = newSelection;
+					});
+
+			nombreProductosVendedor8Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			fechaProductosVendedor8Column.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+			estadoProductosVendedor8Column.setCellValueFactory(new PropertyValueFactory<>("estado"));
+			precioProductosVendedor8Column.setCellValueFactory(new PropertyValueFactory<>("precio"));
+			categoriaProductosVendedor8Column.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+			likesProductosVendedor8Column.setCellValueFactory(new PropertyValueFactory<>("numeroLikes"));
+
+			productosVendedor8Table.setItems(getProductosVendedor8());
+
+			productosVendedor8Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						productoSeleccionadoVendedor8 = newSelection;
+						mostrarInformacionProductoVendedor8(productoSeleccionadoVendedor8);
+					});
+		}
+	}
+
+	public void inicializarVendedor9() {
+		if (vendedorLogin.getAmigos().size() >= 9 && vendedorLogin.getAmigos().get(8) != null) {
+			Vendedor vendedor = vendedorLogin.getAmigos().get(8);
+			nombreVendedor9TextField.setText(vendedor.getNombre());
+			usuarioVendedor9TextField.setText(vendedor.getUsuario());
+
+			nombreAmigosVendedor9Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			cedulaAmigosVendedor9Column.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+			usuarioAmigosVendedor9Column.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+			amigosVendedor9Table.setItems(getListaAmigosVendedor9Data());
+
+			amigosVendedor9Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						vendedorSeleccionadoVendedor9 = newSelection;
+					});
+
+			nombreProductosVendedor9Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			fechaProductosVendedor9Column.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+			estadoProductosVendedor9Column.setCellValueFactory(new PropertyValueFactory<>("estado"));
+			precioProductosVendedor9Column.setCellValueFactory(new PropertyValueFactory<>("precio"));
+			categoriaProductosVendedor9Column.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+			likesProductosVendedor9Column.setCellValueFactory(new PropertyValueFactory<>("numeroLikes"));
+
+			productosVendedor9Table.setItems(getProductosVendedor9());
+
+			productosVendedor9Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						productoSeleccionadoVendedor9 = newSelection;
+						mostrarInformacionProductoVendedor9(productoSeleccionadoVendedor9);
+					});
+		}
+	}
+
+	public void inicializarVendedor10() {
+		if (vendedorLogin.getAmigos().size() >= 10 && vendedorLogin.getAmigos().get(9) != null) {
+			Vendedor vendedor = vendedorLogin.getAmigos().get(9);
+			nombreVendedor10TextField.setText(vendedor.getNombre());
+			usuarioVendedor10TextField.setText(vendedor.getUsuario());
+
+			nombreAmigosVendedor10Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			cedulaAmigosVendedor10Column.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+			usuarioAmigosVendedor10Column.setCellValueFactory(new PropertyValueFactory<>("usuario"));
+			amigosVendedor10Table.setItems(getListaAmigosVendedor10Data());
+
+			amigosVendedor10Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						vendedorSeleccionadoVendedor10 = newSelection;
+					});
+
+			nombreProductosVendedor10Column.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+			fechaProductosVendedor10Column.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+			estadoProductosVendedor10Column.setCellValueFactory(new PropertyValueFactory<>("estado"));
+			precioProductosVendedor10Column.setCellValueFactory(new PropertyValueFactory<>("precio"));
+			categoriaProductosVendedor10Column.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+			likesProductosVendedor10Column.setCellValueFactory(new PropertyValueFactory<>("numeroLikes"));
+
+			productosVendedor10Table.setItems(getProductosVendedor10());
+
+			productosVendedor10Table.getSelectionModel().selectedItemProperty()
+					.addListener((obs, oldSelection, newSelection) -> {
+						productoSeleccionadoVendedor10 = newSelection;
+						mostrarInformacionProductoVendedor10(productoSeleccionadoVendedor10);
+					});
+		}
+	}
+
+	private void mostrarInformacionProductoVendedor2(Producto productoSeleccionado) {
+		String comentarios = getComentariosProducto(productoSeleccionado);
+		if (comentarios != "") {
+			comentariosVendedor2TextArea.setText(productoSeleccionado.obtenerComentarios());
+		}else{
+			comentariosVendedor2TextArea.clear();
+		}
+		imagenProductoVendedor2.setImage(new Image(productoSeleccionado.getRutaImagen()));
+		descripcionProductoVendedor2TextArea.setText(productoSeleccionado.getDescripcion());
+	}
+	
+	private void mostrarInformacionProductoVendedor3(Producto productoSeleccionado) {
+		String comentarios = getComentariosProducto(productoSeleccionado);
+		if (comentarios != "") {
+			comentariosVendedor3TextArea.setText(productoSeleccionado.obtenerComentarios());
+		}else{
+			comentariosVendedor3TextArea.clear();
+		}
+		imagenProductoVendedor3.setImage(new Image(productoSeleccionado.getRutaImagen()));
+		descripcionProductoVendedor3TextArea.setText(productoSeleccionado.getDescripcion());
+	}
+	
+	private void mostrarInformacionProductoVendedor4(Producto productoSeleccionado) {
+		String comentarios = getComentariosProducto(productoSeleccionado);
+		if (comentarios != "") {
+			comentariosVendedor4TextArea.setText(productoSeleccionado.obtenerComentarios());
+		}else{
+			comentariosVendedor4TextArea.clear();
+		}
+		imagenProductoVendedor4.setImage(new Image(productoSeleccionado.getRutaImagen()));
+		descripcionProductoVendedor4TextArea.setText(productoSeleccionado.getDescripcion());
+	}
+	
+	private void mostrarInformacionProductoVendedor5(Producto productoSeleccionado) {
+		String comentarios = getComentariosProducto(productoSeleccionado);
+		if (comentarios != "") {
+			comentariosVendedor5TextArea.setText(productoSeleccionado.obtenerComentarios());
+		}else{
+			comentariosVendedor5TextArea.clear();
+		}
+		imagenProductoVendedor5.setImage(new Image(productoSeleccionado.getRutaImagen()));
+		descripcionProductoVendedor5TextArea.setText(productoSeleccionado.getDescripcion());
+	}
+	
+	private void mostrarInformacionProductoVendedor6(Producto productoSeleccionado) {
+		String comentarios = getComentariosProducto(productoSeleccionado);
+		if (comentarios != "") {
+			comentariosVendedor6TextArea.setText(productoSeleccionado.obtenerComentarios());
+		}else{
+			comentariosVendedor6TextArea.clear();
+		}
+		imagenProductoVendedor6.setImage(new Image(productoSeleccionado.getRutaImagen()));
+		descripcionProductoVendedor6TextArea.setText(productoSeleccionado.getDescripcion());
+	}
+	
+	private void mostrarInformacionProductoVendedor7(Producto productoSeleccionado) {
+		String comentarios = getComentariosProducto(productoSeleccionado);
+		if (comentarios != "") {
+			comentariosVendedor7TextArea.setText(productoSeleccionado.obtenerComentarios());
+		}else{
+			comentariosVendedor7TextArea.clear();
+		}
+		imagenProductoVendedor7.setImage(new Image(productoSeleccionado.getRutaImagen()));
+		descripcionProductoVendedor7TextArea.setText(productoSeleccionado.getDescripcion());
+	}
+	
+	private void mostrarInformacionProductoVendedor8(Producto productoSeleccionado) {
+		String comentarios = getComentariosProducto(productoSeleccionado);
+		if (comentarios != "") {
+			comentariosVendedor8TextArea.setText(productoSeleccionado.obtenerComentarios());
+		}else{
+			comentariosVendedor8TextArea.clear();
+		}
+		imagenProductoVendedor8.setImage(new Image(productoSeleccionado.getRutaImagen()));
+		descripcionProductoVendedor8TextArea.setText(productoSeleccionado.getDescripcion());
+	}
+	
+	private void mostrarInformacionProductoVendedor9(Producto productoSeleccionado) {
+		String comentarios = getComentariosProducto(productoSeleccionado);
+		if (comentarios != "") {
+			comentariosVendedor9TextArea.setText(productoSeleccionado.obtenerComentarios());
+		}else{
+			comentariosVendedor9TextArea.clear();
+		}
+		imagenProductoVendedor9.setImage(new Image(productoSeleccionado.getRutaImagen()));
+		descripcionProductoVendedor9TextArea.setText(productoSeleccionado.getDescripcion());
+	}
+	
+	private void mostrarInformacionProductoVendedor10(Producto productoSeleccionado) {
+		String comentarios = getComentariosProducto(productoSeleccionado);
+		if (comentarios != "") {
+			comentariosVendedor10TextArea.setText(productoSeleccionado.obtenerComentarios());
+		}else{
+			comentariosVendedor10TextArea.clear();
+		}
+		imagenProductoVendedor10.setImage(new Image(productoSeleccionado.getRutaImagen()));
+		descripcionProductoVendedor10TextArea.setText(productoSeleccionado.getDescripcion());
+	}
+
+	private ObservableList<Producto> getProductosVendedor2() {
+		listaProductosVendedor2Data.addAll(vendedorLogin.getAmigos().get(1).getProductos());
+		return listaProductosVendedor2Data;
+	}
+
+	private ObservableList<Vendedor> getListaAmigosVendedor2Data() {
+		listaAmigosVendedor2Data.addAll(vendedorLogin.getAmigos().get(1).getAmigos());
+		return listaAmigosVendedor2Data;
+	}
+	
+	private ObservableList<Producto> getProductosVendedor3() {
+		listaProductosVendedor3Data.addAll(vendedorLogin.getAmigos().get(2).getProductos());
+		return listaProductosVendedor3Data;
+	}
+
+	private ObservableList<Vendedor> getListaAmigosVendedor3Data() {
+		listaAmigosVendedor3Data.addAll(vendedorLogin.getAmigos().get(2).getAmigos());
+		return listaAmigosVendedor3Data;
+	}
+	
+	private ObservableList<Producto> getProductosVendedor4() {
+		listaProductosVendedor4Data.addAll(vendedorLogin.getAmigos().get(3).getProductos());
+		return listaProductosVendedor4Data;
+	}
+
+	private ObservableList<Vendedor> getListaAmigosVendedor4Data() {
+		listaAmigosVendedor4Data.addAll(vendedorLogin.getAmigos().get(3).getAmigos());
+		return listaAmigosVendedor4Data;
+	}
+	
+	private ObservableList<Producto> getProductosVendedor5() {
+		listaProductosVendedor5Data.addAll(vendedorLogin.getAmigos().get(4).getProductos());
+		return listaProductosVendedor5Data;
+	}
+
+	private ObservableList<Vendedor> getListaAmigosVendedor5Data() {
+		listaAmigosVendedor5Data.addAll(vendedorLogin.getAmigos().get(4).getAmigos());
+		return listaAmigosVendedor5Data;
+	}
+	
+	private ObservableList<Producto> getProductosVendedor6() {
+		listaProductosVendedor6Data.addAll(vendedorLogin.getAmigos().get(5).getProductos());
+		return listaProductosVendedor6Data;
+	}
+
+	private ObservableList<Vendedor> getListaAmigosVendedor6Data() {
+		listaAmigosVendedor2Data.addAll(vendedorLogin.getAmigos().get(5).getAmigos());
+		return listaAmigosVendedor2Data;
+	}
+	
+	private ObservableList<Producto> getProductosVendedor7() {
+		listaProductosVendedor7Data.addAll(vendedorLogin.getAmigos().get(6).getProductos());
+		return listaProductosVendedor7Data;
+	}
+
+	private ObservableList<Vendedor> getListaAmigosVendedor7Data() {
+		listaAmigosVendedor7Data.addAll(vendedorLogin.getAmigos().get(6).getAmigos());
+		return listaAmigosVendedor7Data;
+	}
+	
+	private ObservableList<Producto> getProductosVendedor8() {
+		listaProductosVendedor8Data.addAll(vendedorLogin.getAmigos().get(7).getProductos());
+		return listaProductosVendedor8Data;
+	}
+
+	private ObservableList<Vendedor> getListaAmigosVendedor8Data() {
+		listaAmigosVendedor8Data.addAll(vendedorLogin.getAmigos().get(7).getAmigos());
+		return listaAmigosVendedor8Data;
+	}
+	
+	private ObservableList<Producto> getProductosVendedor9() {
+		listaProductosVendedor9Data.addAll(vendedorLogin.getAmigos().get(8).getProductos());
+		return listaProductosVendedor9Data;
+	}
+
+	private ObservableList<Vendedor> getListaAmigosVendedor9Data() {
+		listaAmigosVendedor9Data.addAll(vendedorLogin.getAmigos().get(8).getAmigos());
+		return listaAmigosVendedor9Data;
+	}
+	
+	private ObservableList<Producto> getProductosVendedor10() {
+		listaProductosVendedor10Data.addAll(vendedorLogin.getAmigos().get(9).getProductos());
+		return listaProductosVendedor10Data;
+	}
+
+	private ObservableList<Vendedor> getListaAmigosVendedor10Data() {
+		listaAmigosVendedor10Data.addAll(vendedorLogin.getAmigos().get(9).getAmigos());
+		return listaAmigosVendedor10Data;
+	}
+	
+
+	public void mostrarInformacionProductoVendedor1(Producto productoSeleccionado) {
+		String comentarios = getComentariosProducto(productoSeleccionado);
+		if (comentarios != "") {
+			comentariosVendedor1TextArea.setText(productoSeleccionado.obtenerComentarios());
+		}else{
+			comentariosVendedor1TextArea.clear();
+		}
+		imagenProductoVendedor1.setImage(new Image(productoSeleccionado.getRutaImagen()));
+		descripcionProductoVendedor1TextArea.setText(productoSeleccionado.getDescripcion());
+	}
+
+	private ObservableList<Vendedor> getListaAmigosVendedor1Data() {
+		listaAmigosVendedor1Data.addAll(vendedorLogin.getAmigos().get(0).getAmigos());
+		return listaAmigosVendedor1Data;
+	}
+
+	public ObservableList<Producto> getProductosVendedor1() {
+		listaProductosVendedor1Data.addAll(vendedorLogin.getAmigos().get(0).getProductos());
+		return listaProductosVendedor1Data;
 	}
 
 	private void inicializarVendedoresView() {
@@ -1223,13 +1895,48 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	@FXML
 	private void agregarAmigoVendedor1Click() {
-		vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor1Table.getSelectionModel().getSelectedItem());
+		if(vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor1Table.getSelectionModel().getSelectedItem())){
+			mostrarMensaje("Éxito", "Amigo agregado", "El amigo ha sido agregado con éxito.", AlertType.INFORMATION);
+		}
+		mostrarMensaje("Error", "Error al agregar amigo", "No se pudo agregar el amigo.", AlertType.ERROR);
 	}
 
 	@FXML
 	private void comentarVendedor1Click() {
 		vendedorViewController.agregarComentario(productosVendedor1Table.getSelectionModel().getSelectedItem(),
 				comentarVendedor1TextArea.getText());
+		actualizarComentariosVendedor1(productosVendedor1Table.getSelectionModel().getSelectedItem());
+	}
+	
+	public void actualizarComentariosVendedor1(Producto producto){
+		comentariosVendedor1TextArea.setText(producto.obtenerComentarios());
+	}
+	public void actualizarComentariosVendedor2(Producto producto){
+		comentariosVendedor2TextArea.setText(producto.obtenerComentarios());
+	}
+	public void actualizarComentariosVendedor3(Producto producto){
+		comentariosVendedor3TextArea.setText(producto.obtenerComentarios());
+	}
+	public void actualizarComentariosVendedor4(Producto producto){
+		comentariosVendedor4TextArea.setText(producto.obtenerComentarios());
+	}
+	public void actualizarComentariosVendedor5(Producto producto){
+		comentariosVendedor5TextArea.setText(producto.obtenerComentarios());
+	}
+	public void actualizarComentariosVendedor6(Producto producto){
+		comentariosVendedor6TextArea.setText(producto.obtenerComentarios());
+	}
+	public void actualizarComentariosVendedor7(Producto producto){
+		comentariosVendedor7TextArea.setText(producto.obtenerComentarios());
+	}
+	public void actualizarComentariosVendedor8(Producto producto){
+		comentariosVendedor8TextArea.setText(producto.obtenerComentarios());
+	}
+	public void actualizarComentariosVendedor9(Producto producto){
+		comentariosVendedor9TextArea.setText(producto.obtenerComentarios());
+	}
+	public void actualizarComentariosVendedor10(Producto producto){
+		comentariosVendedor10TextArea.setText(producto.obtenerComentarios());
 	}
 
 	@FXML
@@ -1244,13 +1951,17 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	@FXML
 	private void agregarAmigoVendedor2Click() {
-		vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor2Table.getSelectionModel().getSelectedItem());
+		if(vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor2Table.getSelectionModel().getSelectedItem())){
+			mostrarMensaje("Éxito", "Amigo agregado", "El amigo ha sido agregado con éxito.", AlertType.INFORMATION);
+		}
+		mostrarMensaje("Error", "Error al agregar amigo", "No se pudo agregar el amigo.", AlertType.ERROR);
 	}
 
 	@FXML
 	private void comentarVendedor2Click() {
 		vendedorViewController.agregarComentario(productosVendedor2Table.getSelectionModel().getSelectedItem(),
 				comentarVendedor2TextArea.getText());
+		actualizarComentariosVendedor2(productosVendedor2Table.getSelectionModel().getSelectedItem());
 	}
 
 	@FXML
@@ -1265,13 +1976,17 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	@FXML
 	private void agregarAmigoVendedor3Click() {
-		vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor3Table.getSelectionModel().getSelectedItem());
+		if(vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor3Table.getSelectionModel().getSelectedItem())){
+			mostrarMensaje("Éxito", "Amigo agregado", "El amigo ha sido agregado con éxito.", AlertType.INFORMATION);
+		}
+		mostrarMensaje("Error", "Error al agregar amigo", "No se pudo agregar el amigo.", AlertType.ERROR);
 	}
 
 	@FXML
 	private void comentarVendedor3Click() {
 		vendedorViewController.agregarComentario(productosVendedor3Table.getSelectionModel().getSelectedItem(),
 				comentarVendedor3TextArea.getText());
+		actualizarComentariosVendedor3(productosVendedor3Table.getSelectionModel().getSelectedItem());
 	}
 
 	@FXML
@@ -1286,13 +2001,17 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	@FXML
 	private void agregarAmigoVendedor4Click() {
-		vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor4Table.getSelectionModel().getSelectedItem());
+		if(vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor4Table.getSelectionModel().getSelectedItem())){
+			mostrarMensaje("Éxito", "Amigo agregado", "El amigo ha sido agregado con éxito.", AlertType.INFORMATION);
+		}
+		mostrarMensaje("Error", "Error al agregar amigo", "No se pudo agregar el amigo.", AlertType.ERROR);
 	}
 
 	@FXML
 	private void comentarVendedor4Click() {
 		vendedorViewController.agregarComentario(productosVendedor4Table.getSelectionModel().getSelectedItem(),
 				comentarVendedor4TextArea.getText());
+		actualizarComentariosVendedor4(productosVendedor4Table.getSelectionModel().getSelectedItem());
 	}
 
 	@FXML
@@ -1307,13 +2026,17 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	@FXML
 	private void agregarAmigoVendedor5Click() {
-		vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor5Table.getSelectionModel().getSelectedItem());
+		if(vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor5Table.getSelectionModel().getSelectedItem())){
+			mostrarMensaje("Éxito", "Amigo agregado", "El amigo ha sido agregado con éxito.", AlertType.INFORMATION);
+		}
+		mostrarMensaje("Error", "Error al agregar amigo", "No se pudo agregar el amigo.", AlertType.ERROR);
 	}
 
 	@FXML
 	private void comentarVendedor5Click() {
 		vendedorViewController.agregarComentario(productosVendedor5Table.getSelectionModel().getSelectedItem(),
 				comentarVendedor5TextArea.getText());
+		actualizarComentariosVendedor5(productosVendedor5Table.getSelectionModel().getSelectedItem());
 	}
 
 	@FXML
@@ -1328,13 +2051,17 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	@FXML
 	private void agregarAmigoVendedor6Click() {
-		vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor6Table.getSelectionModel().getSelectedItem());
+		if(vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor6Table.getSelectionModel().getSelectedItem())){
+			mostrarMensaje("Éxito", "Amigo agregado", "El amigo ha sido agregado con éxito.", AlertType.INFORMATION);
+		}
+		mostrarMensaje("Error", "Error al agregar amigo", "No se pudo agregar el amigo.", AlertType.ERROR);
 	}
 
 	@FXML
 	private void comentarVendedor6Click() {
 		vendedorViewController.agregarComentario(productosVendedor6Table.getSelectionModel().getSelectedItem(),
 				comentarVendedor6TextArea.getText());
+		actualizarComentariosVendedor6(productosVendedor6Table.getSelectionModel().getSelectedItem());
 	}
 
 	@FXML
@@ -1349,13 +2076,17 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	@FXML
 	private void agregarAmigoVendedor7Click() {
-		vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor7Table.getSelectionModel().getSelectedItem());
+		if(vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor7Table.getSelectionModel().getSelectedItem())){
+			mostrarMensaje("Éxito", "Amigo agregado", "El amigo ha sido agregado con éxito.", AlertType.INFORMATION);
+		}
+		mostrarMensaje("Error", "Error al agregar amigo", "No se pudo agregar el amigo.", AlertType.ERROR);
 	}
 
 	@FXML
 	private void comentarVendedor7Click() {
 		vendedorViewController.agregarComentario(productosVendedor7Table.getSelectionModel().getSelectedItem(),
 				comentarVendedor7TextArea.getText());
+		actualizarComentariosVendedor7(productosVendedor7Table.getSelectionModel().getSelectedItem());
 	}
 
 	@FXML
@@ -1370,13 +2101,17 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	@FXML
 	private void agregarAmigoVendedor8Click() {
-		vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor8Table.getSelectionModel().getSelectedItem());
+		if(vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor8Table.getSelectionModel().getSelectedItem())){
+			mostrarMensaje("Éxito", "Amigo agregado", "El amigo ha sido agregado con éxito.", AlertType.INFORMATION);
+		}
+		mostrarMensaje("Error", "Error al agregar amigo", "No se pudo agregar el amigo.", AlertType.ERROR);
 	}
 
 	@FXML
 	private void comentarVendedor8Click() {
 		vendedorViewController.agregarComentario(productosVendedor8Table.getSelectionModel().getSelectedItem(),
 				comentarVendedor8TextArea.getText());
+		actualizarComentariosVendedor8(productosVendedor8Table.getSelectionModel().getSelectedItem());
 	}
 
 	@FXML
@@ -1391,13 +2126,17 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	@FXML
 	private void agregarAmigoVendedor9Click() {
-		vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor9Table.getSelectionModel().getSelectedItem());
+		if(vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor9Table.getSelectionModel().getSelectedItem())){
+			mostrarMensaje("Éxito", "Amigo agregado", "El amigo ha sido agregado con éxito.", AlertType.INFORMATION);
+		}
+		mostrarMensaje("Error", "Error al agregar amigo", "No se pudo agregar el amigo.", AlertType.ERROR);
 	}
 
 	@FXML
 	private void comentarVendedor9Click() {
 		vendedorViewController.agregarComentario(productosVendedor9Table.getSelectionModel().getSelectedItem(),
 				comentarVendedor9TextArea.getText());
+		actualizarComentariosVendedor9(productosVendedor9Table.getSelectionModel().getSelectedItem());
 	}
 
 	@FXML
@@ -1412,13 +2151,17 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	@FXML
 	private void agregarAmigoVendedor10Click() {
-		vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor10Table.getSelectionModel().getSelectedItem());
+		if(vendedorViewController.agregarAmigo(vendedorLogin, amigosVendedor10Table.getSelectionModel().getSelectedItem())){
+			mostrarMensaje("Éxito", "Amigo agregado", "El amigo ha sido agregado con éxito.", AlertType.INFORMATION);
+		}
+		mostrarMensaje("Error", "Error al agregar amigo", "No se pudo agregar el amigo.", AlertType.ERROR);
 	}
 
 	@FXML
 	private void comentarVendedor10Click() {
 		vendedorViewController.agregarComentario(productosVendedor10Table.getSelectionModel().getSelectedItem(),
 				comentarVendedor10TextArea.getText());
+		actualizarComentariosVendedor10(productosVendedor10Table.getSelectionModel().getSelectedItem());
 	}
 
 }

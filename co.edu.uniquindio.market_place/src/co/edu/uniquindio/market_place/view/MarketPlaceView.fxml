@@ -142,8 +142,8 @@
 			<ScrollPane minHeight="0.0" minWidth="0.0" pannable="true" prefHeight="658.0" prefWidth="940.0">
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="958.0">
                <children>
-                  <Label layoutX="445.0" layoutY="34.0" text="Productos" />
-                  <TableView fx:id="productosVendedor1Table" layoutX="445.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
+                  <Label layoutX="463.0" layoutY="34.0" text="Productos" />
+                  <TableView fx:id="productosVendedor1Table" layoutX="463.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
                      <columns>
                         <TableColumn fx:id="nombreProductosVendedor1Column" prefWidth="75.0" text="Nombre" />
                         <TableColumn fx:id="fechaProductosVendedor1Column" prefWidth="75.0" text="Fecha" />
@@ -163,17 +163,19 @@
                      </columns>
                   </TableView>
                   <Button fx:id="likeVendedor1Btn" layoutX="919.0" layoutY="261.0" mnemonicParsing="false" onAction="#likeVendedor1Click" text="Like" />
-                  <Button fx:id="descargarEstadisticasVendedor1Btn" layoutX="278.0" layoutY="104.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor1Click" text="Descargar estadisticas" />
-                  <TextArea fx:id="comentarVendedor1TextArea" layoutX="731.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
-                  <TextArea fx:id="comentariosVendedor1TextArea" editable="false" layoutX="445.0" layoutY="307.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
-                  <Separator layoutX="429.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
+                  <Button fx:id="descargarEstadisticasVendedor1Btn" layoutX="70.0" layoutY="109.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor1Click" text="Descargar estadisticas" />
+                  <TextArea fx:id="comentarVendedor1TextArea" layoutX="776.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
+                  <TextArea fx:id="comentariosVendedor1TextArea" editable="false" layoutX="503.0" layoutY="304.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
+                  <Separator layoutX="252.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
                   <Label layoutX="11.0" layoutY="34.0" text="Nombre:" />
                   <TextField fx:id="nombreVendedor1TextField" layoutX="70.0" layoutY="30.0" />
                   <Label layoutX="11.0" layoutY="75.0" text="Usuario:" />
                   <TextField fx:id="usuarioVendedor1TextField" layoutX="70.0" layoutY="71.0" />
-                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="429.0" />
-                  <Button fx:id="agregarAmigoVendedor1Btn" layoutX="278.0" layoutY="381.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor1Click" text="Agregar amigo" />
+                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="252.0" />
+                  <Button fx:id="agregarAmigoVendedor1Btn" layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor1Click" text="Agregar amigo" />
                   <Button fx:id="comentarVendedor1Btn" layoutX="820.0" layoutY="526.0" mnemonicParsing="false" onAction="#comentarVendedor1Click" text="Comentar" />
+                     <ImageView fx:id="imagenProductoVendedor1" fitHeight="150.0" fitWidth="200.0" layoutX="258.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" />
+                     <TextArea fx:id="descripcionProductoVendedor1TextArea" editable="false" layoutX="269.0" layoutY="302.0" prefHeight="246.0" prefWidth="200.0" promptText="Descripcion del producto" />
                </children></AnchorPane>
                </ScrollPane>
 			</content>
@@ -183,8 +185,8 @@
 			<ScrollPane minHeight="0.0" minWidth="0.0" pannable="true" prefHeight="658.0" prefWidth="940.0">
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="958.0">
                <children>
-                  <Label layoutX="445.0" layoutY="34.0" text="Productos" />
-                  <TableView fx:id="productosVendedor2Table" layoutX="445.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
+                  <Label layoutX="463.0" layoutY="34.0" text="Productos" />
+                  <TableView fx:id="productosVendedor2Table" layoutX="463.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
                      <columns>
                         <TableColumn fx:id="nombreProductosVendedor2Column" prefWidth="75.0" text="Nombre" />
                         <TableColumn fx:id="fechaProductosVendedor2Column" prefWidth="75.0" text="Fecha" />
@@ -204,17 +206,19 @@
                      </columns>
                   </TableView>
                   <Button fx:id="likeVendedor2Btn" layoutX="919.0" layoutY="261.0" mnemonicParsing="false" onAction="#likeVendedor2Click" text="Like" />
-                  <Button fx:id="descargarEstadisticasVendedor2Btn" layoutX="278.0" layoutY="104.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor2Click" text="Descargar estadisticas" />
-                  <TextArea fx:id="comentarVendedor2TextArea" layoutX="731.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
-                  <TextArea fx:id="comentariosVendedor2TextArea" editable="false" layoutX="445.0" layoutY="307.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
-                  <Separator layoutX="429.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
+                  <Button fx:id="descargarEstadisticasVendedor2Btn" layoutX="70.0" layoutY="109.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor2Click" text="Descargar estadisticas" />
+                  <TextArea fx:id="comentarVendedor2TextArea" layoutX="776.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
+                  <TextArea fx:id="comentariosVendedor2TextArea" editable="false" layoutX="503.0" layoutY="304.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
+                  <Separator layoutX="252.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
                   <Label layoutX="11.0" layoutY="34.0" text="Nombre:" />
                   <TextField fx:id="nombreVendedor2TextField" layoutX="70.0" layoutY="30.0" />
                   <Label layoutX="11.0" layoutY="75.0" text="Usuario:" />
                   <TextField fx:id="usuarioVendedor2TextField" layoutX="70.0" layoutY="71.0" />
-                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="429.0" />
-                  <Button fx:id="agregarAmigoVendedor2Btn" layoutX="278.0" layoutY="381.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor2Click" text="Agregar amigo" />
+                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="252.0" />
+                  <Button fx:id="agregarAmigoVendedor2Btn" layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor1Click" text="Agregar amigo" />
                   <Button fx:id="comentarVendedor2Btn" layoutX="820.0" layoutY="526.0" mnemonicParsing="false" onAction="#comentarVendedor2Click" text="Comentar" />
+                  <ImageView fx:id="imagenProductoVendedor2" fitHeight="150.0" fitWidth="200.0" layoutX="258.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" />
+                     <TextArea fx:id="descripcionProductoVendedor2TextArea" editable="false" layoutX="269.0" layoutY="302.0" prefHeight="246.0" prefWidth="200.0" promptText="Descripcion del producto" />
                </children></AnchorPane>
                </ScrollPane>
 			</content>
@@ -224,8 +228,8 @@
 			<ScrollPane minHeight="0.0" minWidth="0.0" pannable="true" prefHeight="658.0" prefWidth="940.0">
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="958.0">
                <children>
-                  <Label layoutX="445.0" layoutY="34.0" text="Productos" />
-                  <TableView fx:id="productosVendedor1Table" layoutX="445.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
+                  <Label layoutX="463.0" layoutY="34.0" text="Productos" />
+                  <TableView fx:id="productosVendedor3Table" layoutX="463.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
                      <columns>
                         <TableColumn fx:id="nombreProductosVendedor3Column" prefWidth="75.0" text="Nombre" />
                         <TableColumn fx:id="fechaProductosVendedor3Column" prefWidth="75.0" text="Fecha" />
@@ -245,17 +249,19 @@
                      </columns>
                   </TableView>
                   <Button fx:id="likeVendedor3Btn" layoutX="919.0" layoutY="261.0" mnemonicParsing="false" onAction="#likeVendedor3Click" text="Like" />
-                  <Button fx:id="descargarEstadisticasVendedor3Btn" layoutX="278.0" layoutY="104.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor3Click" text="Descargar estadisticas" />
-                  <TextArea fx:id="comentarVendedor3TextArea" layoutX="731.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
-                  <TextArea fx:id="comentariosVendedor3TextArea" editable="false" layoutX="445.0" layoutY="307.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
-                  <Separator layoutX="429.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
+                  <Button fx:id="descargarEstadisticasVendedor3Btn" layoutX="70.0" layoutY="109.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor3Click" text="Descargar estadisticas" />
+                  <TextArea fx:id="comentarVendedor3TextArea" layoutX="776.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
+                  <TextArea fx:id="comentariosVendedor3TextArea" editable="false" layoutX="503.0" layoutY="304.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
+                  <Separator layoutX="252.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
                   <Label layoutX="11.0" layoutY="34.0" text="Nombre:" />
                   <TextField fx:id="nombreVendedor3TextField" layoutX="70.0" layoutY="30.0" />
                   <Label layoutX="11.0" layoutY="75.0" text="Usuario:" />
                   <TextField fx:id="usuarioVendedor3TextField" layoutX="70.0" layoutY="71.0" />
-                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="429.0" />
-                  <Button fx:id="agregarAmigoVendedor3Btn" layoutX="278.0" layoutY="381.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor3Click" text="Agregar amigo" />
+                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="252.0" />
+                  <Button fx:id="agregarAmigoVendedor3Btn" layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor1Click" text="Agregar amigo" />
                   <Button fx:id="comentarVendedor3Btn" layoutX="820.0" layoutY="526.0" mnemonicParsing="false" onAction="#comentarVendedor3Click" text="Comentar" />
+                  <ImageView fx:id="imagenProductoVendedor3" fitHeight="150.0" fitWidth="200.0" layoutX="258.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" />
+                     <TextArea fx:id="descripcionProductoVendedor3TextArea" editable="false" layoutX="269.0" layoutY="302.0" prefHeight="246.0" prefWidth="200.0" promptText="Descripcion del producto" />
                </children></AnchorPane>
                </ScrollPane>
 			</content>
@@ -265,8 +271,8 @@
 			<ScrollPane minHeight="0.0" minWidth="0.0" pannable="true" prefHeight="658.0" prefWidth="940.0">
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="958.0">
                <children>
-                  <Label layoutX="445.0" layoutY="34.0" text="Productos" />
-                  <TableView fx:id="productosVendedor4Table" layoutX="445.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
+                  <Label layoutX="463.0" layoutY="34.0" text="Productos" />
+                  <TableView fx:id="productosVendedor4Table" layoutX="463.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
                      <columns>
                         <TableColumn fx:id="nombreProductosVendedor4Column" prefWidth="75.0" text="Nombre" />
                         <TableColumn fx:id="fechaProductosVendedor4Column" prefWidth="75.0" text="Fecha" />
@@ -286,17 +292,19 @@
                      </columns>
                   </TableView>
                   <Button fx:id="likeVendedor4Btn" layoutX="919.0" layoutY="261.0" mnemonicParsing="false" onAction="#likeVendedor4Click" text="Like" />
-                  <Button fx:id="descargarEstadisticasVendedor4Btn" layoutX="278.0" layoutY="104.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor4Click" text="Descargar estadisticas" />
-                  <TextArea fx:id="comentarVendedor4TextArea" layoutX="731.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
-                  <TextArea fx:id="comentariosVendedor4TextArea" editable="false" layoutX="445.0" layoutY="307.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
-                  <Separator layoutX="429.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
+                  <Button fx:id="descargarEstadisticasVendedor4Btn" layoutX="70.0" layoutY="109.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor4Click" text="Descargar estadisticas" />
+                  <TextArea fx:id="comentarVendedor4TextArea" layoutX="776.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
+                  <TextArea fx:id="comentariosVendedor4TextArea" editable="false" layoutX="503.0" layoutY="304.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
+                  <Separator layoutX="252.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
                   <Label layoutX="11.0" layoutY="34.0" text="Nombre:" />
                   <TextField fx:id="nombreVendedor4TextField" layoutX="70.0" layoutY="30.0" />
                   <Label layoutX="11.0" layoutY="75.0" text="Usuario:" />
                   <TextField fx:id="usuarioVendedor4TextField" layoutX="70.0" layoutY="71.0" />
-                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="429.0" />
-                  <Button fx:id="agregarAmigoVendedor4Btn" layoutX="278.0" layoutY="381.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor4Click" text="Agregar amigo" />
+                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="252.0" />
+                  <Button fx:id="agregarAmigoVendedor4Btn" layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor1Click" text="Agregar amigo" />
                   <Button fx:id="comentarVendedor4Btn" layoutX="820.0" layoutY="526.0" mnemonicParsing="false" onAction="#comentarVendedor4Click" text="Comentar" />
+                  <ImageView fx:id="imagenProductoVendedor4" fitHeight="150.0" fitWidth="200.0" layoutX="258.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" />
+                     <TextArea fx:id="descripcionProductoVendedor4TextArea" editable="false" layoutX="269.0" layoutY="302.0" prefHeight="246.0" prefWidth="200.0" promptText="Descripcion del producto" />
                </children></AnchorPane>
                </ScrollPane>
 			</content>
@@ -306,8 +314,8 @@
 			<ScrollPane minHeight="0.0" minWidth="0.0" pannable="true" prefHeight="658.0" prefWidth="940.0">
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="958.0">
                <children>
-                  <Label layoutX="445.0" layoutY="34.0" text="Productos" />
-                  <TableView fx:id="productosVendedor5Table" layoutX="445.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
+                  <Label layoutX="463.0" layoutY="34.0" text="Productos" />
+                  <TableView fx:id="productosVendedor5Table" layoutX="463.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
                      <columns>
                         <TableColumn fx:id="nombreProductosVendedor5Column" prefWidth="75.0" text="Nombre" />
                         <TableColumn fx:id="fechaProductosVendedor5Column" prefWidth="75.0" text="Fecha" />
@@ -327,17 +335,19 @@
                      </columns>
                   </TableView>
                   <Button fx:id="likeVendedor5Btn" layoutX="919.0" layoutY="261.0" mnemonicParsing="false" onAction="#likeVendedor5Click" text="Like" />
-                  <Button fx:id="descargarEstadisticasVendedor5Btn" layoutX="278.0" layoutY="104.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor5Click" text="Descargar estadisticas" />
-                  <TextArea fx:id="comentarVendedor5TextArea" layoutX="731.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
-                  <TextArea fx:id="comentariosVendedor5TextArea" editable="false" layoutX="445.0" layoutY="307.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
-                  <Separator layoutX="429.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
+                  <Button fx:id="descargarEstadisticasVendedor5Btn" layoutX="70.0" layoutY="109.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor5Click" text="Descargar estadisticas" />
+                  <TextArea fx:id="comentarVendedor5TextArea" layoutX="776.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
+                  <TextArea fx:id="comentariosVendedor5TextArea" editable="false" layoutX="503.0" layoutY="304.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
+                  <Separator layoutX="252.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
                   <Label layoutX="11.0" layoutY="34.0" text="Nombre:" />
                   <TextField fx:id="nombreVendedor5TextField" layoutX="70.0" layoutY="30.0" />
                   <Label layoutX="11.0" layoutY="75.0" text="Usuario:" />
                   <TextField fx:id="usuarioVendedor5TextField" layoutX="70.0" layoutY="71.0" />
-                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="429.0" />
-                  <Button fx:id="agregarAmigoVendedor5Btn" layoutX="278.0" layoutY="381.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor5Click" text="Agregar amigo" />
+                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="252.0" />
+                  <Button fx:id="agregarAmigoVendedor5Btn" layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor1Click" text="Agregar amigo" />
                   <Button fx:id="comentarVendedor5Btn" layoutX="820.0" layoutY="526.0" mnemonicParsing="false" onAction="#comentarVendedor5Click" text="Comentar" />
+                  <ImageView fx:id="imagenProductoVendedor5" fitHeight="150.0" fitWidth="200.0" layoutX="258.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" />
+                     <TextArea fx:id="descripcionProductoVendedor5TextArea" editable="false" layoutX="269.0" layoutY="302.0" prefHeight="246.0" prefWidth="200.0" promptText="Descripcion del producto" />
                </children></AnchorPane>
                </ScrollPane>
 			</content>
@@ -347,8 +357,8 @@
 			<ScrollPane minHeight="0.0" minWidth="0.0" pannable="true" prefHeight="658.0" prefWidth="940.0">
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="958.0">
                <children>
-                  <Label layoutX="445.0" layoutY="34.0" text="Productos" />
-                  <TableView fx:id="productosVendedor6Table" layoutX="445.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
+                  <Label layoutX="463.0" layoutY="34.0" text="Productos" />
+                  <TableView fx:id="productosVendedor6Table" layoutX="463.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
                      <columns>
                         <TableColumn fx:id="nombreProductosVendedor6Column" prefWidth="75.0" text="Nombre" />
                         <TableColumn fx:id="fechaProductosVendedor6Column" prefWidth="75.0" text="Fecha" />
@@ -368,17 +378,19 @@
                      </columns>
                   </TableView>
                   <Button fx:id="likeVendedor6Btn" layoutX="919.0" layoutY="261.0" mnemonicParsing="false" onAction="#likeVendedor6Click" text="Like" />
-                  <Button fx:id="descargarEstadisticasVendedor6Btn" layoutX="278.0" layoutY="104.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor6Click" text="Descargar estadisticas" />
-                  <TextArea fx:id="comentarVendedor6TextArea" layoutX="731.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
-                  <TextArea fx:id="comentariosVendedor6TextArea" editable="false" layoutX="445.0" layoutY="307.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
-                  <Separator layoutX="429.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
+                  <Button fx:id="descargarEstadisticasVendedor6Btn" layoutX="70.0" layoutY="109.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor6Click" text="Descargar estadisticas" />
+                  <TextArea fx:id="comentarVendedor6TextArea" layoutX="776.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
+                  <TextArea fx:id="comentariosVendedor6TextArea" editable="false" layoutX="503.0" layoutY="304.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
+                  <Separator layoutX="252.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
                   <Label layoutX="11.0" layoutY="34.0" text="Nombre:" />
                   <TextField fx:id="nombreVendedor6TextField" layoutX="70.0" layoutY="30.0" />
                   <Label layoutX="11.0" layoutY="75.0" text="Usuario:" />
                   <TextField fx:id="usuarioVendedor6TextField" layoutX="70.0" layoutY="71.0" />
-                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="429.0" />
-                  <Button fx:id="agregarAmigoVendedor6Btn" layoutX="278.0" layoutY="381.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor6Click" text="Agregar amigo" />
+                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="252.0" />
+                  <Button fx:id="agregarAmigoVendedor6Btn" layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor1Click" text="Agregar amigo" />
                   <Button fx:id="comentarVendedor6Btn" layoutX="820.0" layoutY="526.0" mnemonicParsing="false" onAction="#comentarVendedor6Click" text="Comentar" />
+                  <ImageView fx:id="imagenProductoVendedor6" fitHeight="150.0" fitWidth="200.0" layoutX="258.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" />
+                     <TextArea fx:id="descripcionProductoVendedor6TextArea" editable="false" layoutX="269.0" layoutY="302.0" prefHeight="246.0" prefWidth="200.0" promptText="Descripcion del producto" />
                </children></AnchorPane>
                </ScrollPane>
 			</content>
@@ -388,8 +400,8 @@
 			<ScrollPane minHeight="0.0" minWidth="0.0" pannable="true" prefHeight="658.0" prefWidth="940.0">
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="958.0">
                <children>
-                  <Label layoutX="445.0" layoutY="34.0" text="Productos" />
-                  <TableView fx:id="productosVendedor7Table" layoutX="445.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
+                  <Label layoutX="463.0" layoutY="34.0" text="Productos" />
+                  <TableView fx:id="productosVendedor7Table" layoutX="463.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
                      <columns>
                         <TableColumn fx:id="nombreProductosVendedor7Column" prefWidth="75.0" text="Nombre" />
                         <TableColumn fx:id="fechaProductosVendedor7Column" prefWidth="75.0" text="Fecha" />
@@ -409,17 +421,19 @@
                      </columns>
                   </TableView>
                   <Button fx:id="likeVendedor7Btn" layoutX="919.0" layoutY="261.0" mnemonicParsing="false" onAction="#likeVendedor7Click" text="Like" />
-                  <Button fx:id="descargarEstadisticasVendedor7Btn" layoutX="278.0" layoutY="104.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor7Click" text="Descargar estadisticas" />
-                  <TextArea fx:id="comentarVendedor7TextArea" layoutX="731.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
-                  <TextArea fx:id="comentariosVendedor7TextArea" editable="false" layoutX="445.0" layoutY="307.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
-                  <Separator layoutX="429.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
+                  <Button fx:id="descargarEstadisticasVendedor7Btn" layoutX="70.0" layoutY="109.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor7Click" text="Descargar estadisticas" />
+                  <TextArea fx:id="comentarVendedor7TextArea" layoutX="776.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
+                  <TextArea fx:id="comentariosVendedor7TextArea" editable="false" layoutX="503.0" layoutY="304.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
+                  <Separator layoutX="252.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
                   <Label layoutX="11.0" layoutY="34.0" text="Nombre:" />
                   <TextField fx:id="nombreVendedor7TextField" layoutX="70.0" layoutY="30.0" />
                   <Label layoutX="11.0" layoutY="75.0" text="Usuario:" />
                   <TextField fx:id="usuarioVendedor7TextField" layoutX="70.0" layoutY="71.0" />
-                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="429.0" />
-                  <Button fx:id="agregarAmigoVendedor7Btn" layoutX="278.0" layoutY="381.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor7Click" text="Agregar amigo" />
+                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="252.0" />
+                  <Button fx:id="agregarAmigoVendedor7Btn" layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor1Click" text="Agregar amigo" />
                   <Button fx:id="comentarVendedor7Btn" layoutX="820.0" layoutY="526.0" mnemonicParsing="false" onAction="#comentarVendedor7Click" text="Comentar" />
+                  <ImageView fx:id="imagenProductoVendedor7" fitHeight="150.0" fitWidth="200.0" layoutX="258.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" />
+                     <TextArea fx:id="descripcionProductoVendedor7TextArea" editable="false" layoutX="269.0" layoutY="302.0" prefHeight="246.0" prefWidth="200.0" promptText="Descripcion del producto" />
                </children></AnchorPane>
                </ScrollPane>
 			</content>
@@ -429,8 +443,8 @@
 			<ScrollPane minHeight="0.0" minWidth="0.0" pannable="true" prefHeight="658.0" prefWidth="940.0">
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="958.0">
                <children>
-                  <Label layoutX="445.0" layoutY="34.0" text="Productos" />
-                  <TableView fx:id="productosVendedor8Table" layoutX="445.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
+                  <Label layoutX="463.0" layoutY="34.0" text="Productos" />
+                  <TableView fx:id="productosVendedor8Table" layoutX="463.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
                      <columns>
                         <TableColumn fx:id="nombreProductosVendedor8Column" prefWidth="75.0" text="Nombre" />
                         <TableColumn fx:id="fechaProductosVendedor8Column" prefWidth="75.0" text="Fecha" />
@@ -450,17 +464,19 @@
                      </columns>
                   </TableView>
                   <Button fx:id="likeVendedor8Btn" layoutX="919.0" layoutY="261.0" mnemonicParsing="false" onAction="#likeVendedor8Click" text="Like" />
-                  <Button fx:id="descargarEstadisticasVendedor8Btn" layoutX="278.0" layoutY="104.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor8Click" text="Descargar estadisticas" />
-                  <TextArea fx:id="comentarVendedor8TextArea" layoutX="731.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
-                  <TextArea fx:id="comentariosVendedor8TextArea" editable="false" layoutX="445.0" layoutY="307.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
-                  <Separator layoutX="429.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
+                  <Button fx:id="descargarEstadisticasVendedor8Btn" layoutX="70.0" layoutY="109.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor8Click" text="Descargar estadisticas" />
+                  <TextArea fx:id="comentarVendedor8TextArea" layoutX="776.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
+                  <TextArea fx:id="comentariosVendedor8TextArea" editable="false" layoutX="503.0" layoutY="304.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
+                  <Separator layoutX="252.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
                   <Label layoutX="11.0" layoutY="34.0" text="Nombre:" />
                   <TextField fx:id="nombreVendedor8TextField" layoutX="70.0" layoutY="30.0" />
                   <Label layoutX="11.0" layoutY="75.0" text="Usuario:" />
                   <TextField fx:id="usuarioVendedor8TextField" layoutX="70.0" layoutY="71.0" />
-                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="429.0" />
-                  <Button fx:id="agregarAmigoVendedor8Btn" layoutX="278.0" layoutY="381.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor8Click" text="Agregar amigo" />
+                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="252.0" />
+                  <Button fx:id="agregarAmigoVendedor8Btn" layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor1Click" text="Agregar amigo" />
                   <Button fx:id="comentarVendedor8Btn" layoutX="820.0" layoutY="526.0" mnemonicParsing="false" onAction="#comentarVendedor8Click" text="Comentar" />
+                  <ImageView fx:id="imagenProductoVendedor8" fitHeight="150.0" fitWidth="200.0" layoutX="258.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" />
+                     <TextArea fx:id="descripcionProductoVendedor8TextArea" editable="false" layoutX="269.0" layoutY="302.0" prefHeight="246.0" prefWidth="200.0" promptText="Descripcion del producto" />
                </children></AnchorPane>
                </ScrollPane>
 			</content>
@@ -470,8 +486,8 @@
 			<ScrollPane minHeight="0.0" minWidth="0.0" pannable="true" prefHeight="658.0" prefWidth="940.0">
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="958.0">
                <children>
-                  <Label layoutX="445.0" layoutY="34.0" text="Productos" />
-                  <TableView fx:id="productosVendedor9Table" layoutX="445.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
+                  <Label layoutX="463.0" layoutY="34.0" text="Productos" />
+                  <TableView fx:id="productosVendedor9Table" layoutX="463.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
                      <columns>
                         <TableColumn fx:id="nombreProductosVendedor9Column" prefWidth="75.0" text="Nombre" />
                         <TableColumn fx:id="fechaProductosVendedor9Column" prefWidth="75.0" text="Fecha" />
@@ -491,17 +507,19 @@
                      </columns>
                   </TableView>
                   <Button fx:id="likeVendedor9Btn" layoutX="919.0" layoutY="261.0" mnemonicParsing="false" onAction="#likeVendedor9Click" text="Like" />
-                  <Button fx:id="descargarEstadisticasVendedor9Btn" layoutX="278.0" layoutY="104.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor9Click" text="Descargar estadisticas" />
-                  <TextArea fx:id="comentarVendedor9TextArea" layoutX="731.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
-                  <TextArea fx:id="comentariosVendedor9TextArea" editable="false" layoutX="445.0" layoutY="307.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
-                  <Separator layoutX="429.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
+                  <Button fx:id="descargarEstadisticasVendedor9Btn" layoutX="70.0" layoutY="109.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor9Click" text="Descargar estadisticas" />
+                  <TextArea fx:id="comentarVendedor9TextArea" layoutX="776.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
+                  <TextArea fx:id="comentariosVendedor9TextArea" editable="false" layoutX="503.0" layoutY="304.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
+                  <Separator layoutX="252.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
                   <Label layoutX="11.0" layoutY="34.0" text="Nombre:" />
                   <TextField fx:id="nombreVendedor9TextField" layoutX="70.0" layoutY="30.0" />
                   <Label layoutX="11.0" layoutY="75.0" text="Usuario:" />
                   <TextField fx:id="usuarioVendedor9TextField" layoutX="70.0" layoutY="71.0" />
-                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="429.0" />
-                  <Button fx:id="agregarAmigoVendedor9Btn" layoutX="278.0" layoutY="381.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor9Click" text="Agregar amigo" />
+                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="252.0" />
+                  <Button fx:id="agregarAmigoVendedor9Btn" layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor1Click" text="Agregar amigo" />
                   <Button fx:id="comentarVendedor9Btn" layoutX="820.0" layoutY="526.0" mnemonicParsing="false" onAction="#comentarVendedor9Click" text="Comentar" />
+                  <ImageView fx:id="imagenProductoVendedor9" fitHeight="150.0" fitWidth="200.0" layoutX="258.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" />
+                     <TextArea fx:id="descripcionProductoVendedor9TextArea" editable="false" layoutX="269.0" layoutY="302.0" prefHeight="246.0" prefWidth="200.0" promptText="Descripcion del producto" />
                </children></AnchorPane>
                </ScrollPane>
 			</content>
@@ -511,8 +529,8 @@
 			<ScrollPane minHeight="0.0" minWidth="0.0" pannable="true" prefHeight="658.0" prefWidth="940.0">
 				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="958.0">
                <children>
-                  <Label layoutX="445.0" layoutY="34.0" text="Productos" />
-                  <TableView fx:id="productosVendedor10Table" layoutX="445.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
+                  <Label layoutX="463.0" layoutY="34.0" text="Productos" />
+                  <TableView fx:id="productosVendedor10Table" layoutX="463.0" layoutY="61.0" prefHeight="225.0" prefWidth="444.0">
                      <columns>
                         <TableColumn fx:id="nombreProductosVendedor10Column" prefWidth="75.0" text="Nombre" />
                         <TableColumn fx:id="fechaProductosVendedor10Column" prefWidth="75.0" text="Fecha" />
@@ -532,17 +550,19 @@
                      </columns>
                   </TableView>
                   <Button fx:id="likeVendedor10Btn" layoutX="919.0" layoutY="261.0" mnemonicParsing="false" onAction="#likeVendedor10Click" text="Like" />
-                  <Button fx:id="descargarEstadisticasVendedor10Btn" layoutX="278.0" layoutY="104.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor10Click" text="Descargar estadisticas" />
-                  <TextArea fx:id="comentarVendedor10TextArea" layoutX="731.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
-                  <TextArea fx:id="comentariosVendedor10TextArea" editable="false" layoutX="445.0" layoutY="307.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
-                  <Separator layoutX="429.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
+                  <Button fx:id="descargarEstadisticasVendedor10Btn" layoutX="70.0" layoutY="109.0" mnemonicParsing="false" onAction="#descargarEstadisticasVendedor10Click" text="Descargar estadisticas" />
+                  <TextArea fx:id="comentarVendedor10TextArea" layoutX="776.0" layoutY="307.0" prefHeight="219.0" prefWidth="158.0" promptText="Haz un comentario" />
+                  <TextArea fx:id="comentariosVendedor10TextArea" editable="false" layoutX="503.0" layoutY="304.0" prefHeight="246.0" prefWidth="233.0" promptText="Aun no hay comentarios en esta publicacion." />
+                  <Separator layoutX="252.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="609.0" prefWidth="5.0" />
                   <Label layoutX="11.0" layoutY="34.0" text="Nombre:" />
                   <TextField fx:id="nombreVendedor10TextField" layoutX="70.0" layoutY="30.0" />
                   <Label layoutX="11.0" layoutY="75.0" text="Usuario:" />
                   <TextField fx:id="usuarioVendedor10TextField" layoutX="70.0" layoutY="71.0" />
-                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="429.0" />
-                  <Button fx:id="agregarAmigoVendedor10Btn" layoutX="278.0" layoutY="381.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor10Click" text="Agregar amigo" />
+                  <Separator layoutY="147.0" prefHeight="3.0" prefWidth="252.0" />
+                  <Button fx:id="agregarAmigoVendedor10Btn" layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#agregarAmigoVendedor1Click" text="Agregar amigo" />
                   <Button fx:id="comentarVendedor10Btn" layoutX="820.0" layoutY="526.0" mnemonicParsing="false" onAction="#comentarVendedor10Click" text="Comentar" />
+                  <ImageView fx:id="imagenProductoVendedor10" fitHeight="150.0" fitWidth="200.0" layoutX="258.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" />
+                     <TextArea fx:id="descripcionProductoVendedor10TextArea" editable="false" layoutX="269.0" layoutY="302.0" prefHeight="246.0" prefWidth="200.0" promptText="Descripcion del producto" />
                </children></AnchorPane>
                </ScrollPane>
 			</content>

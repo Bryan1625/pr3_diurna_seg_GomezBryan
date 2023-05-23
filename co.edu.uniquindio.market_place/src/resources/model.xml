@@ -23,7 +23,7 @@
   </void>
   <void id="Login0" property="login">
    <void property="contrasenia">
-    <string>contrasenia1</string>
+    <string>contrasenia2</string>
    </void>
    <void id="Vendedor0" property="persona">
     <void property="amigos">
@@ -33,102 +33,124 @@
         <void method="add">
          <object idref="Vendedor0"/>
         </void>
-       </void>
-       <void property="apellido">
-        <string>Perez</string>
-       </void>
-       <void property="cedula">
-        <string>77787</string>
-       </void>
-       <void property="contrasenia">
-        <string>contrasenia2</string>
-       </void>
-       <void property="direccion">
-        <string>Pererira</string>
-       </void>
-       <void property="nombre">
-        <string>Juan</string>
-       </void>
-       <void property="usuario">
-        <string>usuario_1</string>
-       </void>
-      </object>
-     </void>
-     <void method="add">
-      <object class="co.edu.uniquindio.market_place.model.Vendedor" id="Vendedor2">
-       <void property="amigos">
         <void method="add">
-         <object idref="Vendedor0"/>
+         <object class="co.edu.uniquindio.market_place.model.Vendedor" id="Vendedor2">
+          <void property="amigos">
+           <void method="add">
+            <object idref="Vendedor1"/>
+           </void>
+           <void method="add">
+            <object idref="Vendedor0"/>
+           </void>
+          </void>
+          <void property="apellido">
+           <string>Arias</string>
+          </void>
+          <void property="cedula">
+           <string>12555</string>
+          </void>
+          <void property="contrasenia">
+           <string>contrasenia3</string>
+          </void>
+          <void property="direccion">
+           <string>Pererira</string>
+          </void>
+          <void property="nombre">
+           <string>Alberto</string>
+          </void>
+          <void property="usuario">
+           <string>usuario_2</string>
+          </void>
+         </object>
         </void>
        </void>
        <void property="apellido">
-        <string>Arias</string>
+        <string>arias</string>
        </void>
        <void property="cedula">
-        <string>12555</string>
+        <string>125454</string>
        </void>
        <void property="contrasenia">
-        <string>contrasenia3</string>
+        <string>contrasenia1</string>
        </void>
        <void property="direccion">
-        <string>Pererira</string>
+        <string>Armenia</string>
        </void>
        <void property="nombre">
-        <string>Alberto</string>
+        <string>Daniel</string>
+       </void>
+       <void property="productos">
+        <void method="add">
+         <object class="co.edu.uniquindio.market_place.model.Producto" id="Producto0">
+          <void property="categoria">
+           <string>123123123</string>
+          </void>
+          <void property="comentarios">
+           <void method="add">
+            <string>usuario_2: hola</string>
+           </void>
+          </void>
+          <void property="descripcion">
+           <string>12312312312312</string>
+          </void>
+          <void property="fecha">
+           <string>2023-05-21</string>
+          </void>
+          <void property="likes">
+           <void method="add">
+            <object idref="Vendedor2"/>
+           </void>
+          </void>
+          <void property="nombre">
+           <string>1123213123</string>
+          </void>
+          <void property="precio">
+           <double>1.23123123E8</double>
+          </void>
+          <void property="rutaImagen">
+           <string>file:/C:/Users/Bryan/Pictures/Saved%20Pictures/34323.jpg</string>
+          </void>
+         </object>
+        </void>
        </void>
        <void property="usuario">
-        <string>usuario_2</string>
+        <string>usuario_0</string>
        </void>
       </object>
+     </void>
+     <void method="add">
+      <object idref="Vendedor2"/>
+     </void>
+     <void method="add">
+      <object idref="Vendedor0"/>
+     </void>
+     <void method="add">
+      <object idref="Vendedor0"/>
      </void>
     </void>
     <void property="apellido">
-     <string>arias</string>
+     <string>Perez</string>
     </void>
     <void property="cedula">
-     <string>125454</string>
+     <string>77787</string>
     </void>
     <void property="direccion">
-     <string>Armenia</string>
+     <string>Pererira</string>
     </void>
     <void property="nombre">
-     <string>Daniel</string>
-    </void>
-    <void property="productos">
-     <void method="add">
-      <object class="co.edu.uniquindio.market_place.model.Producto">
-       <void property="categoria">
-        <string>123123123</string>
-       </void>
-       <void property="descripcion">
-        <string>12312312312312</string>
-       </void>
-       <void property="fecha">
-        <string>2023-05-21</string>
-       </void>
-       <void property="nombre">
-        <string>1123213123</string>
-       </void>
-       <void property="precio">
-        <double>1.23123123E8</double>
-       </void>
-       <void property="rutaImagen">
-        <string>file:/C:/Users/Bryan/Pictures/Saved%20Pictures/34323.jpg</string>
-       </void>
-      </object>
-     </void>
+     <string>Juan</string>
     </void>
     <void property="usuario">
-     <string>usuario_0</string>
+     <string>usuario_1</string>
     </void>
    </void>
   </void>
   <void property="vendedores">
    <void method="add">
-    <object idref="Vendedor0"/>
+    <object idref="Vendedor1"/>
    </void>
    <void method="add">
-    <object idref="Vendedor1"/>
+    <object idref="Vendedor0"/>
    </void>
    <void method="add">
     <object idref="Vendedor2"/>

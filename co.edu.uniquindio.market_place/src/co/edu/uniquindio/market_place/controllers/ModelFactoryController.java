@@ -188,7 +188,7 @@ public class ModelFactoryController implements IModelFactoryService {
 			vendedor = getMarketPlace().crearVendedor(nombre, apellido, cedula, direccion, usuario, contrasenia);
 			registrarAccionesSistemaHilos("Vendedor creado por el usuario: " + marketPlace.getLogin().getUsuario(), 1,
 					"Agregar Vendedor");
-			guardarResourceXML();
+			guardarResourceXMLHilos();
 		} catch (VendedorException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
@@ -203,7 +203,7 @@ public class ModelFactoryController implements IModelFactoryService {
 		boolean flagExiste = false;
 		try {
 			flagExiste = getMarketPlace().eliminarVendedor(cedula);
-			guardarResourceXML();
+			guardarResourceXMLHilos();
 			registrarAccionesSistemaHilos("vendedor con cedula " + cedula + " eliminado por el usuario: "
 					+ marketPlace.getLogin().getUsuario(), 1, "eliminar vendedor");
 
@@ -272,7 +272,7 @@ public class ModelFactoryController implements IModelFactoryService {
 	public void publicarProducto(Vendedor vendedor, Producto producto) throws PublicacionException {
 		try {
 			vendedor.publicarProducto(producto);
-			guardarResourceXML();
+			guardarResourceXMLHilos();
 		} catch (PublicacionException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
@@ -283,7 +283,7 @@ public class ModelFactoryController implements IModelFactoryService {
 	public boolean eliminarProducto(Vendedor vendedor, Producto producto) {
 		try {
 			if (vendedor.eliminarProducto(producto)) {
-				guardarResourceXML();
+				guardarResourceXMLHilos();
 				return true;
 			}
 		} catch (ProductoException e) {
@@ -296,7 +296,7 @@ public class ModelFactoryController implements IModelFactoryService {
 
 	public boolean agregarAmigo(Vendedor usuario, Vendedor vendedor2) {
 		if (usuario.agregarAmigo(vendedor2)) {
-			guardarResourceXML();
+			guardarResourceXMLHilos();
 			return true;
 		} else {
 			registrarAccionesSistemaHilos("error al agregar un amigo", 2, "agregar amigo");
@@ -308,7 +308,7 @@ public class ModelFactoryController implements IModelFactoryService {
 	public boolean eliminarAmigo(Vendedor vendedor1, Vendedor vendedor2) {
 		// TODO Auto-generated method stub
 		if (vendedor1.eliminarAmigo(vendedor2)) {
-			guardarResourceXML();
+			guardarResourceXMLHilos();
 			return true;
 		} else {
 			return false;
@@ -323,11 +323,13 @@ public class ModelFactoryController implements IModelFactoryService {
 	public void agregarLike(Vendedor vendedor, Producto selectedItem) {
 		// TODO Auto-generated method stub
 		selectedItem.agregarLike(vendedor);
+		guardarResourceXMLHilos();
 	}
 
 	public void agregarComentario(Vendedor vendedor, Producto producto, String comentario) {
 		// TODO Auto-generated method stub
 		marketPlace.agregarComentario(producto, vendedor, comentario);
+		guardarResourceXMLHilos();
 	}
 	
 	public String obtenerComentarios(Producto producto){

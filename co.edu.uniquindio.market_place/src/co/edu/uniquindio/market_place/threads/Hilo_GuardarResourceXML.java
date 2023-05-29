@@ -6,9 +6,9 @@ public class Hilo_GuardarResourceXML extends Thread{
 
 	Metodos m;
 	
-	public Hilo_GuardarResourceXML(ModelFactoryController model) {
+	public Hilo_GuardarResourceXML(Metodos m) {
 		// TODO Auto-generated constructor stub
-		m = new Metodos(model);
+		this.m = m;
 	}
 	
 	@Override

@@ -18,4 +18,8 @@ public class Metodos {
 	public void registrarAccionesSistema(String mensaje, int nivel,String accion){
 		m.registrarAccionesSistema(mensaje, nivel, accion);
 	}
+	
+	public ModelFactoryController cargarResourceXML(){
+		return null;
+	}
 }

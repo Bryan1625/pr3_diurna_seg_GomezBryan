@@ -22,12 +22,16 @@ import co.edu.uniquindio.market_place.exceptions.VendedorException;
 import co.edu.uniquindio.market_place.model.MarketPlace;
 import co.edu.uniquindio.market_place.model.Vendedor;
 import co.edu.uniquindio.market_place.services.IModelFactoryService;
+import co.edu.uniquindio.market_place.threads.Hilo_CargarResourceXML;
 import co.edu.uniquindio.market_place.threads.Hilo_GuardarResourceXML;
 import co.edu.uniquindio.market_place.threads.Hilo_RegistrarAccionesSistema;
+import co.edu.uniquindio.market_place.threads.Metodos;
 
 public class ModelFactoryController implements IModelFactoryService {
 
+	Metodos metodos;
 	MarketPlace marketPlace;
+	private boolean bloqueo = false;
 
 	/*
 	 * Singleton
@@ -66,13 +70,18 @@ public class ModelFactoryController implements IModelFactoryService {
 			// inicializarDatos();
 			// // guardarResourceXML();
 		}
+		metodos = new Metodos(this);
 
-		registrarAccionesSistemaHilos("Inicio de sesión", 1, "inicioSesión");
+		registrarAccionesSistemaHilos("Ejecucion de la aplicacion", 1, "Ejecucion");
 
 	}
 
 	private void cargarResourceXML() {
 		marketPlace = Persistencia.cargarRecursomarketPlaceXML();
+	}
+	
+	private void cargarResourceXMLHilos(){
+		Hilo_CargarResourceXML hilo = new Hilo_CargarResourceXML("peticion3", metodos, this);
 	}
 
 	public void guardarResourceXML() {
@@ -80,7 +89,7 @@ public class ModelFactoryController implements IModelFactoryService {
 	}
 
 	private void guardarResourceXMLHilos() {
-		Hilo_GuardarResourceXML h = new Hilo_GuardarResourceXML(getInstance());
+		Hilo_GuardarResourceXML h = new Hilo_GuardarResourceXML(metodos);
 		h.start();
 	}
 
@@ -132,8 +141,8 @@ public class ModelFactoryController implements IModelFactoryService {
 		Persistencia.guardarRegistroLog(mensaje, nivel, accion);
 	}
 
-	public void registrarAccionesSistemaHilos(String mensaje, int nivel, String accion) {
-		Hilo_RegistrarAccionesSistema h = new Hilo_RegistrarAccionesSistema(getInstance(), mensaje, nivel, accion);
+	public synchronized void registrarAccionesSistemaHilos(String mensaje, int nivel, String accion) {
+		Hilo_RegistrarAccionesSistema h = new Hilo_RegistrarAccionesSistema(metodos, mensaje, nivel, accion);
 		h.start();
 	}
 
@@ -185,10 +194,12 @@ public class ModelFactoryController implements IModelFactoryService {
 			String contrasenia) throws VendedorException, IOException {
 		Vendedor vendedor = null;
 		try {
+			bloqueo();
 			vendedor = getMarketPlace().crearVendedor(nombre, apellido, cedula, direccion, usuario, contrasenia);
 			registrarAccionesSistemaHilos("Vendedor creado por el usuario: " + marketPlace.getLogin().getUsuario(), 1,
 					"Agregar Vendedor");
 			guardarResourceXMLHilos();
+			desbloqueo();
 		} catch (VendedorException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
@@ -202,8 +213,10 @@ public class ModelFactoryController implements IModelFactoryService {
 	public Boolean eliminarVendedor(String cedula) throws VendedorException, IOException {
 		boolean flagExiste = false;
 		try {
+			bloqueo();
 			flagExiste = getMarketPlace().eliminarVendedor(cedula);
 			guardarResourceXMLHilos();
+			desbloqueo();
 			registrarAccionesSistemaHilos("vendedor con cedula " + cedula + " eliminado por el usuario: "
 					+ marketPlace.getLogin().getUsuario(), 1, "eliminar vendedor");
 
@@ -245,11 +258,13 @@ public class ModelFactoryController implements IModelFactoryService {
 				if (vendedor.getContrasenia().equals(contrasenia)) {
 					persona = vendedor;
 					marketPlace.getLogin().setPersona(persona);
-					;
 					registrarAccionesSistemaHilos("se ha iniciado sesion con el usuario: " + persona.getUsuario(), 1,
 							"login");
 					return marketPlace.login(usuario, contrasenia, persona);
 				}
+			}else if(marketPlace.getAdmin().getUsuario().equals(usuario) && marketPlace.getAdmin().getContrasenia().equals(contrasenia)){
+				marketPlace.getLogin().setPersona(marketPlace.getAdmin());
+				return true;
 			}
 		}
 		return false;
@@ -271,8 +286,10 @@ public class ModelFactoryController implements IModelFactoryService {
 
 	public void publicarProducto(Vendedor vendedor, Producto producto) throws PublicacionException {
 		try {
+			bloqueo();
 			vendedor.publicarProducto(producto);
 			guardarResourceXMLHilos();
+			desbloqueo();
 		} catch (PublicacionException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
@@ -282,10 +299,13 @@ public class ModelFactoryController implements IModelFactoryService {
 
 	public boolean eliminarProducto(Vendedor vendedor, Producto producto) {
 		try {
+			bloqueo();
 			if (vendedor.eliminarProducto(producto)) {
 				guardarResourceXMLHilos();
+				desbloqueo();
 				return true;
 			}
+			desbloqueo();
 		} catch (ProductoException e) {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
@@ -295,10 +315,13 @@ public class ModelFactoryController implements IModelFactoryService {
 	}
 
 	public boolean agregarAmigo(Vendedor usuario, Vendedor vendedor2) {
+		bloqueo();
 		if (usuario.agregarAmigo(vendedor2)) {
 			guardarResourceXMLHilos();
+			desbloqueo();
 			return true;
 		} else {
+			desbloqueo();
 			registrarAccionesSistemaHilos("error al agregar un amigo", 2, "agregar amigo");
 			return false;
 		}
@@ -307,10 +330,13 @@ public class ModelFactoryController implements IModelFactoryService {
 
 	public boolean eliminarAmigo(Vendedor vendedor1, Vendedor vendedor2) {
 		// TODO Auto-generated method stub
+		bloqueo();
 		if (vendedor1.eliminarAmigo(vendedor2)) {
 			guardarResourceXMLHilos();
+			desbloqueo();
 			return true;
 		} else {
+			desbloqueo();
 			return false;
 		}
 	}
@@ -323,13 +349,14 @@ public class ModelFactoryController implements IModelFactoryService {
 	public void agregarLike(Vendedor vendedor, Producto selectedItem) {
 		// TODO Auto-generated method stub
 		selectedItem.agregarLike(vendedor);
-		guardarResourceXMLHilos();
 	}
 
 	public void agregarComentario(Vendedor vendedor, Producto producto, String comentario) {
 		// TODO Auto-generated method stub
+		bloqueo();
 		marketPlace.agregarComentario(producto, vendedor, comentario);
 		guardarResourceXMLHilos();
+		desbloqueo();
 	}
 	
 	public String obtenerComentarios(Producto producto){
@@ -339,6 +366,22 @@ public class ModelFactoryController implements IModelFactoryService {
 	public Vendedor obtenerVendedorUsuario(String usuario) {
 		// TODO Auto-generated method stub
 		return marketPlace.buscarVendedorUsuario(usuario);
+	}
+	
+	public synchronized void bloqueo() {
+	    while (bloqueo) {
+	        try {
+	            wait();
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    bloqueo = true;
+	}
+
+	public synchronized void desbloqueo() {
+	    bloqueo = false;
+	    notifyAll();
 	}
 
 }

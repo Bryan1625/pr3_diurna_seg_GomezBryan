@@ -683,8 +683,6 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 		administradorViewController = new AdministradorViewController(modelFactoryController);
 		loginViewController = new LoginViewController(modelFactoryController);
 
-		inicializarAdministradorView();
-		inicializarVendedoresView();
 	}
 
 	private void inicializarAdministradorView() {
@@ -775,7 +773,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 		cedulaVendedorColumn.setCellValueFactory(new PropertyValueFactory<>("cedula"));
 		usuarioVendedorColumn.setCellValueFactory(new PropertyValueFactory<>("usuario"));
 
-		vendedoresPerfilTable.setItems(tblVendedores.getItems());
+		vendedoresPerfilTable.setItems(getListaVendedoresData());
 
 		vendedoresPerfilTable.getSelectionModel().selectedItemProperty()
 				.addListener((obs, oldSelection, newSelection) -> {
@@ -792,37 +790,9 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 			amigoSeleccionadoPerfil = newSelection;
 			mostrarInformacionAmigosPerfil(amigoSeleccionadoPerfil);
 		});
+		inicializarVendedoresView();
 
-		if (vendedorLogin.getAmigos().size() > 0) {
-			inicializarVendedor1();
-		}
-		if(vendedorLogin.getAmigos().size() > 1){
-			inicializarVendedor2();
-		}
-		if(vendedorLogin.getAmigos().size() > 2){
-			inicializarVendedor3();
-		}
-		if(vendedorLogin.getAmigos().size() > 3){
-			inicializarVendedor4();
-		}
-		if(vendedorLogin.getAmigos().size() > 4){
-			inicializarVendedor5();
-		}
-		if(vendedorLogin.getAmigos().size() > 5){
-			inicializarVendedor6();
-		}
-		if(vendedorLogin.getAmigos().size() > 6){
-			inicializarVendedor7();
-		}
-		if(vendedorLogin.getAmigos().size() > 7){
-			inicializarVendedor8();
-		}
-		if(vendedorLogin.getAmigos().size() > 8){
-			inicializarVendedor9();
-		}
-		if(vendedorLogin.getAmigos().size() > 9){
-			inicializarVendedor10();
-		}
+		
 	}
 
 	public void inicializarVendedor1() {
@@ -1370,6 +1340,37 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	private void inicializarVendedoresView() {
 
 		estadoProductoPerfilComboBox.getItems().addAll(Estado.values());
+		
+		if (vendedorLogin.getAmigos().size() > 0) {
+			inicializarVendedor1();
+		}
+		if(vendedorLogin.getAmigos().size() > 1){
+			inicializarVendedor2();
+		}
+		if(vendedorLogin.getAmigos().size() > 2){
+			inicializarVendedor3();
+		}
+		if(vendedorLogin.getAmigos().size() > 3){
+			inicializarVendedor4();
+		}
+		if(vendedorLogin.getAmigos().size() > 4){
+			inicializarVendedor5();
+		}
+		if(vendedorLogin.getAmigos().size() > 5){
+			inicializarVendedor6();
+		}
+		if(vendedorLogin.getAmigos().size() > 6){
+			inicializarVendedor7();
+		}
+		if(vendedorLogin.getAmigos().size() > 7){
+			inicializarVendedor8();
+		}
+		if(vendedorLogin.getAmigos().size() > 8){
+			inicializarVendedor9();
+		}
+		if(vendedorLogin.getAmigos().size() > 9){
+			inicializarVendedor10();
+		}
 
 	}
 
@@ -1500,8 +1501,12 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 				txtFieldUsuario.setText("");
 				txtFieldContrasenia.setText("");
 				validarSesion();
+				if(sesion.equals("vendedor")){
 				inicializarPerfilView();
 				vendedorViewController.setVendedor(vendedorLogin);
+				}else if(sesion.equals("admin")){
+					inicializarAdministradorView();
+				}
 			} else {
 				mostrarMensaje("Notificación login", "no se pudo iniciar sesion",
 						"El usuario o la contraseia son incorrectos", AlertType.ERROR);
@@ -1517,7 +1522,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 			sesion = "admin";
 		} else {
 			mostrarMensaje("Notificacion de sesion", "No se pudo validar la sesion",
-					"hubo un error y la persona que inicio sesion no es reconocidad como vendedor no como administrador",
+					"hubo un error y la persona que inicio sesion no es reconocidad como vendedor ni como administrador",
 					AlertType.ERROR);
 		}
 	}
@@ -2162,6 +2167,10 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 		vendedorViewController.agregarComentario(productosVendedor10Table.getSelectionModel().getSelectedItem(),
 				comentarVendedor10TextArea.getText());
 		actualizarComentariosVendedor10(productosVendedor10Table.getSelectionModel().getSelectedItem());
+	}
+	
+	public ModelFactoryController getModelFactoryController(){
+		return modelFactoryController;
 	}
 
 }

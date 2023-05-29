@@ -1,5 +1,8 @@
 package co.edu.uniquindio.market_place;
 
+import co.edu.uniquindio.market_place.controllers.MarketPlaceViewController;
+import co.edu.uniquindio.market_place.controllers.ModelFactoryController;
+import co.edu.uniquindio.market_place.persistence.Persistencia;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,9 +25,15 @@ public class MainApp extends Application {
 	    // Crear una escena y establecerla en el escenario
 	    Scene scene = new Scene(root);
 	    primaryStage.setScene(scene);
-	    
+	    MarketPlaceViewController market = loader.getController();
+	    ModelFactoryController m = market.getModelFactoryController();
 	    // Mostrar el escenario
 	    primaryStage.show();
+	    
+	    primaryStage.setOnCloseRequest(e -> {
+            // Método para guardar el modelo XML antes de cerrar
+            Persistencia.guardarRecursomarketPlaceXML(m.getMarketPlace());
+        });
 	}
 
 

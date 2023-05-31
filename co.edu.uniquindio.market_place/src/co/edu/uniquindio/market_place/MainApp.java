@@ -25,15 +25,10 @@ public class MainApp extends Application {
 	    // Crear una escena y establecerla en el escenario
 	    Scene scene = new Scene(root);
 	    primaryStage.setScene(scene);
-	    MarketPlaceViewController market = loader.getController();
-	    ModelFactoryController m = market.getModelFactoryController();
+	    
 	    // Mostrar el escenario
 	    primaryStage.show();
 	    
-	    primaryStage.setOnCloseRequest(e -> {
-            // Método para guardar el modelo XML antes de cerrar
-            Persistencia.guardarRecursomarketPlaceXML(m.getMarketPlace());
-        });
 	}
 
 

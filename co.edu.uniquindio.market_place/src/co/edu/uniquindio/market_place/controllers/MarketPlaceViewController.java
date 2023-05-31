@@ -679,13 +679,12 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	@FXML
 	void initialize() {
 		modelFactoryController = ModelFactoryController.getInstance();
-		vendedorViewController = new VendedorViewController(modelFactoryController);
-		administradorViewController = new AdministradorViewController(modelFactoryController);
 		loginViewController = new LoginViewController(modelFactoryController);
 
 	}
 
 	private void inicializarAdministradorView() {
+		administradorViewController = new AdministradorViewController(modelFactoryController);
 		this.colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 		this.colApellido.setCellValueFactory(new PropertyValueFactory<>("apellido"));
 		this.colCedula.setCellValueFactory(new PropertyValueFactory<>("cedula"));
@@ -754,6 +753,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 	}
 
 	private void inicializarPerfilView() {
+		vendedorViewController = new VendedorViewController(modelFactoryController);
 		nombreProductosPerfilColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 		fechaProductosPerfilColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
 		estadoProductosPerfilColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
@@ -773,7 +773,7 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 		cedulaVendedorColumn.setCellValueFactory(new PropertyValueFactory<>("cedula"));
 		usuarioVendedorColumn.setCellValueFactory(new PropertyValueFactory<>("usuario"));
 
-		vendedoresPerfilTable.setItems(getListaVendedoresData());
+		vendedoresPerfilTable.setItems(getListaVendedoresDataPerfil());
 
 		vendedoresPerfilTable.getSelectionModel().selectedItemProperty()
 				.addListener((obs, oldSelection, newSelection) -> {
@@ -1380,6 +1380,11 @@ public class MarketPlaceViewController implements IMarketPlaceService {
 
 	public ObservableList<Vendedor> getListaVendedoresData() {
 		listaVendedoresData.addAll(administradorViewController.obtenerVendedores());
+		return listaVendedoresData;
+	}
+	
+	public ObservableList<Vendedor> getListaVendedoresDataPerfil() {
+		listaVendedoresData.addAll(vendedorViewController.obtenerVendedores());
 		return listaVendedoresData;
 	}
 

@@ -86,4 +86,8 @@ public class VendedorViewController implements IVendedorService {
 	public String obtenerComentarios(Producto producto) {
 		return modelFactoryController.obtenerComentarios(producto);
 	}
+
+	public ArrayList<Vendedor> obtenerVendedores() {
+		return modelFactoryController.obtenerVendedores();
+	}
 }

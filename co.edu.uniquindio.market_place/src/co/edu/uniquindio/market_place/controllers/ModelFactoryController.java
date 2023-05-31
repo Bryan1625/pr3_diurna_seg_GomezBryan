@@ -1,37 +1,64 @@
 package co.edu.uniquindio.market_place.controllers;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.util.ArrayList;
-import co.edu.uniquindio.market_place.persistence.*;
+
+import co.edu.uniquindio.market_place.Hilo_servicioComprobacion;
 import co.edu.uniquindio.market_place.exceptions.MensajeException;
 import co.edu.uniquindio.market_place.exceptions.ProductoException;
 import co.edu.uniquindio.market_place.exceptions.PublicacionException;
 import co.edu.uniquindio.market_place.exceptions.UsuarioException;
 import co.edu.uniquindio.market_place.exceptions.VendedorException;
-import co.edu.uniquindio.market_place.model.Vendedor;
-import co.edu.uniquindio.market_place.exceptions.VendedorException;
-import co.edu.uniquindio.market_place.model.Administrador;
 import co.edu.uniquindio.market_place.model.MarketPlace;
 import co.edu.uniquindio.market_place.model.Mensaje;
 import co.edu.uniquindio.market_place.model.Persona;
 import co.edu.uniquindio.market_place.model.Producto;
 import co.edu.uniquindio.market_place.model.Vendedor;
 import co.edu.uniquindio.market_place.persistence.Persistencia;
-import co.edu.uniquindio.market_place.exceptions.VendedorException;
-import co.edu.uniquindio.market_place.model.MarketPlace;
-import co.edu.uniquindio.market_place.model.Vendedor;
 import co.edu.uniquindio.market_place.services.IModelFactoryService;
-import co.edu.uniquindio.market_place.threads.Hilo_CargarResourceXML;
-import co.edu.uniquindio.market_place.threads.Hilo_GuardarResourceXML;
-import co.edu.uniquindio.market_place.threads.Hilo_RegistrarAccionesSistema;
-import co.edu.uniquindio.market_place.threads.Metodos;
 
-public class ModelFactoryController implements IModelFactoryService {
+public class ModelFactoryController implements IModelFactoryService, Runnable {
 
-	Metodos metodos;
 	MarketPlace marketPlace;
 	private boolean bloqueo = false;
+
+	Thread hiloServicio1_guardarXML;
+	Thread hiloServicio2_guardarLog;
+	Thread hiloServicio3_cargarXML;
+
+	String mensaje = "";
+	int nivel = 0;
+	String accion = "";
+
+	private Socket socketComunicacion = null;// para la comunicacion (entrada y
+												// salida)
+	private Socket socketTransferenciaObjeto = null;// permite recibir el
+													// archivo
+	private DataOutputStream flujoSalidaComunicacion = null;
+	private DataInputStream flujoEntradaComunicacion;
+
+	
+	private DataInputStream flujoEntradaComunicacionHilo = null;
+	private ObjectOutputStream flujoSalidaModeloHilo = null;
+	private Socket socketHilo = null;
+
+	byte[] receivedData;
+	int in;
+	BufferedInputStream flujoEntradaArchivo;
+	BufferedOutputStream flujoSalidadLocalArchivo;
+
+	String filename = "";
+	String rutaArchivoLocal = "src/resourcesServidor/";
+	ObjectInputStream flujoEntradaObjeto;
+	ObjectOutputStream flujoSalidaObjeto;
 
 	/*
 	 * Singleton
@@ -62,35 +89,101 @@ public class ModelFactoryController implements IModelFactoryService {
 
 		// 4. Guardar y Cargar el recurso serializable XML
 		// guardarResourceXML();
-		cargarResourceXML();
+		// cargarResourceXMLHilos();
 
 		// Siempre se debe verificar si la raiz del recurso es null
 
-		if (marketPlace == null) {
-			// inicializarDatos();
-			// // guardarResourceXML();
+		// if (marketPlace == null) {
+		// inicializarDatos();
+		// // guardarResourceXML();
+		// }
+		// metodos = new Metodos(this);
+
+		// registrarAccionesSistemaHilos("Ejecucion de la aplicacion", 1,
+		// "Ejecucion");
+
+		System.out.println("llamado....");
+
+		try {
+			crearConexion();
+
+			solicitarInformacionPersistencia();
+			leerObjetoPersistenciaTransferido();
+
+//			iniciarServicioComprobacion();
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		metodos = new Metodos(this);
 
-		registrarAccionesSistemaHilos("Ejecucion de la aplicacion", 1, "Ejecucion");
+	}
 
+	private void iniciarServicioComprobacion() {
+		Hilo_servicioComprobacion hiloComprobacion = new Hilo_servicioComprobacion(this, 
+				flujoEntradaComunicacionHilo, socketHilo, flujoSalidaModeloHilo);
+		hiloComprobacion.start();
+
+	}
+
+	public void crearConexion() throws IOException, Exception {
+		try {
+			socketComunicacion = new Socket("localhost", 8081); // socket para
+																// enviar datos
+																// primitivos
+			socketTransferenciaObjeto = new Socket("localhost", 8082);// sokcet
+																		// para
+																		// enviar
+																		// y
+																		// recibir
+																		// objeto
+
+			flujoEntradaComunicacion = new DataInputStream(socketComunicacion.getInputStream());
+			flujoSalidaComunicacion = new DataOutputStream(socketComunicacion.getOutputStream());
+
+			flujoEntradaObjeto = new ObjectInputStream(socketTransferenciaObjeto.getInputStream());
+			flujoSalidaObjeto = new ObjectOutputStream(socketTransferenciaObjeto.getOutputStream());
+
+		} catch (IOException e) {
+			throw new Exception("\tError en el servidor");
+
+		}
+	}
+
+	private void solicitarInformacionPersistencia() throws IOException {
+		flujoSalidaComunicacion.writeInt(1);
+		flujoSalidaComunicacion.close();
+	}
+
+	private void solicitarGuardarPersistencia() throws IOException {
+
+		flujoSalidaComunicacion.writeInt(2);
+		flujoSalidaComunicacion.close();
+	}
+
+	private void enviarObjetoPersistenciaTransferido() throws IOException, ClassNotFoundException {
+
+		flujoSalidaObjeto.writeObject(marketPlace);
+		System.out.println("objeto enviado");
+		flujoSalidaObjeto.close();
+	}
+
+	private void leerObjetoPersistenciaTransferido() throws IOException, ClassNotFoundException {
+
+		marketPlace = (MarketPlace) flujoEntradaObjeto.readObject();
+		System.out.println("objeto recibido");
+		flujoEntradaObjeto.close();
 	}
 
 	private void cargarResourceXML() {
-		marketPlace = Persistencia.cargarRecursomarketPlaceXML();
-	}
-	
-	private void cargarResourceXMLHilos(){
-		Hilo_CargarResourceXML hilo = new Hilo_CargarResourceXML("peticion3", metodos, this);
+		hiloServicio3_cargarXML = new Thread(this);
+		hiloServicio3_cargarXML.start();
 	}
 
 	public void guardarResourceXML() {
-		Persistencia.guardarRecursomarketPlaceXML(marketPlace);
-	}
 
-	private void guardarResourceXMLHilos() {
-		Hilo_GuardarResourceXML h = new Hilo_GuardarResourceXML(metodos);
-		h.start();
+		hiloServicio1_guardarXML = new Thread(this);
+		hiloServicio1_guardarXML.start();
 	}
 
 	private void cargarResourceBinario() {
@@ -141,9 +234,13 @@ public class ModelFactoryController implements IModelFactoryService {
 		Persistencia.guardarRegistroLog(mensaje, nivel, accion);
 	}
 
-	public synchronized void registrarAccionesSistemaHilos(String mensaje, int nivel, String accion) {
-		Hilo_RegistrarAccionesSistema h = new Hilo_RegistrarAccionesSistema(metodos, mensaje, nivel, accion);
-		h.start();
+	public void registrarAccionesSistemaHilos(String mensaje, int nivel, String accion) {
+		this.mensaje = mensaje;
+		this.nivel = nivel;
+		this.accion = accion;
+
+		hiloServicio2_guardarLog = new Thread(this);
+		hiloServicio2_guardarLog.start();
 	}
 
 	private void inicializarDatos() {
@@ -198,7 +295,7 @@ public class ModelFactoryController implements IModelFactoryService {
 			vendedor = getMarketPlace().crearVendedor(nombre, apellido, cedula, direccion, usuario, contrasenia);
 			registrarAccionesSistemaHilos("Vendedor creado por el usuario: " + marketPlace.getLogin().getUsuario(), 1,
 					"Agregar Vendedor");
-			guardarResourceXMLHilos();
+			guardarResourceXML();
 			desbloqueo();
 		} catch (VendedorException e) {
 			// TODO Auto-generated catch block
@@ -215,7 +312,7 @@ public class ModelFactoryController implements IModelFactoryService {
 		try {
 			bloqueo();
 			flagExiste = getMarketPlace().eliminarVendedor(cedula);
-			guardarResourceXMLHilos();
+			guardarResourceXML();
 			desbloqueo();
 			registrarAccionesSistemaHilos("vendedor con cedula " + cedula + " eliminado por el usuario: "
 					+ marketPlace.getLogin().getUsuario(), 1, "eliminar vendedor");
@@ -262,7 +359,8 @@ public class ModelFactoryController implements IModelFactoryService {
 							"login");
 					return marketPlace.login(usuario, contrasenia, persona);
 				}
-			}else if(marketPlace.getAdmin().getUsuario().equals(usuario) && marketPlace.getAdmin().getContrasenia().equals(contrasenia)){
+			} else if (marketPlace.getAdmin().getUsuario().equals(usuario)
+					&& marketPlace.getAdmin().getContrasenia().equals(contrasenia)) {
 				marketPlace.getLogin().setPersona(marketPlace.getAdmin());
 				return true;
 			}
@@ -288,7 +386,7 @@ public class ModelFactoryController implements IModelFactoryService {
 		try {
 			bloqueo();
 			vendedor.publicarProducto(producto);
-			guardarResourceXMLHilos();
+			guardarResourceXML();
 			desbloqueo();
 		} catch (PublicacionException e) {
 			// TODO Auto-generated catch block
@@ -301,7 +399,7 @@ public class ModelFactoryController implements IModelFactoryService {
 		try {
 			bloqueo();
 			if (vendedor.eliminarProducto(producto)) {
-				guardarResourceXMLHilos();
+				guardarResourceXML();
 				desbloqueo();
 				return true;
 			}
@@ -317,7 +415,7 @@ public class ModelFactoryController implements IModelFactoryService {
 	public boolean agregarAmigo(Vendedor usuario, Vendedor vendedor2) {
 		bloqueo();
 		if (usuario.agregarAmigo(vendedor2)) {
-			guardarResourceXMLHilos();
+			guardarResourceXML();
 			desbloqueo();
 			return true;
 		} else {
@@ -332,7 +430,7 @@ public class ModelFactoryController implements IModelFactoryService {
 		// TODO Auto-generated method stub
 		bloqueo();
 		if (vendedor1.eliminarAmigo(vendedor2)) {
-			guardarResourceXMLHilos();
+			guardarResourceXML();
 			desbloqueo();
 			return true;
 		} else {
@@ -340,7 +438,6 @@ public class ModelFactoryController implements IModelFactoryService {
 			return false;
 		}
 	}
-	
 
 	public ArrayList<Vendedor> buscarVendedorPerfil(String nombre, String cedula, String usuario) {
 		return marketPlace.buscarVendedorPerfil(nombre, cedula, usuario);
@@ -355,11 +452,11 @@ public class ModelFactoryController implements IModelFactoryService {
 		// TODO Auto-generated method stub
 		bloqueo();
 		marketPlace.agregarComentario(producto, vendedor, comentario);
-		guardarResourceXMLHilos();
+		guardarResourceXML();
 		desbloqueo();
 	}
-	
-	public String obtenerComentarios(Producto producto){
+
+	public String obtenerComentarios(Producto producto) {
 		return producto.obtenerComentarios();
 	}
 
@@ -367,21 +464,94 @@ public class ModelFactoryController implements IModelFactoryService {
 		// TODO Auto-generated method stub
 		return marketPlace.buscarVendedorUsuario(usuario);
 	}
-	
+
 	public synchronized void bloqueo() {
-	    while (bloqueo) {
-	        try {
-	            wait();
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	    }
-	    bloqueo = true;
+		while (bloqueo) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		bloqueo = true;
 	}
 
 	public synchronized void desbloqueo() {
-	    bloqueo = false;
-	    notifyAll();
+		bloqueo = false;
+		notifyAll();
+	}
+
+	private void solicitarGuardarRegistroLog() {
+		try {
+			flujoSalidaComunicacion.writeInt(3);
+			flujoSalidaComunicacion.writeUTF(mensaje);
+			flujoSalidaComunicacion.writeInt(nivel);
+			flujoSalidaComunicacion.writeUTF(accion);
+			flujoSalidaComunicacion.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public void run() {
+
+		Thread hiloEjecucion = Thread.currentThread();
+
+		// Semaforo
+
+		if (hiloEjecucion == hiloServicio1_guardarXML) {
+			try {
+				crearConexion();
+
+				solicitarGuardarPersistencia();
+				enviarObjetoPersistenciaTransferido();
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			// System.out.println("Ejecuto hilo servicio 1");
+			// Persistencia.guardarRecursoBancoXML(banco);
+		}
+
+		if (hiloEjecucion == hiloServicio2_guardarLog) {
+			System.out.println("Ejecuto hilo servicio 2");
+			try {
+				crearConexion();
+				solicitarGuardarRegistroLog();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		if (hiloEjecucion == hiloServicio3_cargarXML) {
+			try {
+				crearConexion();
+				solicitarCargarXML();
+
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+	private void solicitarCargarXML() {
+		try {
+			flujoSalidaComunicacion.writeInt(1);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
